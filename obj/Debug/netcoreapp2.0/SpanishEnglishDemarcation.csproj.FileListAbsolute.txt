@@ -1,0 +1,10 @@
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\bin\Debug\netcoreapp2.0\SpanishEnglishDemarcation.deps.json
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\bin\Debug\netcoreapp2.0\SpanishEnglishDemarcation.runtimeconfig.json
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\bin\Debug\netcoreapp2.0\SpanishEnglishDemarcation.runtimeconfig.dev.json
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\bin\Debug\netcoreapp2.0\SpanishEnglishDemarcation.dll
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\bin\Debug\netcoreapp2.0\SpanishEnglishDemarcation.pdb
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\obj\Debug\netcoreapp2.0\SpanishEnglishDemarcation.csproj.CoreCompileInputs.cache
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\obj\Debug\netcoreapp2.0\SpanishEnglishDemarcation.AssemblyInfoInputs.cache
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\obj\Debug\netcoreapp2.0\SpanishEnglishDemarcation.AssemblyInfo.cs
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\obj\Debug\netcoreapp2.0\SpanishEnglishDemarcation.dll
+C:\Users\arckm\Documents\GitHub\SpanishEnglishDemarcation\obj\Debug\netcoreapp2.0\SpanishEnglishDemarcation.pdb
