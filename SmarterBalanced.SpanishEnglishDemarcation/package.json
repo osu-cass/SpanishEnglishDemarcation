@@ -1,5 +1,15 @@
 {
   "name": "SmarterBalanced.SpanishEnglishDemarcation",
+  "scripts": {
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "lint-staged": {
+    "**/*.{md,js,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "private": true,
   "version": "0.0.0",
   "devDependencies": {
