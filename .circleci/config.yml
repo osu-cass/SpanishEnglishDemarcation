@@ -5,11 +5,12 @@ jobs:
       # specify the version you desire here
       - image: microsoft/aspnetcore-build:2
 
-    working_directory: ~/repo/SmarterBalanced.SpanishEnglishDemarcation
+    working_directory: ~/repo
 
     steps:
       - checkout
 
+      - run: cd SmarterBalanced.SpanishEnglishDemarcation
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -17,9 +18,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
       - run: apt-get update
       - run: apt-get install nodejs -y
-      # - run: cd SmarterBalanced.SpanishEnglishDemarcation
       - run: npm install
 
       - save_cache:
