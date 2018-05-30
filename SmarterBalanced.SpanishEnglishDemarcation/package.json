@@ -3,7 +3,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "lint": "tslint -t codeFrame 'ClientApp/**/*.ts*'"
+    "lint": "tslint --fix -t codeFrame 'ClientApp/**/*.ts*'"
   },
   "lint-staged": {
     "**/*.{md,js,ts,tsx}": [
