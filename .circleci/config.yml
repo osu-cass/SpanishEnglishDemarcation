@@ -9,11 +9,22 @@ jobs:
     steps:
       - checkout
 
-      - run: cd SmarterBalanced.SpanishEnglishDemarcation
+      - restore_cache:
+          key: dependency-cache-{{ checksum "SmarterBalanced.SpanishEnglishDemarcation/package.json" }}
 
-      - run: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-      - run: apt-get update
-      - run: apt-get install nodejs -y
-      - run: npm ci
+      - run:
+          name: install-npm-dependencies
+          command: |
+            cd SmarterBalanced.SpanishEnglishDemarcation
+            npm install
 
-      - run: dotnet build
+      - save_cache:
+          key: dependency-cache-{{ checksum "SmarterBalanced.SpanishEnglishDemarcation/package.json" }}
+          paths:
+            - ./SmarterBalanced.SpanishEnglishDemarcation/node_modules
+
+      - run:
+          name: build-dotnet-app
+          command: |
+            cd SmarterBalanced.SpanishEnglishDemarcation
+            dotnet build
