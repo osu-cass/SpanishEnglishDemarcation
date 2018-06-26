@@ -9,20 +9,6 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          key: dependency-cache-{{ checksum "SmarterBalanced.SpanishEnglishDemarcation/package.json" }}
-
-      - run:
-          name: install-npm-dependencies
-          command: |
-            cd SmarterBalanced.SpanishEnglishDemarcation
-            npm install
-
-      - save_cache:
-          key: dependency-cache-{{ checksum "SmarterBalanced.SpanishEnglishDemarcation/package.json" }}
-          paths:
-            - ./SmarterBalanced.SpanishEnglishDemarcation/node_modules
-
       - run:
           name: build-dotnet-app
           command: |
