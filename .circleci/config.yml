@@ -11,6 +11,4 @@ jobs:
 
       - run:
           name: build-dotnet-app
-          command: |
-            cd SmarterBalanced.SpanishEnglishDemarcation
-            dotnet build
+          command: dotnet build
