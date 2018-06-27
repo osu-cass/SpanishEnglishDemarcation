@@ -1,35 +1,92 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.Spanish, .English, .Number{
+    margin: 50px;
+    padding: 5px;
+    border: 2px solid gray;
+    border-radius: 15px;
+}
+.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+    margin: 20px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.languagedivider{
+    margin: 0px;
+    height: 0px;
 }
-
-/* Carousel */
-.carousel-caption p {
+.questionNumber{
+    margin: 0px;
+    height: 30px;
+    width: 60px;
+    padding-top: 5px;
+    text-align: center;
     font-size: 20px;
-    line-height: 1.4;
+    background-color:rgb(194, 191, 191);
+}
+.stemContainer{
+    border-top:1px solid gray;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.thePassage{
+    width: 40%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+.theQuestions{
+    width: 60%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.answerContainer{
+    margin: 50px;
+    border: 2px solid black;
+}
+
+.Spanish::before{
+    content:"Español";
+    background-color: rgb(139, 134, 134);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    bottom: 20px;
+    left: 20px;
+}
+
+.English::before{
+    content:"English";
+    background-color: rgb(139, 134, 134);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    bottom: 20px;
+    left: 20px;
+}
+p{
+    margin: 0px;
+}
+html,body{
+    height: 100%;
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.center{
+    align-items: center;
+    justify-content: center;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+input[type="text"]{
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width:300px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
