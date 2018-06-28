@@ -7,11 +7,5 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SmarterBalanced.SpanishEnglishDemarcation.Controllers
 {
-    public class DividedController : Controller
-    {
-        public IActionResult Item2803()
-        {
-            return View();
-        }
-    }
+    public class DividedController : SedControllerBaseController { }
 }
