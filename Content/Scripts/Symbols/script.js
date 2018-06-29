@@ -54,7 +54,7 @@ function Rearrange_Parent(Parent, option) {
 Passage_Name = '.thePassage .padding';
 Question_Name = '.stemContainer';
 Choice_Name = '.optionContent';
-if ($(Passage_Name) != null) {
+if (($(Passage_Name)).length != 0) {
     Rearrange(Passage_Name);
 }
 else {
