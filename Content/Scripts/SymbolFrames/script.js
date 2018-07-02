@@ -45,6 +45,12 @@ function Rearrange(name, option) {
     $(Parent).append(New_Children);
 }
 
+function Rearrange_Parent(Parent, option) {
+    var Children = Parent.children();
+    var New_Children = Separate_Spanish_English(Children, option);
+    $(Parent).append(New_Children);
+}
+
 Passage_Name = '.thePassage .padding';
 Question_Name = '.stemContainer';
 Choice_Name = '.optionContent';
@@ -60,7 +66,6 @@ else {
 if ($(Question_Name) != null) {
     Rearrange(Question_Name);
 }
-
 var choices = $(Choice_Name);
 if (choices != null) {
     choices.addClass("Number");
@@ -70,12 +75,13 @@ if (choices != null) {
         td.next().addClass("English_Answer");
     }
 }
-
 var options=$(".optionContent .languagedivider");
 if(options){
     options.prev().addClass("Spanish_Answer");
     options.next().addClass("English_Answer");
 }
+
+
 var th = $(".tableItem thead tr th .languagedivider");
 if (th) {
     var pre=th.prevAll();
@@ -94,10 +100,12 @@ if (th) {
     }
 }
 
+
 var Answer_Cotainer = $('.answerContainer .tableItem');
 if (Answer_Cotainer != null) {
     var goal = $('.answerContainer');
     var width = $(goal).width();
     $(Answer_Cotainer).css("width",width);
 }
+
 
