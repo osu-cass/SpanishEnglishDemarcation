@@ -1,0 +1,79 @@
+.Spanish, .English{
+    margin-bottom: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    position: relative;
+}
+.Number{
+    margin: 10px;
+    padding: 0px;
+}
+
+.languagedivider{
+    margin: 0px;
+    height: 0px;
+}
+.questionNumber{
+    margin: 0px;
+    height: 30px;
+    width: 60px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    background-color:rgb(194, 191, 191);
+}
+.stemContainer{
+    border-top:1px solid gray;
+    display: flex;
+    flex-direction: row;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
+}
+
+.thePassage{
+    width: 40%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+.theQuestions{
+    width: 60%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.answerContainer{
+    margin: 50px;
+    border: 2px solid black;
+}
+
+.Spanish_Answer, .English_Answer{
+    margin: 40px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+p{
+    margin: 0px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="text"]{
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width:300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
