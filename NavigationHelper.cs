@@ -47,7 +47,7 @@ namespace SmarterBalanced.SpanishEnglishDemarcation
 
             if (lastIndex >= 0)
             {
-                result = result.Substring(lastIndex, result.Length);
+                result = result.Substring(lastIndex, result.Length - lastIndex).TrimStart('/');
             }
 
             return result;
