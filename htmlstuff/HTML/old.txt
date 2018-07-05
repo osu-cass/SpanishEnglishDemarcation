@@ -1,0 +1,83 @@
+<div id="contents" role="main">
+	<div class="pageWrapper showing" aria-hidden="false">
+		<div xmlns="http://www.w3.org/1999/xhtml" id="Page_Page-83992516-e5c8-405e-888f-edd2b0351fc9" class="subject_MATH grade_4 itemcount_1 layout_22 browser_chrome browserVer_67_0 platform_windows"
+		 data-zoom="0">
+			<div id="Item_3593" class="multipleChoiceItem itemContainer format_gi response_grid showing" aria-hidden="false" touch-action="pan-y"
+			 tabindex="0" lang="es-mx">
+
+				<table cellspacing="0" cellpadding="0" width="100%" class="bigTable noColumns" lang="es-mx">
+					<tbody lang="es-mx">
+						<tr lang="es-mx">
+							<td valign="top" align="center" lang="es-mx">
+								<div class="theQuestions" lang="es-mx">
+									<span class="padding" lang="es-mx">
+										<!-- wraps layouts -->
+
+										<table class="structure layout22" lang="es-mx">
+											<tbody lang="es-mx">
+												<tr lang="es-mx">
+													<td lang="es-mx">
+
+														<div id="questionCell" class="questionCell" lang="es-mx">
+															<div class="toolsContainer itemTools markComment" lang="es-mx">
+																<a class="toolButton itemMenu" href="#" tabindex="0" aria-label="Menu" role="button" aria-haspopup="true"
+																 lang="es-mx"></a>
+															</div>
+															<p class="itemToolsBreak" lang="es-mx">&nbsp;</p>
+															<h2 id="QuestionNumber_3593" class="questionNumber" lang="es-mx">3593</h2>
+
+															<div id="Stem_3593" class="stemContainer" lang="es-mx">
+																<p style="line-height:1.15em; color:#000000; " lang="es-mx">Cada fruta pesa
+																	<img id="item_3593_Object11" style="vertical-align:middle;" src="C:/content/Items/Item-187-3593/item_3593_v0_Object11_png16malpha.png"
+																	 width="13" height="35" lang="es-mx" data-width="13" data-height="35"> de libra.</p>
+																<p style="line-height:1.15em; color:#000000; " lang="es-mx">&nbsp;</p>
+																<p style="line-height:1.15em; color:#000000; " lang="es-mx">Arrastra suficientes frutas a cada recuadro para que el peso total, en libras, esté dentro del rango dado.</p>
+																<p
+																 class="languagedivider">&nbsp;</p>
+																<p style="line-height:1.15em; color:#000000; " lang="en-us">
+																	<span id="item_3593_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"
+																	 lang="en-us" data-wl-group="0">Each</span> piece of fruit weighs
+																	<img id="item_3593_Object1" style="vertical-align:middle;" src="C:/content/Items/Item-187-3593/item_3593_v0_Object1_png16malpha.png"
+																	 width="12" height="36" lang="en-us" data-width="12" data-height="36"> pound.</p>
+																<p style="line-height:1.15em; color:#000000; " lang="en-us">&nbsp;</p>
+																<p style="line-height:1.15em; color:#000000; " lang="en-us">
+																	<span id="item_3593_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"
+																	 lang="en-us" data-wl-group="1">Drag</span> enough fruit into
+																	<span id="item_3593_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start"
+																	 data-word-index="3" lang="en-us" data-wl-group="2">each</span> box so that the
+																	<span id="item_3593_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start"
+																	 data-word-index="4" lang="en-us" data-wl-group="3">total</span> weight, in pounds, is
+																	<span id="item_3593_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start"
+																	 data-word-index="5" lang="en-us" data-wl-group="4">within</span> the given range.</p>
+															</div>
+														</div>
+
+														<div id="answerCell" class="answerCell" lang="es-mx">
+
+															<div id="GridContainer_3593" class="GridContainer" style="height:500px; width:600px;" role="group" aria-label="Grid Item."
+															 lang="es-mx">
+																<!-- loading -->
+																<span id="StudentGrid_3593_Status" class="StudentGridStatus" lang="es-mx">Initializing</span>
+																<object is="true" id="GridContainer_3593Container" name="GridContainer_3593Container" type="image/svg+xml" data="http://siw-ivs-stage.smarterbalanced.org/Scripts/Grid2/grid.svg"
+																 lang="es-mx" width="600" height="500" style="margin-top: 0.9375px; margin-left: 0.578125px;"></object>
+															</div>
+														</div>
+														<span class="clear" lang="es-mx"></span>
+
+
+
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+									</span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
