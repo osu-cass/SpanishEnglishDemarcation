@@ -1,4 +1,9 @@
-@RenderSection("head", true)
+@{
+    Layout="_Layout.cshtml";
+}
+@section head{
+    @RenderSection("head", required: true)
+}
 <div id="contents" role="main">
     <div class="pageWrapper showing" aria-hidden="false">
 
@@ -328,4 +333,5 @@
 </div>
 <div id="tool-ClosedCaptioning" class="tdsClosedCaptioning" aria-live="polite" aria-label="Captioning for current audio">
 </div>
-</div>@RenderSection("scripts", true)
+</div>
+@section scripts{     @RenderSection("scripts", required: true) }

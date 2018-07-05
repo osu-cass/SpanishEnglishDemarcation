@@ -1,4 +1,9 @@
-@RenderSection("head", true)
+@{
+    Layout="_Layout.cshtml";
+}
+@section head{
+    @RenderSection("head", required: true)
+}
 <div id="contents" role="main">
 	<div class="pageWrapper showing" aria-hidden="false">
 		<div xmlns="http://www.w3.org/1999/xhtml" id="Page_Page-83992516-e5c8-405e-888f-edd2b0351fc9" class="subject_MATH grade_4 itemcount_1 layout_22 browser_chrome browserVer_67_0 platform_windows"
@@ -391,4 +396,5 @@
 			</div>
 		</div>
 	</div>
-</div>@RenderSection("scripts", true)
+</div>
+@section scripts{     @RenderSection("scripts", required: true) }

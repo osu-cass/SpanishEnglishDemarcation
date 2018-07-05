@@ -1,4 +1,9 @@
-@RenderSection("head", true)
+@{
+    Layout="_Layout.cshtml";
+}
+@section head{
+    @RenderSection("head", required: true)
+}
 <div id="contents" role="main">
     <div class="pageWrapper showing" aria-hidden="false">
         <div xmlns="http://www.w3.org/1999/xhtml" id="Page_Page-e7703c97-84ed-45d1-ab7c-377fce72e347" class="subject_MATH grade_11 itemcount_1 layout_8 browser_chrome browserVer_66_0 platform_windows"
@@ -119,4 +124,5 @@
     </div>
 </div>
 <div id="tool-ClosedCaptioning" class="tdsClosedCaptioning" aria-live="polite" aria-label="Captioning for current audio"></div>
-</div>@RenderSection("scripts", true)
+</div>
+@section scripts{     @RenderSection("scripts", required: true) }
