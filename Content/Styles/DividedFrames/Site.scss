@@ -1,4 +1,4 @@
-﻿.Spanish, .English{
+.Spanish, .English{
     margin: 50px;
     padding: 5px;
     border: 2px solid gray;
@@ -52,7 +52,7 @@
 }
 
 .Spanish::before{
-    content:"Español";
+    content:"Espa�ol";
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -75,36 +75,18 @@
     left: 20px;
 }
 
-.Spanish_Answer, .English_Answer{
-    margin: 40px;
-    margin-top: 10px;
-    padding: 10px;
-    border: 2px solid gray;
-    border-radius: 15px;
+.Spanish_Answer{
+    margin: 10px;
 }
 
-.Spanish_Answer::before{
-    content:"Español";
-    background-color: rgb(139, 134, 134);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
+.English_Answer{
+    margin: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 15px;
+    border-top: 2px solid black;
     position: relative;
-    bottom: 30px;
-    left: 10px;
-}
-
-.English_Answer::before{
-    content:"English";
-    background-color: rgb(139, 134, 134);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    position: relative;
-    bottom: 30px;
-    left: 10px;
+    
 }
 
 p{
