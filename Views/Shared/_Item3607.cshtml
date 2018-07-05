@@ -1,4 +1,9 @@
-@RenderSection("head", true)
+@{
+    Layout="_Layout.cshtml";
+}
+@section head{
+    @RenderSection("head", required: true)
+}
 <html>
 
 <body>
@@ -235,4 +240,5 @@
 
 </body>
 
-</html>@RenderSection("scripts", true)
+</html>
+@section scripts{     @RenderSection("scripts", required: true) }

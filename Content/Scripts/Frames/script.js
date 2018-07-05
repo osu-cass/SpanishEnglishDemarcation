@@ -68,6 +68,7 @@ if ($(Question_Name) != null) {
     Rearrange(Question_Name);
 }
 var choices = $(Choice_Name);
+console.log(choices);
 if (choices != null) {
     choices.addClass("Number");
 }

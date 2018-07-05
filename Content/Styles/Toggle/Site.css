@@ -1,0 +1,119 @@
+.Spanish, .English{
+    margin: 50px;
+    padding: 5px;
+}
+.Number{
+    margin: 50px;
+    padding: 5px;
+}
+.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+    margin: 20px;
+}
+.Spanish_Answer, .English_Answer{
+    margin: 0px;
+    padding: 10px;
+}
+.languagedivider{
+    margin: 0px;
+    height: 0px;
+}
+.questionNumber{
+    margin: 0px;
+    height: 25px;
+    width: 40px;
+    padding: 5px;
+    font-size: 20px;
+    background-color:rgb(194, 191, 191);
+}
+
+.stemContainer{
+    border-top:1px solid gray;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
+}
+
+.thePassage{
+    width: 40%;
+    margin: 20px;
+    padding: 0px;
+    border: 1px solid white;
+}
+.theQuestions{
+    width: 60%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.answerContainer{
+    margin: 50px;
+    border: 2px solid black;
+}
+
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.Icon{
+    color: rgb(194, 16, 16);
+    position: relative;
+    right:50px;
+    font-weight: 900;
+    font-size: 10px;
+}
+
+p{
+    margin: 0px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+input[type="text"]{
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width:300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.button_click{
+    background-color: #4CAF50; 
+    border: 2px solid gray;
+    border-radius: 10%;
+    color: white;
+    padding: 5px 10px;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.button{
+    background-color: rgb(240, 240, 240); 
+    border: 2px solid rgb(175, 173, 173);
+    border-radius: 10%;
+    color:  rgb(175, 173, 173);
+    padding: 5px 10px;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.buttons{
+    display:flex;
+    flex-direction: row;
+    position: relative;
+    left:70%;
+}
