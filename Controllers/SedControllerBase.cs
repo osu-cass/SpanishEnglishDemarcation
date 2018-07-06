@@ -11,7 +11,7 @@ namespace SmarterBalanced.SpanishEnglishDemarcation.Controllers
     {
         public virtual IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Item2803");
         }
 
         public virtual IActionResult Item2803()
