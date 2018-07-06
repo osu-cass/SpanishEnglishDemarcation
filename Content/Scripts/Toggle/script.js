@@ -1,49 +1,3 @@
-function Indentify_Title(){
-    var divider =$("h2 .languagedivider");
-    if(divider.length==1){
-        $("<div></div>").insertBefore(divider);
-        $(".thePassage h2 p").remove();
-        var html=$(".thePassage h2").html();
-        var Spanish="";
-        var English="";
-        let i = 0;
-        for (i; i < html.length; i++) {
-            if(html[i]!='<'){
-                Spanish=Spanish+html[i];
-            }            
-            else{
-                break;
-            }
-        }
-        while(i<html.length){
-            if(html[i]=='>'){
-                i++;
-                while(html[i]!='<' && i<html.length){
-                    var L=English.length-1;
-                    if(English[L]==' ' && html[i]==' '){
-                        ;
-                    }
-                    else{
-                        English=English+html[i];
-                    }
-                    i++;
-                }
-            }
-            else{
-                i++;
-            }
-        }
-        English=English.trim();
-        Spanish=Spanish.trim();
-        English=$("<h2></h2>").append(English);
-        Spanish=$("<h2></h2>").append(Spanish);
-        var arr=[];
-        arr.push(Spanish);
-        arr.push(English);
-        return arr;
-    }
-    return false;
-}
 function Separate_Spanish_English(contents, option) {
     var Spanish = [];
     var English = [];
@@ -138,6 +92,52 @@ function Switch(){
     }
 }
 
+function Indentify_Title(){
+    var divider =$("h2 .languagedivider");
+    if(divider.length==1){
+        $("<div></div>").insertBefore(divider);
+        $(".thePassage h2 p").remove();
+        var html=$(".thePassage h2").html();
+        var Spanish="";
+        var English="";
+        let i = 0;
+        for (i; i < html.length; i++) {
+            if(html[i]!='<'){
+                Spanish=Spanish+html[i];
+            }            
+            else{
+                break;
+            }
+        }
+        while(i<html.length){
+            if(html[i]=='>'){
+                i++;
+                while(html[i]!='<' && i<html.length){
+                    var L=English.length-1;
+                    if(English[L]==' ' && html[i]==' '){
+                        ;
+                    }
+                    else{
+                        English=English+html[i];
+                    }
+                    i++;
+                }
+            }
+            else{
+                i++;
+            }
+        }
+        English=English.trim();
+        Spanish=Spanish.trim();
+        English=$("<h2></h2>").append(English);
+        Spanish=$("<h2></h2>").append(Spanish);
+        var arr=[];
+        arr.push(Spanish);
+        arr.push(English);
+        return arr;
+    }
+    return false;
+}
 
 Passage_Name = '.thePassage .padding';
 Question_Name = '.stemContainer';
