@@ -1,13 +1,23 @@
 {
   "scripts": {
+    "lib": "gulp lib",
+    "sass": "gulp sass",
+    "watch": "gulp sass:watch",
     "commitmsg": "commitlint -E GIT_PARAMS"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
-    "husky": "^0.14.3"
+    "gulp": "^4.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-sass": "^4.0.1",
+    "husky": "^0.14.3",
+    "merge-stream": "^1.0.1"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "bootstrap": "^4.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }
