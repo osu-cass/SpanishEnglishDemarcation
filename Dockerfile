@@ -1,9 +1,11 @@
-FROM microsoft/aspnetcore-build:2.0 AS build-env
-
-# Copy csproj and restore as distinct layers
+FROM node:6 as node-env
 COPY . /app
 WORKDIR /app
-RUN dotnet restore
+RUN npm install
+
+FROM microsoft/aspnetcore-build:2.0 AS build-env
+WORKDIR /app
+COPY --from=node-env /app /app
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
