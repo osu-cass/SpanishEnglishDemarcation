@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: login-to-docker
-          command: docker login -u $DOCKER_USER -u $DOCKER_PASS
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run:
           name: build-image
           command: docker build -t osucass/spanish-english-demarcation:dev
@@ -32,7 +32,7 @@ workflows:
   version: 2
   build_push_deploy:
     jobs:
-      - build
-      - push_image:
-          requires:
-            - build
+      # - build
+      - push_image
+          # requires:
+          #   - build
