@@ -23,7 +23,7 @@ jobs:
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run:
           name: build-image
-          command: docker build -t osucass/spanish-english-demarcation:dev
+          command: docker build -t osucass/spanish-english-demarcation:dev .
       - run:
           name: push-image
           command: docker push osucass/spanish-english-demarcation:dev
