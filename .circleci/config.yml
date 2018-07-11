@@ -34,5 +34,11 @@ workflows:
     jobs:
       - build
       - push_image:
+          filters:
+            branches:
+              only:
+                - dev
+                - staging
+                - master
           requires:
             - build
