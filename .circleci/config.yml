@@ -19,14 +19,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: login-to-docker
+          name: Login to Docker
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run:
-          name: build-image
-          command: docker build -t osucass/spanish-english-demarcation:dev .
+          name: Build image
+          command: docker build -t osucass/spanish-english-demarcation:$CIRCLE_BRANCH .
       - run:
-          name: push-image
-          command: docker push osucass/spanish-english-demarcation:dev
+          name: Push image to Docker Hub
+          command: docker push osucass/spanish-english-demarcation:$CIRCLE_BRANCH
 
 workflows:
   version: 2
