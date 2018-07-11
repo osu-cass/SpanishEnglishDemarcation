@@ -8,10 +8,15 @@ jobs:
 
     steps:
       - checkout
-
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Run MSBuild
           command: dotnet build
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
 
   push_image:
     machine: true
