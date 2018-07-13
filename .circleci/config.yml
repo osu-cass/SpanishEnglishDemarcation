@@ -18,6 +18,19 @@ jobs:
           paths:
             - ./node_modules
 
+  update_version:
+    docker:
+      - image: node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install NPM dependencies
+          command: npm ci
+      - run:
+          name: Release new version
+          command: npx semantic-release
+
   push_image:
     machine: true
     working_directory: ~/repo
@@ -38,12 +51,16 @@ workflows:
   build_push_deploy:
     jobs:
       - build
+      - update_version:
+          filters:
+            branches:
+              only:
+                - dev
       - push_image:
           filters:
             branches:
               only:
                 - dev
-                - staging
                 - master
           requires:
             - build
