@@ -42,14 +42,10 @@
   </Target>
 
   <Target Name="CompilePublishFiles" AfterTargets="ComputeFilesToPublish">
-    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec Command="npm install" />
-    <Exec Command="npm run lib" />
-    <Exec Command="npm run sass" />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="Content/**/*.css; Content/**/*.js" />
+      <DistFiles Include="Content/**/*.*" Exclude="Content/**/*.scss"/>
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
