@@ -57,15 +57,17 @@ workflows:
     jobs:
       - build
       - update_version:
-          filters:
-            branches:
-              only:
-                - dev
-      - push_image:
-          filters:
-            branches:
-              only:
-                - dev
-                - master
           requires:
             - build
+          # filters:
+          #   branches:
+          #     only:
+          #       - dev
+      - push_dev_image:
+          requires:
+            - update_version
+          # filters:
+          #   branches:
+          #     only:
+          #       - dev
+          #       - master
