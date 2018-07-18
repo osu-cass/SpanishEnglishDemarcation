@@ -32,17 +32,19 @@
     flex-direction: row;
 }
 
-.thePassage{
-    width: 40%;
+%Passage_Question_Share{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
+
+.thePassage{
+    width: 40%;
+    @extend %Passage_Question_Share;
+}
 .theQuestions{
     width: 60%;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid white;
+    @extend %Passage_Question_Share;
 }
 
 .answerContainer{
