@@ -1,10 +1,12 @@
-.Spanish, .English{
+%Share{
     margin: 50px;
     padding: 5px;
 }
+.Spanish, .English{
+    @extend %Share;
+}
 .Number{
-    margin: 50px;
-    padding: 5px;
+    @extend %Share;
 }
 .Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
     margin: 20px;
@@ -35,17 +37,19 @@
     flex-direction: row;
 }
 
-.thePassage{
-    width: 40%;
-    margin: 20px;
-    padding: 0px;
-    border: 1px solid white;
-}
-.theQuestions{
-    width: 60%;
+%Passage_Question_Share{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
+}
+
+.thePassage{
+    width: 40%;
+    @extend %Passage_Question_Share;
+}
+.theQuestions{
+    width: 60%;
+    @extend %Passage_Question_Share;
 }
 
 .answerContainer{
@@ -84,11 +88,8 @@ input[type="text"]{
     border-radius: 5px;
 }
 
-.button_click{
-    background-color: #4CAF50; 
-    border: 2px solid gray;
+%Button_Share{
     border-radius: 10%;
-    color: white;
     padding: 5px 10px;
     width: 120px;
     text-align: center;
@@ -98,19 +99,18 @@ input[type="text"]{
     font-weight: bold;
     cursor: pointer;
 }
+
+.button_click{
+    background-color: #4CAF50; 
+    border: 2px solid gray;
+    color: white;
+    @extend %Button_Share;
+}
 .button{
     background-color: rgb(240, 240, 240); 
     border: 2px solid rgb(175, 173, 173);
-    border-radius: 10%;
     color:  rgb(175, 173, 173);
-    padding: 5px 10px;
-    width: 120px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    @extend %Button_Share;
 }
 .buttons{
     display:flex;

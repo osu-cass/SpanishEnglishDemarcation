@@ -1,3 +1,17 @@
+$star:"\f005 \00a0 Español";
+$square:"\f0c8 \00a0 English";
+@mixin fontawesome-icon {
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin symbol($size,$content){
+    @include fontawesome-icon();
+    content: $content;
+    font-weight: 900px;
+    font-size: $size;
+}
 .Spanish, .English{
     margin: 50px;
     padding: 5px;
@@ -37,17 +51,19 @@
     flex-direction: row;
 }
 
-.thePassage{
-    width: 40%;
-    margin: 20px;
-    padding: 0px;
-    border: 1px solid white;
-}
-.theQuestions{
-    width: 60%;
+%Passage_Question_Share{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
+}
+
+.thePassage{
+    width: 40%;
+    @extend %Passage_Question_Share;
+}
+.theQuestions{
+    width: 60%;
+    @extend %Passage_Question_Share;
 }
 
 .answerContainer{
@@ -55,11 +71,7 @@
     border: 2px solid black;
 }
 
-.Spanish::before{
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900;
-    font-size: 20px;
-    content: "\f005 \00a0 Español";
+%Spanish_English_Before{
     padding: 5px 10px 5px 10px;
     background-color: rgb(139, 134, 134);
     color: white;
@@ -68,33 +80,28 @@
     left: 20px;
 }
 
-.English::before{
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900;
-    font-size: 20px;
-    content: "\f0c8 \00a0 English";
-    padding: 5px 10px 5px 10px;
-    background-color: rgb(139, 134, 134);
-    color: white;
-    position: relative;
-    bottom: 20px;
-    left: 20px;
+.Spanish::before{
+    @include symbol(20px,$star);
+    @extend %Spanish_English_Before;
 }
-.Spanish_Answer::before{
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900;
-    font-size: 15px;
-    content: "\f005";
-    color: rgb(139, 134, 134);;
+
+.English::before{
+    @include symbol(20px,$square);
+    @extend %Spanish_English_Before;
+}
+
+%Answer_Before{
+    color: rgb(139, 134, 134);
     padding: 5px 10px 5px 10px;
+}
+
+.Spanish_Answer::before{
+    @include symbol(15px,'\f005');
+    @extend %Answer_Before;
 }
 .English_Answer::before{
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900;
-    font-size: 15px;
-    content: "\f0c8";
-    color: rgb(139, 134, 134);;
-    padding: 5px 10px 5px 10px;
+    @include symbol(15px,'\f0c8');
+    @extend %Answer_Before;
 }
 
 .center{

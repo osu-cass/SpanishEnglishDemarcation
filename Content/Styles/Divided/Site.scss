@@ -1,10 +1,12 @@
-.Spanish{
+%Spanish_English_Shared{
     margin: 50px;
     padding: 5px;
 }
+.Spanish{
+    @extend %Spanish_English_Shared;
+}
 .English{
-    margin: 50px;
-    padding: 5px;
+    @extend %Spanish_English_Shared;
     border-top: 2px solid black;
     padding-top: 40px;
     position: relative;
@@ -38,17 +40,18 @@
     flex-direction: row;
 }
 
-.thePassage{
-    width: 40%;
+%Passage_Questions_Shared{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
+.thePassage{
+    width: 40%;
+    @extend %Passage_Questions_Shared;
+}
 .theQuestions{
     width: 60%;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid white;
+    @extend %Passage_Questions_Shared;
 }
 
 .answerContainer{

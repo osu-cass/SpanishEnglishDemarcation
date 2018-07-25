@@ -33,17 +33,18 @@
     flex-direction: row;
 }
 
-.thePassage{
-    width: 40%;
+%Passage_Question_Shared{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
+.thePassage{
+    width: 40%;
+    @extend %Passage_Question_Shared;
+}
 .theQuestions{
     width: 60%;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid white;
+    @extend %Passage_Question_Shared;
 }
 
 .answerContainer{
@@ -51,8 +52,7 @@
     border: 2px solid black;
 }
 
-.Spanish::before{
-    content:"Español";
+%Spanish_English_Before{
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -63,16 +63,14 @@
     left: 20px;
 }
 
+.Spanish::before{
+    content:"Español";
+    @extend %Spanish_English_Before;
+}
+
 .English::before{
     content:"English";
-    background-color: rgb(139, 134, 134);
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
-    position: relative;
-    bottom: 20px;
-    left: 20px;
+    @extend %Spanish_English_Before;
 }
 
 .Spanish_Answer, .English_Answer{
@@ -83,8 +81,7 @@
     border-radius: 15px;
 }
 
-.Spanish_Answer::before{
-    content:"Español";
+%Answer_Before{
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -95,16 +92,14 @@
     left: 10px;
 }
 
+.Spanish_Answer::before{
+    content:"Español";
+    @extend %Answer_Before;
+}
+
 .English_Answer::before{
     content:"English";
-    background-color: rgb(139, 134, 134);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    position: relative;
-    bottom: 30px;
-    left: 10px;
+    @extend %Answer_Before;
 }
 
 p{
