@@ -44,7 +44,7 @@ $square:'\f0c8';
     @include symbol(20px,"\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
     @extend %Spanish_English_Share;
     position: relative;
-    left:800px;
+    left:600px;
     bottom: -40px;
 }
 .stemContainer{
