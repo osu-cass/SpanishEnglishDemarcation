@@ -1,12 +1,9 @@
 FROM microsoft/aspnetcore-build:2.0 AS build-env
-WORKDIR /app
 
 # Copy csproj and restore as distinct layers
-COPY SmarterBalanced.SpanishEnglishDemarcation/*.csproj ./
+COPY . /app
+WORKDIR /app
 RUN dotnet restore
-
-# Copy everything else and build
-COPY SmarterBalanced.SpanishEnglishDemarcation ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image

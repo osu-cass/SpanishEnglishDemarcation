@@ -1,0 +1,96 @@
+%Spanish_English_Shared{
+    margin: 50px;
+    padding: 5px;
+}
+.Spanish{
+    @extend %Spanish_English_Shared;
+}
+.English{
+    @extend %Spanish_English_Shared;
+    border-top: 2px solid black;
+    padding-top: 40px;
+    position: relative;
+}
+.Number{
+    margin: 10px;
+    padding: 0px;
+}
+.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+    margin: 10px;
+}
+
+.languagedivider{
+    margin: 0px;
+    height: 0px;
+}
+.questionNumber{
+    margin: 0px;
+    height: 30px;
+    width: 60px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    background-color:rgb(194, 191, 191);
+}
+.stemContainer{
+    border-top:1px solid gray;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
+}
+
+%Passage_Questions_Shared{
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+.thePassage{
+    width: 40%;
+    @extend %Passage_Questions_Shared;
+}
+.theQuestions{
+    width: 60%;
+    @extend %Passage_Questions_Shared;
+}
+
+.answerContainer{
+    margin: 50px;
+    border: 2px solid black;
+}
+
+
+.Spanish_Answer{
+    margin: 10px;
+}
+
+.English_Answer{
+    margin: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 15px;
+    border-top: 2px solid black;
+    position: relative;
+    
+}
+
+p{
+    margin: 0px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="text"]{
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width:300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

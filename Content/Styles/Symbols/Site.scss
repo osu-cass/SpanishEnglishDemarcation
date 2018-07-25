@@ -1,0 +1,135 @@
+$star:'\f005';
+$square:'\f0c8';
+@mixin fontawesome-icon {
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin symbol($size,$content){
+    @include fontawesome-icon();
+    content: $content;
+    font-weight: 900px;
+    font-size: $size;
+}
+.Spanish, .English{
+    margin: 50px;
+    padding: 5px;
+}
+.Number{
+    margin: 50px;
+    padding: 5px;
+}
+.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+    margin: 20px;
+}
+.Spanish_Answer, .English_Answer{
+    margin: 0px;
+    padding: 10px;
+}
+.languagedivider{
+    margin: 0px;
+    height: 0px;
+}
+.questionNumber{
+    margin: 0px;
+    height: 30px;
+    width: 60px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    background-color:rgb(194, 191, 191);
+}
+.questionNumber:after{
+    @include symbol(20px,"\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
+    @extend %Spanish_English_Share;
+    position: relative;
+    left:600px;
+    bottom: -40px;
+}
+.stemContainer{
+    border-top:1px solid gray;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
+}
+
+%Passage_Question_Share{
+    margin: 20px;
+    padding: 0px;
+    border: 1px solid white;
+}
+
+.thePassage{
+    width: 40%;
+    @extend %Passage_Question_Share;
+}
+.theQuestions{
+    width: 60%;
+    @extend %Passage_Question_Share;
+}
+
+.answerContainer{
+    margin: 50px;
+    border: 2px solid black;
+}
+
+%Spanish_English_Share{
+    color: rgb(194, 16, 16);
+    padding: 5px 10px 5px 10px;
+}
+
+.Spanish::before{
+    @include symbol(20px,$star);
+    @extend %Spanish_English_Share;
+    position: relative;
+    left: -20px;
+    bottom: -40px;
+}
+
+.English::before{
+    @include symbol(20px,$square);
+    @extend %Spanish_English_Share;
+    position: relative;
+    left: -20px;
+    bottom: -60px;
+}
+.Spanish_Answer::before{
+    @include symbol(10px,$star);
+    @extend %Spanish_English_Share;
+}
+.English_Answer::before{
+    @include symbol(10px,$square);
+    @extend %Spanish_English_Share;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.Icon{
+    color: rgb(194, 16, 16);
+    position: relative;
+    right:50px;
+    font-weight: 900;
+    font-size: 10px;
+}
+
+p{
+    margin: 0px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+input[type="text"]{
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width:300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    
+}
+@section head{
+    <style>
+    .row{
+        margin-top:4px;
+    }
+    .container-fluid{
+        height: 79%;
+    }
+    </style>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a href='@Url.Action("Index", "Stacked")' role="button" class="btn btn-primary">Stacked (Current)</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a  href='@Url.Action("Index", "Frames")' role="button" class="btn btn-primary">Frames</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a  href='@Url.Action("Index", "Symbols")' role="button" class="btn btn-primary">Indicators</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a  href='@Url.Action("Index", "Divided")' role="button" class="btn btn-primary">Dividing Lines</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a href='@Url.Action("Index", "Toggle")'  role="button" class="btn btn-primary">Toggle</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a  href='@Url.Action("Index", "SymbolFrames")' role="button" class="btn btn-primary">Hybrid - Frames and Indicators</a>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-centered">
+            <a href='@Url.Action("Index", "DividedFrames")'  role="button" class="btn btn-primary">Hybrid - Frames and Lines</a>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
