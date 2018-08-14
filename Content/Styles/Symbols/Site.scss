@@ -1,15 +1,15 @@
 $star:'\f005';
 $square:'\f0c8';
+
 @mixin fontawesome-icon {
   font-family: FontAwesome;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@mixin symbol($size,$content){
+@mixin symbol($size, $content){
     @include fontawesome-icon();
     content: $content;
-    font-weight: 900px;
     font-size: $size;
 }
 .Spanish, .English{
