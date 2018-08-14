@@ -52,7 +52,7 @@ if (($(passageName)).length !== 0) {
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    questions.css("width",'100%');
+    questions.css("width", '100%');
 }
 
 if ($(questionName) !== null) {
@@ -99,3 +99,16 @@ if (answerContainer !== null) {
     var width = $(goal).width();
     $(answerContainer).css("width", width);
 }
+
+// Container to hold item # and hamburger icon
+var numContainer = $('<div class="num-container"></div>');
+var questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
+}
+
+var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+var questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions

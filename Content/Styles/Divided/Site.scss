@@ -43,6 +43,8 @@ $hamburger: '\f0c9';
 
 .spanish>h2, .english>h2 {
     margin: 0 10px -10px 0;
+    text-transform: uppercase;
+    font-style: italic;
 }
 
 .languagedivider{
@@ -50,7 +52,13 @@ $hamburger: '\f0c9';
     height: 0px;
 }
 
-.questionNumber{
+.num-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.questionNumber {
     margin-top: 3px;
     margin-bottom: 0;
     height: 30px;
@@ -60,9 +68,21 @@ $hamburger: '\f0c9';
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
+
+.hamburger-icon:before {
+    @include symbol(27px, $hamburger);
+    top: -3px;
+}
+
 .stemContainer {
     border-top:1px solid lightgray;
     padding-top: 15px;
+    margin-top: -7px;
+}
+
+.questionCell .stemContainer {
+    margin-left: -10px;
+    width: 104%;
 }
 
 .bigTable{
@@ -78,26 +98,21 @@ $hamburger: '\f0c9';
 
 .thePassage{
     width: 40%;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 50px;
     @extend %passage-questions-shared;
 }
 
 .thePassage:before {
-    @include symbol(27px, "\f0c9");
+    @include symbol(27px, $hamburger);
     right: -30px;
 }
 
 .theQuestions{
     width: 60%;
-    padding-left: 32px;
-    border-left: 1px solid #d0d0d0;
+    margin-left: auto;
     @extend %passage-questions-shared;
-}
-
-.theQuestions:before {
-    @include symbol(27px, "\f0c9");
-    top: -3px;
-    right: 2px;
-}
+}  
 
 .answerContainer{
     margin: 50px;
