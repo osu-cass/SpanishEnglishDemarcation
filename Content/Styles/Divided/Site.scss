@@ -1,57 +1,102 @@
-%Spanish_English_Shared{
-    margin: 50px;
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
+}
+
+%spanish-english-shared {
+    margin: 0 50px 30px;
     padding: 5px;
 }
-.Spanish{
-    @extend %Spanish_English_Shared;
+
+.spanish {
+    @extend %spanish-english-shared;
 }
-.English{
-    @extend %Spanish_English_Shared;
+
+.english {
+    @extend %spanish-english-shared;
     border-top: 2px solid black;
     padding-top: 40px;
     position: relative;
 }
-.Number{
+
+.number{
     margin: 10px;
     padding: 0px;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
-    margin: 10px;
+
+.spanish>p, .english>p, .spanish>ul, .english>ul {
+    margin: 0 10px;
+}
+
+.spanish>h2, .english>h2 {
+    margin: 0 10px -10px 0;
 }
 
 .languagedivider{
     margin: 0px;
     height: 0px;
 }
+
 .questionNumber{
-    margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 0;
     height: 30px;
     width: 60px;
-    padding-top: 5px;
+    padding-top: 3px;
     text-align: center;
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
-.stemContainer{
-    border-top:1px solid gray;
+.stemContainer {
+    border-top:1px solid lightgray;
+    padding-top: 15px;
 }
+
 .bigTable{
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Questions_Shared{
+%passage-questions-shared{
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
+
 .thePassage{
     width: 40%;
-    @extend %Passage_Questions_Shared;
+    @extend %passage-questions-shared;
 }
+
+.thePassage:before {
+    @include symbol(27px, "\f0c9");
+    right: -30px;
+}
+
 .theQuestions{
     width: 60%;
-    @extend %Passage_Questions_Shared;
+    padding-left: 32px;
+    border-left: 1px solid #d0d0d0;
+    @extend %passage-questions-shared;
+}
+
+.theQuestions:before {
+    @include symbol(27px, "\f0c9");
+    top: -3px;
+    right: 2px;
 }
 
 .answerContainer{
@@ -59,35 +104,34 @@
     border: 2px solid black;
 }
 
-
-.Spanish_Answer{
+.spanish-answer{
     margin: 10px;
 }
 
-.English_Answer{
+.english-answer{
     margin: 5px;
     margin-right: 10px;
     margin-left: 10px;
     padding-top: 15px;
     border-top: 2px solid black;
-    position: relative;
-    
+    position: relative;  
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body{
     height: 100%;
     width: 100%;
 }
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
 }
 
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
