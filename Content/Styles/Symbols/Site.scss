@@ -24,16 +24,19 @@ $square:'\f0c8';
 }
 
 .spanish, .english{
-    margin: 50px;
+    margin: 0 50px;
     padding: 5px;
 }
+
 .number {
     margin: 50px;
     padding: 5px;
 }
-.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2{
-    margin: 20px;
-}
+
+// .spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2{
+//     margin: 20px;
+// }
+
 .spanish-answer, .english-answer{
     margin: 0px;
     padding: 10px;
@@ -45,13 +48,14 @@ $square:'\f0c8';
 }
 
 .questionNumber{
-    margin: 0px;
+    margin: 2px 0 0 0;
     height: 30px;
     width: 60px;
-    padding-top: 5px;
+    padding-top: 4px;
+    padding-left: 7px;
     text-align: center;
     font-size: 20px;
-    background-color:rgb(194, 191, 191);
+    background-color:lightgray;
 }
 
 .questionNumber:after{
@@ -63,7 +67,7 @@ $square:'\f0c8';
 }
 
 .stemContainer{
-    border-top:1px solid gray;
+    border-top:1px solid lightgray;
 }
 
 .bigTable{
@@ -84,11 +88,13 @@ $square:'\f0c8';
 
 .thePassage:before {
     @include bar-symbol(27px, "\f0c9");
-    right: -30px;
+    right: -20px;
 }
 
 .theQuestions{
     width: 60%;
+    padding-left: 32px;
+    border-left: 1px solid #d0d0d0;
     @extend %passage-question-share;
 }
 
