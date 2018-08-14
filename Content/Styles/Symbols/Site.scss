@@ -23,25 +23,27 @@ $square:'\f0c8';
     color: gray;
 }
 
-.Spanish, .English{
+.spanish, .english{
     margin: 50px;
     padding: 5px;
 }
-.Number{
+.number {
     margin: 50px;
     padding: 5px;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2{
     margin: 20px;
 }
-.Spanish_Answer, .English_Answer{
+.spanish-answer, .english-answer{
     margin: 0px;
     padding: 10px;
 }
+
 .languagedivider{
     margin: 0px;
     height: 0px;
 }
+
 .questionNumber{
     margin: 0px;
     height: 30px;
@@ -51,22 +53,25 @@ $square:'\f0c8';
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
+
 .questionNumber:after{
     @include lang-symbol(20px,"\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
-    @extend %Spanish_English_Share;
+    @extend %spanish-english-share;
     position: relative;
     left:600px;
     bottom: -40px;
 }
+
 .stemContainer{
     border-top:1px solid gray;
 }
+
 .bigTable{
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Share{
+%passage-question-share{
     margin: 20px;
     padding: 0px;
     border: 1px solid white;
@@ -74,7 +79,7 @@ $square:'\f0c8';
 
 .thePassage {
     width: 40%;
-    @extend %Passage_Question_Share;
+    @extend %passage-question-share;
 }
 
 .thePassage:before {
@@ -84,7 +89,7 @@ $square:'\f0c8';
 
 .theQuestions{
     width: 60%;
-    @extend %Passage_Question_Share;
+    @extend %passage-question-share;
 }
 
 .theQuestions:before {
@@ -98,33 +103,33 @@ $square:'\f0c8';
     border: 2px solid black;
 }
 
-%Spanish_English_Share{
+%spanish-english-share{
     color: rgb(194, 16, 16);
     padding: 5px 10px 5px 10px;
 }
 
-.Spanish::before{
+.spanish::before{
     @include lang-symbol(20px,$star);
-    @extend %Spanish_English_Share;
+    @extend %spanish-english-share;
     position: relative;
     left: -20px;
     bottom: -40px;
 }
 
-.English::before{
-    @include lang-symbol(20px,$square);
-    @extend %Spanish_English_Share;
+.english::before{
+    @include lang-symbol(20px, $square);
+    @extend %spanish-english-share;
     position: relative;
     left: -20px;
     bottom: -60px;
 }
-.Spanish_Answer::before{
+.spanish-answer::before{
     @include lang-symbol(10px,$star);
-    @extend %Spanish_English_Share;
+    @extend %spanish-english-share;
 }
-.English_Answer::before{
+.english-answer::before{
     @include lang-symbol(10px,$square);
-    @extend %Spanish_English_Share;
+    @extend %spanish-english-share;
 }
 
 .center{
@@ -140,14 +145,14 @@ $square:'\f0c8';
     font-size: 10px;
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body{
     height: 100%;
     width: 100%;
 }
-
 
 input[type="text"]{
     background-color: rgb(198, 229, 243);
