@@ -7,11 +7,22 @@ $square:'\f0c8';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@mixin symbol($size, $content){
+
+@mixin lang-symbol($size, $content) {
     @include fontawesome-icon();
     content: $content;
     font-size: $size;
 }
+
+@mixin bar-symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
+}
+
 .Spanish, .English{
     margin: 50px;
     padding: 5px;
@@ -41,7 +52,7 @@ $square:'\f0c8';
     background-color:rgb(194, 191, 191);
 }
 .questionNumber:after{
-    @include symbol(20px,"\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
+    @include lang-symbol(20px,"\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
     @extend %Spanish_English_Share;
     position: relative;
     left:600px;
@@ -61,13 +72,25 @@ $square:'\f0c8';
     border: 1px solid white;
 }
 
-.thePassage{
+.thePassage {
     width: 40%;
     @extend %Passage_Question_Share;
 }
+
+.thePassage:before {
+    @include bar-symbol(27px, "\f0c9");
+    right: -30px;
+}
+
 .theQuestions{
     width: 60%;
     @extend %Passage_Question_Share;
+}
+
+.theQuestions:before {
+    @include bar-symbol(27px, "\f0c9");
+    top: -3px;
+    right: 2px;
 }
 
 .answerContainer{
@@ -81,7 +104,7 @@ $square:'\f0c8';
 }
 
 .Spanish::before{
-    @include symbol(20px,$star);
+    @include lang-symbol(20px,$star);
     @extend %Spanish_English_Share;
     position: relative;
     left: -20px;
@@ -89,18 +112,18 @@ $square:'\f0c8';
 }
 
 .English::before{
-    @include symbol(20px,$square);
+    @include lang-symbol(20px,$square);
     @extend %Spanish_English_Share;
     position: relative;
     left: -20px;
     bottom: -60px;
 }
 .Spanish_Answer::before{
-    @include symbol(10px,$star);
+    @include lang-symbol(10px,$star);
     @extend %Spanish_English_Share;
 }
 .English_Answer::before{
-    @include symbol(10px,$square);
+    @include lang-symbol(10px,$square);
     @extend %Spanish_English_Share;
 }
 
