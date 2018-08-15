@@ -1,19 +1,21 @@
-.Spanish, .English{
+.spanish, .english{
     margin-bottom: 20px;
     margin-left: 10px;
     padding: 5px;
     position: relative;
 }
-.Number{
+
+.number {
     margin: 10px;
     padding: 0px;
 }
 
-.languagedivider{
+.languagedivider {
     margin: 0px;
     height: 0px;
 }
-.questionNumber{
+
+.questionNumber {
     margin: 0px;
     height: 30px;
     width: 60px;
@@ -22,57 +24,59 @@
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
-.stemContainer{
+
+.stemContainer {
     border-top:1px solid gray;
     display: flex;
     flex-direction: row;
 }
-.bigTable{
+
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Share{
+%passage-question-share {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
 
-.thePassage{
+.thePassage {
     width: 40%;
     @extend %Passage_Question_Share;
 }
-.theQuestions{
+.theQuestions {
     width: 60%;
     @extend %Passage_Question_Share;
 }
 
-.answerContainer{
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
-.Spanish_Answer, .English_Answer{
+.spanish-answer, .english-answer {
     margin: 40px;
     margin-top: 10px;
     padding: 10px;
 }
 
-
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body {
     height: 100%;
     width: 100%;
 }
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
 }
 
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
