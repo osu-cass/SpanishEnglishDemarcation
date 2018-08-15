@@ -1,22 +1,25 @@
-.Spanish, .English{
+.spanish, .english{
     margin: 50px;
     padding: 5px;
     border: 2px solid gray;
     border-radius: 15px;
 }
-.Number{
+
+.number{
     margin: 10px;
     padding: 0px;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+
+.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2 {
     margin: 20px;
 }
 
-.languagedivider{
+.languagedivider {
     margin: 0px;
     height: 0px;
 }
-.questionNumber{
+
+.questionNumber {
     margin: 0px;
     height: 30px;
     width: 60px;
@@ -25,34 +28,38 @@
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
-.stemContainer{
+
+.stemContainer {
     border-top:1px solid gray;
 }
-.bigTable{
+
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Shared{
+%passage-question-shared {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
-.thePassage{
+
+.thePassage {
     width: 40%;
-    @extend %Passage_Question_Shared;
-}
-.theQuestions{
-    width: 60%;
-    @extend %Passage_Question_Shared;
+    @extend %passage-question-shared;
 }
 
-.answerContainer{
+.theQuestions {
+    width: 60%;
+    @extend %passage-question-shared;
+}
+
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
-%Spanish_English_Before{
+%spanish-english-before {
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -63,17 +70,17 @@
     left: 20px;
 }
 
-.Spanish::before{
+.spanish::before {
     content:"Español";
-    @extend %Spanish_English_Before;
+    @extend %spanish-english-before;
 }
 
-.English::before{
+.english::before {
     content:"English";
-    @extend %Spanish_English_Before;
+    @extend %spanish-english-before;
 }
 
-.Spanish_Answer, .English_Answer{
+.spanish-answer, .english-answer{
     margin: 40px;
     margin-top: 10px;
     padding: 10px;
@@ -81,7 +88,7 @@
     border-radius: 15px;
 }
 
-%Answer_Before{
+%answer-before {
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -92,30 +99,31 @@
     left: 10px;
 }
 
-.Spanish_Answer::before{
+.spanish-answer::before {
     content:"Español";
-    @extend %Answer_Before;
+    @extend %answer-before;
 }
 
-.English_Answer::before{
+.english-answer::before {
     content:"English";
-    @extend %Answer_Before;
+    @extend %answer-before;
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body {
     height: 100%;
     width: 100%;
 }
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
 }
 
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
