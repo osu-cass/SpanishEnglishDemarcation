@@ -1,5 +1,6 @@
 $star:'\f005';
 $square:'\f0c8';
+$hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
   font-family: FontAwesome;
@@ -125,10 +126,12 @@ $square:'\f0c8';
     left: -20px;
     bottom: -60px;
 }
+
 .spanish-answer::before {
     @include lang-symbol(10px,$star);
     @extend %spanish-english-share;
 }
+
 .english-answer::before {
     @include lang-symbol(10px,$square);
     @extend %spanish-english-share;
