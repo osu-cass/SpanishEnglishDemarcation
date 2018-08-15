@@ -51,7 +51,7 @@ $hamburger: '\f0c9';
     padding-top: 4px;
     text-align: center;
     font-size: 20px;
-    background-color:rgb(194, 191, 191);
+    background-color:lightgray;
 }
 
 .hamburger-icon::before {
@@ -60,8 +60,6 @@ $hamburger: '\f0c9';
 }
 
 .stemContainer {
-    // border-top:1px solid gray;
-    // padding-top: 15px;
     margin-top: -7px;
     margin-left: -47px;
     width: 107%;
