@@ -53,7 +53,11 @@ if (($(passageName)).length !== 0) {
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    questions.css("width", '100%');
+    if (table.parent().attr('id')  === 'Item_3635') {
+        questions.css("width", '97%');
+    } else {
+        questions.css('width', '100%');
+    }
 }
 
 if ($(questionName) != null) {
@@ -80,3 +84,16 @@ if (answerContainer !== null) {
 
 $(".stemContainer .spanish").css("width", "45%");
 $(".stemContainer .english").css("width", "45%");
+
+// Container to hold item # and hamburger icon
+var numContainer = $('<div class="num-container"></div>');
+var questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
+}
+
+var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+var questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions
