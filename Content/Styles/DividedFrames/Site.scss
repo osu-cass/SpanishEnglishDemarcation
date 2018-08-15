@@ -89,6 +89,7 @@ $hamburger: '\f0c9';
 }
 
 .theQuestions {
+    margin-left: auto;
     width: 60%;
     @extend %passage-question-shared;
 }
