@@ -9,6 +9,8 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="~/Content/Styles/Shared/Navbar.css" />
+        
     </environment>
 
     <environment exclude="Development">
@@ -22,6 +24,13 @@
 </head>
 
 <body>
+    <div class="topnav">
+        <img src="//www.smarterbalanced.org/wp-content/uploads/2015/11/SmarterBalanced_logo-01.png">
+        <p class="title">Spanish English Demarcation</p>
+        <a href="" class="link">Home</a>
+        <a href="" class="link">About Test Items</a>
+        <a href="" class="link">Browse Test Items</a>
+    </div>
     @RenderBody()
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -68,6 +77,12 @@
                 </div>
                 <div class="col"></div>
             </div>
+        </div>
+        <div class="botnav">
+            <a href="" class="link">Practice and training tests are avaliable here</a>
+            <div class="copy">&copy; The Regents of the University of California</div>
+            <a href="http://www.smarterbalanced.org/" class="link">www.SmarterBalanced.org</a>
+            <a href="" class="link">Website Privacy Policy</a>
         </div>
     </footer>
 </html>
