@@ -82,3 +82,15 @@ if (answerContainer !== null) {
     $(answerContainer).css("width", width);
 }
 
+// Container to hold item # and hamburger icon
+var numContainer = $('<div class="num-container"></div>');
+var questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
+}
+
+var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+var questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions
