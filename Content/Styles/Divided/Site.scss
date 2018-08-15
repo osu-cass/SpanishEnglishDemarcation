@@ -69,7 +69,7 @@ $hamburger: '\f0c9';
     background-color:rgb(194, 191, 191);
 }
 
-.hamburger-icon:before {
+.hamburger-icon::before {
     @include symbol(27px, $hamburger);
     top: -3px;
 }
@@ -103,27 +103,27 @@ $hamburger: '\f0c9';
     @extend %passage-questions-shared;
 }
 
-.thePassage:before {
+.thePassage::before {
     @include symbol(27px, $hamburger);
     right: -30px;
 }
 
-.theQuestions{
+.theQuestions {
     width: 60%;
     margin-left: auto;
     @extend %passage-questions-shared;
 }  
 
-.answerContainer{
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
-.spanish-answer{
+.spanish-answer {
     margin: 10px;
 }
 
-.english-answer{
+.english-answer {
     margin: 5px;
     margin-right: 10px;
     margin-left: 10px;
@@ -149,7 +149,7 @@ html, body{
 input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
-    width:300px;
+    width: 300px;
     border: 1px solid black;
     border-radius: 5px;
 }
