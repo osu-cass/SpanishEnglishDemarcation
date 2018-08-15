@@ -1,111 +1,132 @@
-function Separate_Spanish_English(contents, option) {
-    var Spanish = [];
-    var English = [];
+/* Creates passage with separated Spanish & English text blocks */
+function separateSpanishEnglish(contents, option) {
+    // Initialize Spanish & English text arrays //
+    var spanish = [];
+    var english = [];
     for (let i = 0; i < contents.length; i++) {
-        if (contents[i].lang == 'es-mx') {
-            Spanish.push(contents[i]);
+        if (contents[i].lang === 'es-mx') {
+            spanish.push(contents[i]);
+        } else {
+            english.push(contents[i]);
         }
-        else {
-            English.push(contents[i]);
-        }
-    }
-    var Spanish_Block = $('<div></div>');
-    for (let index = 0; index < Spanish.length; index++) {
-        $(Spanish_Block).append(Spanish[index]);
-    }
-    if (option == undefined) {
-        Spanish_Block.addClass("Spanish");
-    }
-    else {
-        Spanish_Block.addClass("Spanish_Answer");
     }
 
-    var English_Block = $('<div></div>');
-    for (let index = 0; index < English.length; index++) {
-        English_Block.append(English[index]);
+    // Create div element for Spanish text array //
+    var spanishBlock = $('<div></div>');
+    for (let index = 0; index < spanish.length; index++) {
+        $(spanishBlock).append(spanish[index]);
     }
-    if (option == undefined) {
-        English_Block.addClass("English");
+    if (option === undefined) {
+        spanishBlock.addClass("spanish");
+    } else {
+        spanishBlock.addClass("spanish-answer");
     }
-    else {
-        English_Block.addClass("English_Answer");
+
+    // Create div element for English text array //
+    var englishBlock = $('<div></div>');
+    for (let index = 0; index < english.length; index++) {
+        englishBlock.append(english[index]);
+    }
+    if (option === undefined) {
+        englishBlock.addClass("english");
+    } else {
+        englishBlock.addClass("english-answer");
     }
 
-    var New_Passage = $('<div></div>');
-    New_Passage.append(Spanish_Block);
-    New_Passage.append(English_Block);
-    return New_Passage;
+    // Create div element to hold Spanish & English text blocks //
+    var newPassage = $('<div></div>');
+    newPassage.append(spanishBlock);
+    newPassage.append(englishBlock);
 
-}
-
-function Rearrange(name, option) {
-    var Parent = $(name);
-    var Children = Parent.children();
-    var New_Children = Separate_Spanish_English(Children, option);
-    $(Parent).append(New_Children);
+    return newPassage;
 }
 
-function Rearrange_Parent(Parent, option) {
-    var Children = Parent.children();
-    var New_Children = Separate_Spanish_English(Children, option);
-    $(Parent).append(New_Children);
+/* Takes children elements of a parent element & reorganizes the text */
+function rearrange(name, option) {
+    var parent = $(name);
+    var children = parent.children();
+    var newChildren = separateSpanishEnglish(children, option);
+    $(parent).append(newChildren);
 }
 
-Passage_Name = '.thePassage .padding';
-Question_Name = '.stemContainer';
-Choice_Name = '.optionContent';
-if (($(Passage_Name)).length != 0) {
-    Rearrange(Passage_Name);
+/* Vars for class setups */
+passageName = '.thePassage .padding';
+questionName = '.stemContainer';
+choiceName = '.optionContent';
+
+if (($(passageName)).length !== 0) {        // rearrange passage if it exists
+    rearrange(passageName);
+} else {                                    // create table for questions if no passage exists
+    var table = $('.bigTable');
+    table.addClass("center");
+    var questions = $('.theQuestions');
+    console.log(table.parent().attr('id'));
+    if (table.parent().attr('id')  === 'Item_3635') {
+        questions.css("width", '97%');
+    } else {
+        questions.css('width', '100%');
+    }
 }
-else {
-    var Table = $('.bigTable');
-    Table.addClass("center");
-    var Questions = $('.theQuestions');
-    Questions.css("width",'100%');
+
+/* Rearrange questions based on lang */
+if ($(questionName) !== null) {
+    rearrange(questionName);
 }
-if ($(Question_Name) != null) {
-    Rearrange(Question_Name);
-}
-var choices = $(Choice_Name);
-if (choices != null) {
-    choices.addClass("Number");
-    var td = $(".tableItem tbody tr td .languagedivider");
+
+/* Add answer choices in both langs */
+var choices = $(choiceName);
+if (choices !== null) {
+    choices.addClass("number");
+    var td = $(".table-item tbody tr td .languagedivider");
     if (td) {
-        td.prev().addClass("Spanish_Answer");
-        td.next().addClass("English_Answer");
+        td.prev().addClass("spanish-answer");
+        td.next().addClass("english-answer");
     }
 }
-var options=$(".optionContent .languagedivider");
-if(options){
-    options.prev().addClass("Spanish_Answer");
-    options.next().addClass("English_Answer");
+
+/* Add .optionContent options in both langs */
+var options = $(".optionContent .languagedivider");
+if (options) {
+    options.prev().addClass("spanish-answer");
+    options.next().addClass("english-answer");
 }
 
-
-var th = $(".tableItem thead tr th .languagedivider");
+/* Add table items in both langs */
+var th = $(".table-item thead tr th .languagedivider");
 if (th) {
-    var pre=th.prevAll();
-    var next=th.nextAll();
+    var pre = th.prevAll();
+    var next = th.nextAll();
     for (let i = 0; i < pre.length; i++) {
-        var html=($(pre[i]).html());
-        if(html!="&nbsp;"){
-          $(pre[i]).addClass('Spanish_Answer');
+        var html = ($(pre[i]).html());
+        if(html !== "&nbsp;") {
+            $(pre[i]).addClass('spanish-answer');
         }
     }
     for (let i = 0; i < next.length; i++) {
-        var html=($(next[i]).html());
-        if(html!="&nbsp;"){
-            $(next[i]).addClass('English_Answer');
+        var html = ($(next[i]).html());
+        if (html !== "&nbsp;") {
+            $(next[i]).addClass('english-answer');
         }
     }
 }
 
-
-var Answer_Cotainer = $('.answerContainer .tableItem');
-if (Answer_Cotainer != null) {
+/*Change width of answer container element */
+var answerContainer = $('.answerContainer .tableItem');
+if (answerContainer !== null) {
     var goal = $('.answerContainer');
     var width = $(goal).width();
-    $(Answer_Cotainer).css("width",width);
+    $(answerContainer).css("width", width);
 }
 
+/* Container to hold item # and hamburger icon */
+var numContainer = $('<div class="num-container"></div>');
+var questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
+}
 
+var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+var questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions
