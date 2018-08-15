@@ -85,12 +85,12 @@ $hamburger: '\f0c9';
     width: 104%;
 }
 
-.bigTable{
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%passage-questions-shared{
+%passage-questions-shared {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
@@ -109,8 +109,8 @@ $hamburger: '\f0c9';
 }
 
 .theQuestions {
-    width: 60%;
     margin-left: auto;
+    width: 60%;
     @extend %passage-questions-shared;
 }  
 
