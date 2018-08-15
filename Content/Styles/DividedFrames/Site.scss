@@ -1,13 +1,33 @@
-.spanish, .english{
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
+}
+
+.spanish, .english {
     margin: 50px;
     padding: 5px;
     border: 2px solid gray;
     border-radius: 15px;
 }
-.number{
+
+.number {
     margin: 10px;
     padding: 0px;
 }
+
 .spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2 {
     margin: 20px;
 }
@@ -17,18 +37,34 @@
     height: 0px;
 }
 
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
+}
+
 .questionNumber {
-    margin: 0px;
+    margin-top: 4px;
     height: 30px;
     width: 60px;
-    padding-top: 5px;
+    padding-top: 4px;
     text-align: center;
     font-size: 20px;
     background-color:rgb(194, 191, 191);
 }
 
+.hamburger-icon::before {
+    @include symbol(27px, $hamburger);
+    top: -3px;
+}
+
 .stemContainer {
-    border-top:1px solid gray;
+    // border-top:1px solid gray;
+    // padding-top: 15px;
+    margin-top: -7px;
+    margin-left: -47px;
+    width: 107%;
 }
 
 .bigTable {
@@ -44,7 +80,14 @@
 
 .thePassage {
     width: 40%;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 50px;
     @extend %passage-question-shared;
+}
+
+.thePassage::before {
+    @include symbol(27px, $hamburger);
+    right: -30px;
 }
 
 .theQuestions {
