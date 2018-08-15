@@ -78,6 +78,8 @@ $hamburger: '\f0c9';
 
 .thePassage {
     width: 40%;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 50px;
     @extend %passage-question-shared;
 }
 
@@ -87,6 +89,7 @@ $hamburger: '\f0c9';
 }
 
 .theQuestions {
+    margin-left: auto;
     width: 60%;
     @extend %passage-question-shared;
 }
