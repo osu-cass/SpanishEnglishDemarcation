@@ -44,12 +44,18 @@ $hamburger: '\f0c9';
     height: 0px;
 }
 
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
+}
+
 .questionNumber {
-    margin: 2px 0 0 0;
+    margin-top: 4px;
     height: 30px;
     width: 60px;
     padding-top: 4px;
-    padding-left: 7px;
     text-align: center;
     font-size: 20px;
     background-color:lightgray;
@@ -63,8 +69,15 @@ $hamburger: '\f0c9';
     bottom: -40px;
 }
 
+.hamburger-icon::before {
+    @include bar-symbol(27px, $hamburger);
+    top: -3px;
+}
+
 .stemContainer {
-    border-top:1px solid lightgray;
+    margin-top: 20px;
+    margin-left: -47px;
+    width: 107%;
 }
 
 .bigTable {
