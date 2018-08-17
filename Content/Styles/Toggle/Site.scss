@@ -1,25 +1,31 @@
-%Share{
+%share {
     margin: 50px;
     padding: 5px;
 }
-.Spanish, .English{
-    @extend %Share;
+
+.spanish, .english {
+    @extend %share;
 }
-.Number{
-    @extend %Share;
+
+.number {
+    @extend %share;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+
+.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2 {
     margin: 20px;
 }
-.Spanish_Answer, .English_Answer{
+
+.spanish-answer, .english-answer {
     margin: 0px;
     padding: 10px;
 }
-.languagedivider{
+
+.languagedivider {
     margin: 0px;
     height: 0px;
 }
-.questionNumber{
+
+.questionNumber {
     margin: 0px;
     height: 30px;
     width: 60px;
@@ -29,41 +35,43 @@
     background-color:rgb(194, 191, 191);
 }
 
-.stemContainer{
+.stemContainer {
     border-top:1px solid gray;
 }
-.bigTable{
+
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Share{
+%passage-question-share {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
 
-.thePassage{
+.thePassage {
     width: 40%;
-    @extend %Passage_Question_Share;
-}
-.theQuestions{
-    width: 60%;
-    @extend %Passage_Question_Share;
+    @extend %passage-question-share;
 }
 
-.answerContainer{
+.theQuestions {
+    width: 60%;
+    @extend %passage-question-share;
+}
+
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
 }
 
-.Icon{
+.Icon {
     color: rgb(194, 16, 16);
     position: relative;
     right:50px;
@@ -71,16 +79,16 @@
     font-size: 10px;
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body {
     height: 100%;
     width: 100%;
 }
 
-
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
@@ -88,7 +96,7 @@ input[type="text"]{
     border-radius: 5px;
 }
 
-%Button_Share{
+%button-share {
     border-radius: 10%;
     padding: 5px 10px;
     width: 120px;
@@ -100,25 +108,24 @@ input[type="text"]{
     cursor: pointer;
 }
 
-.button_click{
+.button_click {
     background-color: #4CAF50; 
     border: 2px solid gray;
     color: white;
-    @extend %Button_Share;
+    @extend %button-share;
 }
-.button{
+
+.button {
     background-color: rgb(240, 240, 240); 
     border: 2px solid rgb(175, 173, 173);
     color:  rgb(175, 173, 173);
-    @extend %Button_Share;
+    @extend %button-share;
 }
-.buttons{
+
+.buttons {
     display:flex;
     flex-direction: row;
     position: relative;
     left:600px;
     width: 220px;
-}
-table{
-    width: 80%;
 }

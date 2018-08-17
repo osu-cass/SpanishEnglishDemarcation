@@ -1,206 +1,204 @@
-function Separate_Spanish_English(contents, option) {
-    var Spanish = [];
-    var English = [];
-    var arr=Indentify_Title();
-    if(arr!=false){
-        Spanish.push(arr[0]);
-        English.push(arr[1]);
+function separateSpanishEnglish(contents, option) {
+    var spanish = [];
+    var english = [];
+    var arr = identifyTitle();
+    if(arr != false) {
+        spanish.push(arr[0]);
+        english.push(arr[1]);
         $(".thePassage h2").remove();
     }
     for (let i = 0; i < contents.length; i++) {
         if (contents[i].lang == 'es-mx') {
             if(!$(contents[i]).is("h2"))
-                Spanish.push(contents[i]);
-        }
-        else {
-            if(!$(contents[i]).is("h2"))
-                English.push(contents[i]);
+                spanish.push(contents[i]);
+        } else if (!$(contents[i]).is("h2")) {
+            english.push(contents[i]);
         }
     }
-    var Spanish_Block = $('<div></div>');
-    for (let index = 0; index < Spanish.length; index++) {
-        $(Spanish_Block).append(Spanish[index]);
+
+    var spanishBlock = $('<div></div>');
+    for (let index = 0; index < spanish.length; index++) {
+        $(spanishBlock).append(spanish[index]);
     }
-    if (option == undefined) {
-        Spanish_Block.addClass("Spanish");
-    }
-    else {
-        Spanish_Block.addClass("Spanish_Answer");
+    if (option) {
+        spanishBlock.addClass("spanish-answer");
+    } else {
+        spanishBlock.addClass("spanish");
     }
 
-    var English_Block = $('<div></div>');
-    for (let index = 0; index < English.length; index++) {
-        English_Block.append(English[index]);
+    var englishBlock = $('<div></div>');
+    for (let index = 0; index < english.length; index++) {
+        englishBlock.append(english[index]);
     }
-    if (option == undefined) {
-        English_Block.addClass("English");
-    }
-    else {
-        English_Block.addClass("English_Answer");
+    if (option) {
+        englishBlock.addClass("english-answer");
+    } else {
+        englishBlock.addClass("english");
     }
 
-    var New_Passage = $('<div></div>');
-    New_Passage.append(Spanish_Block);
-    New_Passage.append(English_Block);
-    return New_Passage;
+    var newPassage = $('<div></div>');
+    newPassage.append(spanishBlock);
+    newPassage.append(englishBlock);
 
+    return newPassage;
 }
 
-function Rearrange(name, option) {
-    var Parent = $(name);
-    var Children = Parent.children();
-    var New_Children = Separate_Spanish_English(Children, option);
-    $(Parent).append(New_Children);
+function rearrange(name, option) {
+    var parent = $(name);
+    var children = parent.children();
+    var newChildren = separateSpanishEnglish(children, option);
+    $(parent).append(newChildren);
 }
 
-function Add_Button(){
-    var Buttons=$("<div></div>");
-    var Button1=$("<button></button>");
-    var Button2=$("<button></button>");
-    Button1.addClass("button_click");
-    Button2.addClass("button");
-    Button1.html("English");
-    Button2.html("Español");
-    Buttons.append(Button1);
-    Buttons.append(Button2);
-    Buttons.addClass("buttons");
-    var Question_Number=$(".questionNumber");
-    $(Buttons).insertBefore(Question_Number);
-
+function addButton() {
+    var buttons=$("<div></div>");
+    var button1=$("<button></button>");
+    var button2=$("<button></button>");
+    button1.addClass("button_click");
+    button2.addClass("button");
+    button1.html("English");
+    button2.html("Español");
+    buttons.append(button1);
+    buttons.append(button2);
+    buttons.addClass("buttons");
+    var questionNumber=$(".questionNumber");
+    $(buttons).insertBefore(questionNumber);
 }
-function Switch(){
-    var click=$(".button_click");
-    var unclick=$(".button");
+
+function switchLang() {
+    var click = $(".button_click");
+    var unclick = $(".button");
     click.removeClass("button_click");
     click.addClass("button");
     unclick.removeClass("button");
     unclick.addClass("button_click");
-    $(".button").click(Switch);
+    $(".button").click(switchLang);
     $(".button_click").unbind();
-    var html=$(".button_click").html();
-    if(html=="English"){
-        $(".Spanish").hide();
-        $(".Spanish_Answer").hide();
-        $(".English").show();
-        $(".English_Answer").show();
-    }
-    else{
-        $(".Spanish").show();
-        $(".Spanish_Answer").show();
-        $(".English").hide();
-        $(".English_Answer").hide();
+    var html = $(".button_click").html();
+    if (html === "English") {
+        $(".spanish").hide();
+        $(".spanish-answer").hide();
+        $(".english").show();
+        $(".english-answer").show();
+    } else {
+        $(".spanish").show();
+        $(".spanish-answer").show();
+        $(".english").hide();
+        $(".english-answer").hide();
     }
 }
 
-function Indentify_Title(){
-    var divider =$("h2 .languagedivider");
-    if(divider.length==1){
+function identifyTitle() {
+    var divider = $("h2 .languagedivider");
+    if (divider.length === 1) {
         $("<div></div>").insertBefore(divider);
         $(".thePassage h2 p").remove();
-        var html=$(".thePassage h2").html();
-        var Spanish="";
-        var English="";
+        var html = $(".thePassage h2").html();
+        var spanish = '';
+        var english = '';
         let i = 0;
         for (i; i < html.length; i++) {
             if(html[i]!='<'){
-                Spanish=Spanish+html[i];
-            }            
-            else{
+                spanish += html[i];
+            } else {
                 break;
             }
         }
-        while(i<html.length){
-            if(html[i]=='>'){
+
+        while (i < html.length) {
+            if (html[i] === '>') {
                 i++;
-                while(html[i]!='<' && i<html.length){
-                    var L=English.length-1;
-                    if(English[L]==' ' && html[i]==' '){
+                while (html[i] !== '<' && i < html.length) {
+                    var len = english.length - 1;
+                    if (english[len] === ' ' && html[i] === ' ') {
                         ;
-                    }
-                    else{
-                        English=English+html[i];
+                    } else {
+                        english += html[i];
                     }
                     i++;
                 }
-            }
-            else{
+            } else {
                 i++;
             }
         }
-        English=English.trim();
-        Spanish=Spanish.trim();
-        English=$("<h2></h2>").append(English);
-        Spanish=$("<h2></h2>").append(Spanish);
-        var arr=[];
-        arr.push(Spanish);
-        arr.push(English);
+        english = english.trim();
+        spanish = spanish.trim();
+        english = $("<h2></h2>").append(english);
+        spanish = $("<h2></h2>").append(spanish);
+
+        var arr = [];
+        arr.push(spanish);
+        arr.push(english);
+
         return arr;
     }
+
     return false;
 }
 
-Passage_Name = '.thePassage .padding';
-Question_Name = '.stemContainer';
-Choice_Name = '.optionContent';
-if (($(Passage_Name)).length != 0) {
-    Rearrange(Passage_Name);
+passageName = '.thePassage .padding';
+questionName = '.stemContainer';
+choiceName = '.optionContent';
+
+if (($(passageName)).length != 0) {
+    rearrange(passageName);
+} else {
+    var table = $('.bigTable');
+    table.addClass("center");
+    var questions = $('.theQuestions');
+    questions.css("width", '80%');
 }
-else {
-    var Table = $('.bigTable');
-    Table.addClass("center");
-    var Questions = $('.theQuestions');
-    Questions.css("width",'80%');
+
+if ($(questionName) !== null) {
+    rearrange(questionName);
 }
-if ($(Question_Name) != null) {
-    Rearrange(Question_Name);
-}
-var choices = $(Choice_Name);
-if (choices != null) {
+
+var choices = $(choiceName);
+if (choices !== null) {
     choices.addClass("Number");
     var td = $(".tableItem tbody tr td .languagedivider");
     if (td) {
-        td.prev().addClass("Spanish_Answer");
-        td.next().addClass("English_Answer");
+        td.prev().addClass("spanish-answer");
+        td.next().addClass("english-answer");
     }
 }
-var options=$(".optionContent .languagedivider");
-if(options){
-    options.prev().addClass("Spanish_Answer");
-    options.next().addClass("English_Answer");
-}
 
+var options = $(".optionContent .languagedivider");
+if (options) {
+    options.prev().addClass("spanish-answer");
+    options.next().addClass("english-answer");
+}
 
 var th = $(".tableItem thead tr th .languagedivider");
 if (th) {
-    var pre=th.prevAll();
-    var next=th.nextAll();
+    var pre = th.prevAll();
+    var next = th.nextAll();
     for (let i = 0; i < pre.length; i++) {
-        var html=($(pre[i]).html());
-        if(html!="&nbsp;"){
-          $(pre[i]).addClass('Spanish_Answer');
+        var html = $(pre[i]).html();
+        if (html !== "&nbsp;") {
+          $(pre[i]).addClass('spanish-answer');
         }
     }
     for (let i = 0; i < next.length; i++) {
-        var html=($(next[i]).html());
-        if(html!="&nbsp;"){
-            $(next[i]).addClass('English_Answer');
+        var html = $(next[i]).html();
+        if (html !== "&nbsp;") {
+            $(next[i]).addClass('english-answer');
         }
     }
 }
 
-
-var Answer_Cotainer = $('.answerContainer .tableItem');
-if (Answer_Cotainer != null) {
+var answerContainer = $('.answerContainer .tableItem');
+if (answerContainer !== null) {
     var goal = $('.answerContainer');
     var width = $(goal).width();
-    $(Answer_Cotainer).css("width",width);
+    $(answerContainer).css("width", width);
 }
 
-Add_Button();
+addButton();
 
-$(".Spanish").hide();
-$(".Spanish_Answer").hide();
+$(".spanish").hide();
+$(".spanish-answer").hide();
 
 
-$(".button").click(Switch);
+$(".button").click(switchLang);
 $(".languagedivider").remove();
