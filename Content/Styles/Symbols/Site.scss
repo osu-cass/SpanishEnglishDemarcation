@@ -26,6 +26,7 @@ $hamburger: '\f0c9';
 
 .spanish, .english {
     margin: 0 50px;
+    margin-right: 0px;
     padding: 5px;
 }
 
@@ -65,13 +66,14 @@ $hamburger: '\f0c9';
     @include lang-symbol(20px, "\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
     @extend %spanish-english-share;
     position: relative;
-    left:600px;
+    left: 500px;
     bottom: -40px;
 }
 
 .hamburger-icon::before {
     @include bar-symbol(27px, $hamburger);
     top: -3px;
+    right:20px;
 }
 
 .stemContainer {
@@ -94,24 +96,21 @@ $hamburger: '\f0c9';
 .thePassage {
     width: 40%;
     @extend %passage-question-share;
+    border-right: 1px solid #d0d0d0;
 }
 
 .thePassage::before {
     @include bar-symbol(27px, "\f0c9");
-    right: -20px;
+    right: 30px;
 }
 
 .theQuestions {
     width: 60%;
-    padding-left: 32px;
-    border-left: 1px solid #d0d0d0;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
     @extend %passage-question-share;
-}
-
-.theQuestions::before {
-    @include bar-symbol(27px, "\f0c9");
-    top: -3px;
-    right: 2px;
 }
 
 .answerContainer {
@@ -128,16 +127,16 @@ $hamburger: '\f0c9';
     @include lang-symbol(20px,$star);
     @extend %spanish-english-share;
     position: relative;
-    left: -20px;
-    bottom: -40px;
+    left: -30px;
+    bottom: -30px;
 }
 
 .english::before {
     @include lang-symbol(20px, $square);
     @extend %spanish-english-share;
     position: relative;
-    left: -20px;
-    bottom: -60px;
+    left: -30px;
+    bottom: -30px;
 }
 
 .spanish-answer::before {

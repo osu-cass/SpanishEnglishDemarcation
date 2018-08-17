@@ -17,7 +17,8 @@ $hamburger: '\f0c9';
 }
 
 %spanish-english-shared {
-    margin: 0 50px 30px;
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 5px;
 }
 
@@ -29,7 +30,7 @@ $hamburger: '\f0c9';
     @extend %spanish-english-shared;
     border-top: 2px solid black;
     padding-top: 40px;
-    position: relative;
+    margin-top: 10px;
 }
 
 .number {
@@ -60,7 +61,7 @@ $hamburger: '\f0c9';
 }
 
 .questionNumber {
-    margin-top: 4px;
+    margin-top: 5px;
     height: 30px;
     width: 60px;
     padding-top: 4px;
@@ -74,9 +75,9 @@ $hamburger: '\f0c9';
     top: -3px;
 }
 
-.stemContainer {
+.questionAnswerGroup .stemContainer {
     margin-top: 20px;
-    margin-left: -47px;
+    margin-left: 0px;
     width: 107%;
 }
 
@@ -99,7 +100,8 @@ $hamburger: '\f0c9';
 .thePassage {
     width: 40%;
     border-right: 1px solid #d0d0d0;
-    padding-right: 50px;
+    padding-right: 40px;
+    margin-left: 0px;
     @extend %passage-questions-shared;
 }
 
@@ -109,8 +111,11 @@ $hamburger: '\f0c9';
 }
 
 .theQuestions {
-    margin-left: auto;
-    width: 60%;
+    width: 55%;
+    padding-left: 0px;
+    padding-right: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
     @extend %passage-questions-shared;
 }  
 

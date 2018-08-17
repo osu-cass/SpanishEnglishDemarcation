@@ -149,7 +149,7 @@ else {
     var Table = $('.bigTable');
     Table.addClass("center");
     var Questions = $('.theQuestions');
-    Questions.css("width",'100%');
+    Questions.css("width",'80%');
 }
 if ($(Question_Name) != null) {
     Rearrange(Question_Name);

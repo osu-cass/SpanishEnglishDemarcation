@@ -60,12 +60,7 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    console.log(table.parent().attr('id'));
-    if (table.parent().attr('id')  === 'Item_3635') {
-        questions.css("width", '97%');
-    } else {
-        questions.css('width', '100%');
-    }
+    $(questions).css("width","80%");
 }
 
 /* Rearrange questions based on lang */
