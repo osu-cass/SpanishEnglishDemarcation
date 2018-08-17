@@ -108,48 +108,24 @@ function switchLang() {
 }
 
 function identifyTitle() {
-    const divider = $("h2 .languagedivider");
-    if (divider.length === 1) {
-        $("<div></div>").insertBefore(divider);
-        $(".thePassage h2 p").remove();
-        const html = $(".thePassage h2").html();
-        let spanish = '';
-        let english = '';
-        let i = 0;
-        for (i; i < html.length; i++) {
-            if(html[i]!='<'){
-                spanish += html[i];
-            } else {
-                break;
+    const langDivider = $('h2 .languagedivider');
+    if (langDivider.length === 1) {
+        $('.thePassage h2 p').remove();
+        const passage = $('.thePassage h2').contents();
+
+        console.table(passage);
+
+        const spanish = '';
+        const english = '';
+        const titles = [];        
+        for (let content of passage) {
+            console.log(`content.textContent.trim(): ${content.textContent.trim()}`);
+            if (content.textContent.trim()) {
+                titles.push($(`<h2>${content.textContent}</h2>`));
             }
         }
 
-        while (i < html.length) {
-            if (html[i] === '>') {
-                i++;
-                while (html[i] !== '<' && i < html.length) {
-                    const len = english.length - 1;
-                    if (english[len] === ' ' && html[i] === ' ') {
-                        ;
-                    } else {
-                        english += html[i];
-                    }
-                    i++;
-                }
-            } else {
-                i++;
-            }
-        }
-        english = english.trim();
-        spanish = spanish.trim();
-        english = $("<h2></h2>").append(english);
-        spanish = $("<h2></h2>").append(spanish);
-
-        const arr = [];
-        arr.push(spanish);
-        arr.push(english);
-
-        return arr;
+        return titles;
     }
 
     return false;
@@ -192,13 +168,13 @@ const th = $(".tableItem thead tr th .languagedivider");
 if (th) {
     const pre = th.prevAll();
     const next = th.nextAll();
-
     for (let i = 0; i < pre.length; i++) {
         const html = $(pre[i]).html();
         if (html !== "&nbsp;") {
           $(pre[i]).addClass('spanish-answer');
         }
     }
+
     for (let i = 0; i < next.length; i++) {
         const html = $(next[i]).html();
         if (html !== "&nbsp;") {
