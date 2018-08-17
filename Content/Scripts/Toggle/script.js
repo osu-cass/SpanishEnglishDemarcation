@@ -76,7 +76,7 @@ function addButton() {
         // .append(bothButton);
 
     const questionNumber = $('.questionNumber');
-    $(buttons).insertBefore(questionNumber);
+    $(buttons).insertBefore(questionName);
 }
 
 function switchLang() {
@@ -189,6 +189,18 @@ if (answerContainer) {
     const width = $(goal).width();
     $(answerContainer).css("width", width);
 }
+
+const numContainer = $('<div class="num-container"></div>');
+const questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);
+}
+
+const hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);
+
+const questions = $('.theQuestions');
+$(questions).prepend(numContainer);
 
 addButton();
 
