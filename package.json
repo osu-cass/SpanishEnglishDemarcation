@@ -5,6 +5,12 @@
     "watch": "gulp sass:watch",
     "commitmsg": "commitlint -E GIT_PARAMS"
   },
+  "release": {
+    "branch": "dev",
+    "verifyConditions": "@semantic-release/github",
+    "prepare": "",
+    "publish": "@semantic-release/github"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
