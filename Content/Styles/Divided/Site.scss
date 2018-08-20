@@ -23,7 +23,7 @@ p {
 html, body {
     height: 100%;
     width: 100%;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 %spanish-english-shared {
@@ -118,9 +118,7 @@ html, body {
 }
 
 .theQuestions {
-    width: 55%;
-    padding-left: 0px;
-    padding-right: 16px;
+    width: 60%;
     margin-right: 0px;
     margin-left: 0px;
     @extend %passage-questions-shared;
