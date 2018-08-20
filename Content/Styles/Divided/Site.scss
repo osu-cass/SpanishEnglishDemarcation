@@ -93,15 +93,6 @@ html, body {
     width: 100%;
 }
 
-.questionCell .stemContainer {
-    margin-left: -10px;
-    width: 100%;
-}
-
-table {
-    width: 80%;
-}
-
 .bigTable {
     display: flex;
     flex-direction: row;
@@ -116,8 +107,8 @@ table {
 .thePassage {
     width: 40%;
     border-right: 1px solid #d0d0d0;
-    padding-right: 40px;
-    margin-left: 0px;
+    padding-right: 45px;
+    margin-left: 15px;
     @extend %passage-questions-shared;
 }
 
