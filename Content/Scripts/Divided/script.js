@@ -140,3 +140,12 @@ $(questions).prepend(numContainer);              // add container to questions
 if ($('.spanish h2 p[lang="es-mx"]')) {
     $('.spanish h2 p[lang="es-mx"]').remove();
 }
+
+/* Resizes questions column based on if there is a passage column or not */
+const passage = $('.thePassage').html();
+if (!passage) {
+    console.log('No passage');
+    $('.theQuestions')
+        .removeAttr('style')
+        .css('width', '100%');
+}

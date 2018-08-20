@@ -30,6 +30,7 @@ html, body {
     margin-left: 0px;
     margin-right: 0px;
     padding: 5px;
+    padding-left: 0;
 }
 
 .spanish {
@@ -39,8 +40,8 @@ html, body {
 .english {
     @extend %spanish-english-shared;
     border-top: 2px solid black;
-    padding-top: 40px;
-    margin-top: 10px;
+    padding-top: 25px;
+    margin-top: 20px;
 }
 
 .number {
@@ -48,16 +49,12 @@ html, body {
     padding: 0px;
 }
 
-.spanish>p, .english>p, .spanish>ul, .english>ul {
-    margin: 0 10px;
-}
-
 .spanish>h2, .english>h2 {
-    margin: 0 10px -10px 10px;
+    margin: 0 5px;
     text-transform: uppercase;
     font-style: italic;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .languagedivider {
@@ -98,6 +95,16 @@ html, body {
     flex-direction: row;
 }
 
+// .bigTable tbody {
+//     display: flex;
+//     justify-content: center;
+// }
+
+.question-column {
+    display: flex;
+    justify-content: center;
+}
+
 %passage-questions-shared {
     margin: 20px;
     padding: 10px;
@@ -108,13 +115,17 @@ html, body {
     width: 40%;
     border-right: 1px solid #d0d0d0;
     padding-right: 45px;
-    margin-left: 15px;
+    margin-left: 20px;
     @extend %passage-questions-shared;
 }
 
 .thePassage::before {
     @include symbol(27px, $hamburger);
     right: -30px;
+}
+
+.thePassage .english {
+    padding-top: 35px;
 }
 
 .theQuestions {
@@ -125,8 +136,12 @@ html, body {
 }  
 
 .answerContainer {
-    margin: 50px;
+    margin-top: 20px;
     border: 2px solid black;
+}
+
+.answerContainer table {
+    width: 100%;
 }
 
 .spanish-answer {
