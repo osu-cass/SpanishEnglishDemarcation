@@ -45,7 +45,7 @@ $hamburger: '\f0c9';
 }
 
 .questionNumber {
-    margin-top: 4px;
+    margin-top: 5px;
     height: 30px;
     width: 60px;
     padding-top: 4px;
@@ -103,7 +103,7 @@ $hamburger: '\f0c9';
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px 10px 5px 10px;
     position: relative;
     bottom: 20px;
@@ -155,3 +155,7 @@ input[type="text"] {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+table{
+    width: 95%;
+ }

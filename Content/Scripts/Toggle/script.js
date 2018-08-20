@@ -55,12 +55,19 @@ function Rearrange(name, option) {
 
 function Add_Button(){
     var Buttons=$("<div></div>");
+    var Button0=$("<button></button>");
     var Button1=$("<button></button>");
     var Button2=$("<button></button>");
-    Button1.addClass("button_click");
+    Button1.addClass("button");
     Button2.addClass("button");
+    Button0.addClass("button_click");
     Button1.html("English");
     Button2.html("Español");
+    Button0.html("Both");
+    $(Button0).click(Switch);
+    $(Button1).click(Switch);
+    $(Button2).click(Switch);
+    Buttons.append(Button0);
     Buttons.append(Button1);
     Buttons.append(Button2);
     Buttons.addClass("buttons");
@@ -69,22 +76,30 @@ function Add_Button(){
 
 }
 function Switch(){
-    var click=$(".button_click");
-    var unclick=$(".button");
-    click.removeClass("button_click");
-    click.addClass("button");
-    unclick.removeClass("button");
-    unclick.addClass("button_click");
-    $(".button").click(Switch);
-    $(".button_click").unbind();
-    var html=$(".button_click").html();
-    if(html=="English"){
-        $(".Spanish").hide();
-        $(".Spanish_Answer").hide();
+    var old=$(".button_click");
+    if($(old).html()==$(this).html()){
+        return;
+    }
+    $(old).removeClass("button_click");
+    $(old).addClass("button");
+    $(this).addClass("button_click");
+    $(this).removeClass("button");
+    if($(this).html()=="Both")
+    {
         $(".English").show();
         $(".English_Answer").show();
+        $(".Spanish").show();
+        $(".Spanish_Answer").show();
     }
-    else{
+    if($(this).html()=="English")
+    {
+        $(".English").show();
+        $(".English_Answer").show();
+        $(".Spanish").hide();
+        $(".Spanish_Answer").hide();
+    }
+    if($(this).html()=="Español")
+    {
         $(".Spanish").show();
         $(".Spanish_Answer").show();
         $(".English").hide();
@@ -196,11 +211,7 @@ if (Answer_Cotainer != null) {
     $(Answer_Cotainer).css("width",width);
 }
 
-Add_Button();
-
-$(".Spanish").hide();
-$(".Spanish_Answer").hide();
-
-
-$(".button").click(Switch);
 $(".languagedivider").remove();
+
+Add_Button();
+$(".button").click(Switch);

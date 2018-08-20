@@ -91,7 +91,6 @@ input[type="text"]{
 %Button_Share{
     border-radius: 10%;
     padding: 5px 10px;
-    width: 120px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -99,7 +98,9 @@ input[type="text"]{
     font-weight: bold;
     cursor: pointer;
 }
-
+button{
+    width: 100px;
+}
 .button_click{
     background-color: #4CAF50; 
     border: 2px solid gray;
@@ -116,8 +117,8 @@ input[type="text"]{
     display:flex;
     flex-direction: row;
     position: relative;
-    left:600px;
-    width: 220px;
+    left:500px;
+    width: 300px;
 }
 table{
     width: 80%;

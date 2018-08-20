@@ -1,5 +1,5 @@
-$star:"\f005 \00a0 Español";
-$square:"\f0c8 \00a0 English";
+$star:"\f005 \00a0 \00a0 ESPAÑOL";
+$square:"\f0c8 \00a0 \00a0 ENGLISH";
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
@@ -58,7 +58,7 @@ $hamburger: '\f0c9';
 }
 
 .questionNumber {
-    margin-top: 4px;
+    margin-top: 5px;
     height: 30px;
     width: 60px;
     padding-top: 4px;
@@ -91,14 +91,15 @@ $hamburger: '\f0c9';
 
 .thePassage {
     width: 40%;
+    padding-right: 0px;
+    margin-left: 0px;
     border-right: 1px solid #d0d0d0;
-    padding-right: 50px;
     @extend %passage-question-share;
 }
 
 .thePassage::before {
     @include bar-symbol(27px, $hamburger);
-    right: -30px;
+    right: 30px;
 }
 
 .theQuestions {
@@ -122,12 +123,12 @@ $hamburger: '\f0c9';
 }
 
 .spanish::before {
-    @include lang-symbol(20px, $star);
+    @include lang-symbol(15px, $star);
     @extend %spanish-english-before;
 }
 
 .english::before {
-    @include lang-symbol(20px, $square);
+    @include lang-symbol(15px, $square);
     @extend %spanish-english-before;
 }
 
@@ -137,12 +138,12 @@ $hamburger: '\f0c9';
 }
 
 .spanish-answer::before {
-    @include lang-symbol(15px, $star);
+    @include lang-symbol(15px, "\f005");
     @extend %answer-before;
 }
 
 .english-answer::before {
-    @include lang-symbol(15px, $square);
+    @include lang-symbol(15px, "\f0c8");
     @extend %answer-before;
 }
 
@@ -175,3 +176,7 @@ input[type="text"] {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+table{
+    width: 95%;
+ }

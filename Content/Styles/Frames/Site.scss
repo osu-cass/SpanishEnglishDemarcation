@@ -105,8 +105,8 @@ $hamburger: '\f0c9';
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+    padding: 4px 15px;
     position: relative;
     bottom: 20px;
     left: 20px;
@@ -142,12 +142,12 @@ $hamburger: '\f0c9';
 }
 
 .spanish-answer::before {
-    content:"Español";
+    content:"ESPAÑOL";
     @extend %answer-before;
 }
 
 .english-answer::before {
-    content:"English";
+    content:"ENGLISH";
     @extend %answer-before;
 }
 
