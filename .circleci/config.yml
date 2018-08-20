@@ -55,7 +55,7 @@ jobs:
           command: mkdir ~/.kube
       - run:
           name: Decode kubeconfig
-          command: base64 -d $KUBE_CONFIG >> ~/.kube/config
+          command: echo $KUBE_CONFIG | base64 -d > ~/.kube/config
       - run:
           name: Upgrade cluster deployment
           command: >-
