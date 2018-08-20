@@ -16,6 +16,16 @@ $hamburger: '\f0c9';
     color: gray;
 }
 
+p {
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Times New Roman', serif;
+}
+
 %spanish-english-shared {
     margin-left: 0px;
     margin-right: 0px;
@@ -43,9 +53,11 @@ $hamburger: '\f0c9';
 }
 
 .spanish>h2, .english>h2 {
-    margin: 0 10px -10px 0;
+    margin: 0 10px -10px 10px;
     text-transform: uppercase;
     font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .languagedivider {
@@ -64,7 +76,7 @@ $hamburger: '\f0c9';
     margin-top: 5px;
     height: 30px;
     width: 60px;
-    padding-top: 4px;
+    padding-top: 2px;
     text-align: center;
     font-size: 20px;
     background-color:lightgray;
@@ -78,12 +90,16 @@ $hamburger: '\f0c9';
 .questionAnswerGroup .stemContainer {
     margin-top: 20px;
     margin-left: 0px;
-    width: 107%;
+    width: 100%;
 }
 
 .questionCell .stemContainer {
     margin-left: -10px;
-    width: 104%;
+    width: 100%;
+}
+
+table {
+    width: 80%;
 }
 
 .bigTable {
@@ -135,15 +151,6 @@ $hamburger: '\f0c9';
     padding-top: 15px;
     border-top: 2px solid black;
     position: relative;  
-}
-
-p {
-    margin: 0px;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
 }
 
 .center {

@@ -135,3 +135,8 @@ $(numContainer).append(hamburgerIcon);          // creates div for hamburger ico
 
 const questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
+
+
+if ($('.spanish h2 p[lang="es-mx"]')) {
+    $('.spanish h2 p[lang="es-mx"]').remove();
+}
