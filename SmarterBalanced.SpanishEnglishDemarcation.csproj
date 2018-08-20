@@ -41,8 +41,16 @@
     <Exec Command="npm run sass" />
   </Target>
 
-  <Target Name="CompilePublishFiles" AfterTargets="ComputeFilesToPublish">
+  <Target Name="BuildPublishFiles" BeforeTargets="ComputeFilesToPublish">
+    <Message Importance="high" Text="Installing NPM workflow dependencies" />
+    <Exec Command="npm install" />
+    <Message Importance="high" Text="Copying external library modules" />
+    <Exec Command="npm run lib" />
+    <Message Importance="high" Text="Compiling SASS sourcefiles" />
+    <Exec Command="npm run sass" />
+  </Target>
 
+  <Target Name="CompilePublishFiles" AfterTargets="ComputeFilesToPublish">
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
       <DistFiles Include="Content/**/*.*" Exclude="Content/**/*.scss"/>
