@@ -73,9 +73,10 @@ html, body {
     margin-top: 5px;
     height: 30px;
     width: 60px;
-    padding-top: 2px;
+    padding-top: 3px;
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
     background-color:lightgray;
 }
 
@@ -168,4 +169,15 @@ input[type="text"] {
     width: 300px;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.table-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.table-dividing-line {
+    margin: auto;
+    width: 80%;
+    border-top: 2px solid black;
 }

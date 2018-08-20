@@ -136,16 +136,53 @@ $(numContainer).append(hamburgerIcon);          // creates div for hamburger ico
 const questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
-/* Eliminates extra spacing in titles */
+/* Eliminate extra spacing in titles */
 if ($('.spanish h2 p[lang="es-mx"]')) {
     $('.spanish h2 p[lang="es-mx"]').remove();
 }
 
-/* Resizes questions column based on if there is a passage column or not */
+/* Resize questions column based on if there is a passage column or not */
 const passage = $('.thePassage').html();
 if (!passage) {
     console.log('No passage');
     $('.theQuestions')
         .removeAttr('style')
         .css('width', '100%');
+}
+
+/* Change inline font in tables to a larger serif font */
+const answerHeadings = $('table[class="tableItem"] thead tr th p');
+$.each(answerHeadings, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-family', '\'Times New Roman\', Times, serif !important')
+        .css('font-size', '')
+        .css('font-size', '18px');
+});
+
+const answerBodyParagraphs = $('table[class="tableItem"] tbody tr td p');
+$.each(answerBodyParagraphs, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-size', '')
+        .addClass('table-text');
+});
+
+/* Change vertical alignment of input fields to middle */
+const inputBoxContainer = $('table[class="tableItem"] tbody tr td');
+$.each(inputBoxContainer, (idx, val) => {
+    $(val).css('vertical-align', 'middle');
+});
+
+/* Add dividing lines to table cells */
+const englishTableTitle = $('table[class="tableItem"] thead tr th p:nth-child(3)').addClass('table-dividing-line');
+const englishTableText = $('table[class="tableItem"] tbody tr td:first-child p:last-child');
+$.each(englishTableText, (idx, val) => {
+    $(val).addClass('table-dividing-line');
+});
+
+/* Change dividing line for final Item 2803 table cell */
+const englishTableFootnote = $('table[class="tableItem"] tbody tr:last-child td');
+console.log($(englishTableFootnote).attr('colspan'));
+if ($(englishTableFootnote).attr('colspan') > 1) {
+    console.log('Wide row');
+    $(englishTableFootnote).find('p:last-child').removeClass('table-dividing-line');
 }
