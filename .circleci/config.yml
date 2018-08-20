@@ -51,11 +51,21 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set TAG_VERSION and update PATH
+          command: >
+            echo 'export TAG_VERSION=$((git describe --tags $(git rev-list
+            --tags --max-count=1)) | cut -c 2-)' >> $BASH_ENV
+
+            source $BASH_ENV
+      - run:
           name: Create .kube directory
           command: mkdir ~/.kube
       - run:
           name: Decode kubeconfig
           command: echo $KUBE_CONFIG | base64 -d > ~/.kube/config
+      - run:
+          name: Initialize Helm
+          command: helm init --client-only
       - run:
           name: Upgrade cluster deployment
           command: >-
