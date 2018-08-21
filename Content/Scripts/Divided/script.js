@@ -226,6 +226,18 @@ $.each(headingRow, (idx, val) => {
 const englishTableFootnote = $('table[class="tableItem"] tbody tr:last-child td:last-child');
 if ($(englishTableFootnote).attr('colspan') > 1) {
     $(englishTableFootnote).find('p:last-child')
+        .removeClass('table-dividing-lines')
         .css('margin', '0')
-        .css('width', '40%');
+        .css('width', '40%')
+        .css('border-top', '2px solid black');
 }
+
+
+
+/* Align radio buttons with answer content */
+const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
+
+
+
+/* Increase spacing between question content and numContainer line */
+const table = $('table[class="structure layout8vertical"]').css('margin-top', '15px');
