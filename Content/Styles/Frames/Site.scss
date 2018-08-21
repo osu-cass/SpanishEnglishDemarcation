@@ -1,79 +1,128 @@
-.Spanish, .English{
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
+}
+
+.spanish, .english {
     margin: 50px;
     padding: 5px;
     border: 2px solid gray;
     border-radius: 15px;
 }
-.Number{
+
+.number {
     margin: 10px;
     padding: 0px;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+
+.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2,.spanish>div, .english>div, {
     margin: 20px;
 }
 
-.languagedivider{
+.languagedivider {
     margin: 0px;
     height: 0px;
 }
-.questionNumber{
-    margin: 0px;
+
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
+}
+
+.questionNumber {
+    margin-top: 5px;
     height: 30px;
     width: 60px;
-    padding-top: 5px;
+    padding-top: 4px;
+    padding-left: 1px;
     text-align: center;
     font-size: 20px;
-    background-color:rgb(194, 191, 191);
+    background-color:lightgray;
 }
-.stemContainer{
-    border-top:1px solid gray;
+
+.hamburger-icon::before {
+    @include symbol(27px, $hamburger);
+    top: -3px;
 }
-.bigTable{
+
+.stemContainer {
+    margin-top: 20px;
+    margin-left: -47px;
+    width: 107%;
+}
+
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Shared{
+%passage-question-shared {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
-.thePassage{
+
+.thePassage {
     width: 40%;
-    @extend %Passage_Question_Shared;
-}
-.theQuestions{
-    width: 60%;
-    @extend %Passage_Question_Shared;
+    padding-right: 0px;
+    margin-left: 0px;
+    border-right: 1px solid #d0d0d0;
+    @extend %passage-question-shared;
 }
 
-.answerContainer{
+.thePassage::before {
+    @include symbol(27px, $hamburger);
+    right: 30px;
+}
+
+.theQuestions {
+    margin-left: auto;
+    width: 60%;
+    @extend %passage-question-shared;
+}
+
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
-%Spanish_English_Before{
+%spanish-english-before {
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+    padding: 4px 15px;
     position: relative;
     bottom: 20px;
     left: 20px;
 }
 
-.Spanish::before{
-    content:"Español";
-    @extend %Spanish_English_Before;
+.spanish::before {
+    content:"ESPAÑOL";
+    @extend %spanish-english-before;
 }
 
-.English::before{
-    content:"English";
-    @extend %Spanish_English_Before;
+.english::before {
+    content:"ENGLISH";
+    @extend %spanish-english-before;
 }
 
-.Spanish_Answer, .English_Answer{
+.spanish-answer, .english-answer{
     margin: 40px;
     margin-top: 10px;
     padding: 10px;
@@ -81,7 +130,7 @@
     border-radius: 15px;
 }
 
-%Answer_Before{
+%answer-before {
     background-color: rgb(139, 134, 134);
     color: white;
     font-weight: bold;
@@ -92,33 +141,35 @@
     left: 10px;
 }
 
-.Spanish_Answer::before{
-    content:"Español";
-    @extend %Answer_Before;
+.spanish-answer::before {
+    content:"ESPAÑOL";
+    @extend %answer-before;
 }
 
-.English_Answer::before{
-    content:"English";
-    @extend %Answer_Before;
+.english-answer::before {
+    content:"ENGLISH";
+    @extend %answer-before;
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body {
     height: 100%;
     width: 100%;
 }
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
 }
 
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
     border: 1px solid black;
     border-radius: 5px;
 }
+

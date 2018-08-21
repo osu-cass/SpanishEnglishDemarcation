@@ -1,77 +1,119 @@
-$star:"\f005 \00a0 Español";
-$square:"\f0c8 \00a0 English";
+$star:"\f005 \00a0 \00a0 ESPAÑOL";
+$square:"\f0c8 \00a0 \00a0 ENGLISH";
+$hamburger: '\f0c9';
+
 @mixin fontawesome-icon {
   font-family: FontAwesome;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@mixin symbol($size,$content){
+
+@mixin lang-symbol($size, $content) {
     @include fontawesome-icon();
     content: $content;
-    font-weight: 900px;
     font-size: $size;
 }
-.Spanish, .English{
+
+@mixin bar-symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
+}
+
+.spanish, .english {
     margin: 50px;
     padding: 5px;
     border: 2px solid gray;
     border-radius: 15px;
 }
-.Number{
+
+.number {
     margin: 50px;
     padding: 5px;
 }
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
+
+.spanish>p, .english>p, .spanish>ul, .english>ul, .spanish>h2, .english>h2 {
     margin: 20px;
 }
-.Spanish_Answer, .English_Answer{
+
+.spanish-answer, .english-answer {
     margin: 0px;
     padding: 10px;
 }
-.languagedivider{
+
+.languagedivider {
     margin: 0px;
     height: 0px;
 }
-.questionNumber{
-    margin: 0px;
-    height: 30px;
-    width: 60px;
-    padding-top: 5px;
-    text-align: center;
-    font-size: 20px;
-    background-color:rgb(194, 191, 191);
+
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
 }
 
-.stemContainer{
-    border-top:1px solid gray;
+.questionNumber {
+    margin-top: 5px;
+    height: 30px;
+    width: 60px;
+    padding-top: 4px;
+    text-align: center;
+    font-size: 20px;
+    background-color:lightgray;
 }
-.bigTable{
+
+.hamburger-icon::before {
+    @include bar-symbol(27px, $hamburger);
+    top: -3px;
+}
+
+.stemContainer {
+    margin-top: 20px;
+    margin-left: -47px;
+    width: 107%;
+}
+
+.bigTable {
     display: flex;
     flex-direction: row;
 }
 
-%Passage_Question_Share{
+%passage-question-share {
     margin: 20px;
     padding: 10px;
     border: 1px solid white;
 }
 
-.thePassage{
+.thePassage {
     width: 40%;
-    @extend %Passage_Question_Share;
-}
-.theQuestions{
-    width: 60%;
-    @extend %Passage_Question_Share;
+    padding-right: 0px;
+    margin-left: 0px;
+    border-right: 1px solid #d0d0d0;
+    @extend %passage-question-share;
 }
 
-.answerContainer{
+.thePassage::before {
+    @include bar-symbol(27px, $hamburger);
+    right: 30px;
+}
+
+.theQuestions {
+    margin-left: auto;
+    width: 60%;
+    @extend %passage-question-share;
+}
+
+.answerContainer {
     margin: 50px;
     border: 2px solid black;
 }
 
-%Spanish_English_Before{
+%spanish-english-before {
     padding: 5px 10px 5px 10px;
     background-color: rgb(139, 134, 134);
     color: white;
@@ -80,36 +122,37 @@ $square:"\f0c8 \00a0 English";
     left: 20px;
 }
 
-.Spanish::before{
-    @include symbol(20px,$star);
-    @extend %Spanish_English_Before;
+.spanish::before {
+    @include lang-symbol(15px, $star);
+    @extend %spanish-english-before;
 }
 
-.English::before{
-    @include symbol(20px,$square);
-    @extend %Spanish_English_Before;
+.english::before {
+    @include lang-symbol(15px, $square);
+    @extend %spanish-english-before;
 }
 
-%Answer_Before{
+%answer-before {
     color: rgb(139, 134, 134);
     padding: 5px 10px 5px 10px;
 }
 
-.Spanish_Answer::before{
-    @include symbol(15px,'\f005');
-    @extend %Answer_Before;
-}
-.English_Answer::before{
-    @include symbol(15px,'\f0c8');
-    @extend %Answer_Before;
+.spanish-answer::before {
+    @include lang-symbol(15px, "\f005");
+    @extend %answer-before;
 }
 
-.center{
+.english-answer::before {
+    @include lang-symbol(15px, "\f0c8");
+    @extend %answer-before;
+}
+
+.center {
     align-items: center;
     justify-content: center;
 }
 
-.Icon{
+.Icon {
     color: rgb(194, 16, 16);
     position: relative;
     right:50px;
@@ -117,19 +160,23 @@ $square:"\f0c8 \00a0 English";
     font-size: 10px;
 }
 
-p{
+p {
     margin: 0px;
 }
-html,body{
+
+html, body {
     height: 100%;
     width: 100%;
 }
 
-
-input[type="text"]{
+input[type="text"] {
     background-color: rgb(198, 229, 243);
     height: 30px;
     width:300px;
     border: 1px solid black;
     border-radius: 5px;
 }
+
+table{
+    width: 95%;
+ }
