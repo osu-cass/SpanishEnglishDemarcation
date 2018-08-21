@@ -24,7 +24,7 @@ jobs:
           command: npm ci
       - run:
           name: Release new version
-          command: npx semantic-release -b feat/kubernetes
+          command: npx semantic-release
   push_dev_image:
     machine: true
     steps:
