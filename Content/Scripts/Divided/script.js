@@ -173,16 +173,21 @@ $.each(inputBoxContainer, (idx, val) => {
 });
 
 /* Add dividing lines to table cells */
-const englishTableTitle = $('table[class="tableItem"] thead tr th p:nth-child(3)').addClass('table-dividing-line');
-const englishTableText = $('table[class="tableItem"] tbody tr td:first-child p:last-child');
-$.each(englishTableText, (idx, val) => {
+const englishTableTitle = $('table[class="tableItem"] thead tr th p:nth-child(3)').addClass('table-dividing-line');         // title line
+const englishColText = $('table[class="tableItem"] tbody tr td:first-child p:last-child');                                 // 1st column lines
+$.each(englishColText, (idx, val) => {
     $(val).addClass('table-dividing-line');
+});
+const englishRowText = $('table[class="tableItem"] tbody tr:first-child td p:last-child');
+$.each(englishRowText, (idx, val) => {
+    if (!$(val).children().is('input')) {
+        $(val).addClass('table-dividing-line');
+    }
 });
 
 /* Change dividing line for final Item 2803 table cell */
-const englishTableFootnote = $('table[class="tableItem"] tbody tr:last-child td');
+const englishTableFootnote = $('table[class="tableItem"] tbody tr:last-child td:last-child');
 console.log($(englishTableFootnote).attr('colspan'));
 if ($(englishTableFootnote).attr('colspan') > 1) {
-    console.log('Wide row');
     $(englishTableFootnote).find('p:last-child').removeClass('table-dividing-line');
 }
