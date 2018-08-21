@@ -1,107 +1,171 @@
-.Spanish, .English{
-    margin: 50px;
-    padding: 5px;
-    border: 2px solid gray;
-    border-radius: 15px;
-}
-.Number{
-    margin: 10px;
-    padding: 0px;
-}
-.Spanish>p,.English>p,.Spanish>ul,.English>ul,.Spanish>h2,.English>h2{
-    margin: 20px;
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.languagedivider{
-    margin: 0px;
-    height: 0px;
-}
-.questionNumber{
-    margin: 0px;
-    height: 30px;
-    width: 60px;
-    padding-top: 5px;
-    text-align: center;
-    font-size: 20px;
-    background-color:rgb(194, 191, 191);
-}
-.stemContainer{
-    border-top:1px solid gray;
-}
-.bigTable{
-    display: flex;
-    flex-direction: row;
-}
-%Passage_Question_Shared{
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid white;
-}
-.thePassage{
-    width: 40%;
-    @extend %Passage_Question_Shared;
-}
-.theQuestions{
-    width: 60%;
-    @extend %Passage_Question_Shared;
+@mixin symbol($size, $content) {
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
+  float: right;
+  position: relative;
+  color: gray;
 }
 
-.answerContainer{
-    margin: 50px;
-    border: 2px solid black;
+.spanish,
+.english {
+  margin: 50px;
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 15px;
 }
 
-%Spanish_English_Before_Shared{
-    background-color: rgb(139, 134, 134);
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
-    position: relative;
-    bottom: 20px;
-    left: 20px;
-}
-.Spanish::before{
-    content:"Español";
-    @extend %Spanish_English_Before_Shared;
+.number {
+  margin: 10px;
+  padding: 0px;
 }
 
-.English::before{
-    content:"English";
-    @extend %Spanish_English_Before_Shared;
+.spanish > p,
+.english > p,
+.spanish > ul,
+.english > ul,
+.spanish > h2,
+.english > h2 {
+  margin: 20px;
 }
 
-.Spanish_Answer{
-    margin: 10px;
+.languagedivider {
+  margin: 0px;
+  height: 0px;
 }
 
-.English_Answer{
-    margin: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding-top: 15px;
-    border-top: 2px solid black;
-    position: relative;
-    
+.num-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
 }
 
-p{
-    margin: 0px;
-}
-html,body{
-    height: 100%;
-    width: 100%;
-}
-
-.center{
-    align-items: center;
-    justify-content: center;
+.questionNumber {
+  margin-top: 5px;
+  height: 30px;
+  width: 60px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 20px;
+  background-color: lightgray;
 }
 
-input[type="text"]{
-    background-color: rgb(198, 229, 243);
-    height: 30px;
-    width:300px;
-    border: 1px solid black;
-    border-radius: 5px;
+.hamburger-icon::before {
+  @include symbol(27px, $hamburger);
+  top: -3px;
+}
+
+.stemContainer {
+  margin-top: -7px;
+  margin-left: -47px;
+  width: 107%;
+}
+
+.bigTable {
+  display: flex;
+  flex-direction: row;
+}
+
+%passage-question-shared {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.thePassage {
+  width: 40%;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 50px;
+  @extend %passage-question-shared;
+}
+
+.thePassage::before {
+  @include symbol(27px, $hamburger);
+  right: -30px;
+}
+
+.theQuestions {
+  margin-left: auto;
+  width: 60%;
+  @extend %passage-question-shared;
+}
+
+.answerContainer {
+  margin: 50px;
+  border: 2px solid black;
+}
+
+%spanish-english-before-shared {
+  background-color: rgb(139, 134, 134);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+.Spanish::before {
+  content: 'Español';
+  @extend %Spanish_English_Before_Shared;
+}
+
+.spanish::before {
+  content: 'Español';
+  @extend %spanish-english-before-shared;
+}
+
+.english::before {
+  content: 'English';
+  @extend %spanish-english-before-shared;
+}
+
+.spanish-answer {
+  margin: 10px;
+}
+
+.english-answer {
+  margin: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 15px;
+  border-top: 2px solid black;
+  position: relative;
+}
+
+p {
+  margin: 0px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='text'] {
+  background-color: rgb(198, 229, 243);
+  height: 30px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+table {
+  width: 95%;
 }
