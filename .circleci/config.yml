@@ -79,9 +79,18 @@ workflows:
       - update_version:
           requires:
             - build
+          filters:
+            branches:
+              only: dev
       - push_dev_image:
           requires:
             - update_version
+          filters:
+            branches:
+              only: dev
       - deploy:
           requires:
             - push_dev_image
+          filters:
+            branches:
+              only: dev
