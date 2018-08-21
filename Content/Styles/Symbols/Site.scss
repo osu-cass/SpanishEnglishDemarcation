@@ -58,18 +58,17 @@ $hamburger: '\f0c9';
     height: 30px;
     width: 60px;
     padding-top: 4px;
-    padding-left: 7px;
     text-align: center;
     font-size: 20px;
     background-color:lightgray;
 }
 
-.questionNumber::after {
+.hamburger-icon::after {
     @include lang-symbol(20px, "\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
     @extend %spanish-english-share;
     position: relative;
-    left: 500px;
-    bottom: -40px;
+    top:50px;
+    left: 30px;
 }
 
 .hamburger-icon::before {
@@ -142,12 +141,12 @@ $hamburger: '\f0c9';
 }
 
 .spanish-answer::before {
-    @include lang-symbol(10px,$star);
+    @include lang-symbol(15px,$star);
     @extend %spanish-english-share;
 }
 
 .english-answer::before {
-    @include lang-symbol(10px,$square);
+    @include lang-symbol(15px,$square);
     @extend %spanish-english-share;
 }
 
@@ -179,4 +178,8 @@ input[type="text"] {
     width:300px;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.ti-editable{
+    vertical-align: middle !important; 
 }
