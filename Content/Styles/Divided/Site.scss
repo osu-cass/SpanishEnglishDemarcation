@@ -1,160 +1,165 @@
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
-    font-family: FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin symbol($size, $content) {
-    @include fontawesome-icon();
-    content: $content;
-    font-size: $size;
-    float: right;
-    position: relative;
-    color: gray;
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
+  float: right;
+  position: relative;
+  color: gray;
 }
 
 %spanish-english-shared {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 5px;
 }
 
 .spanish {
-    @extend %spanish-english-shared;
+  @extend %spanish-english-shared;
 }
 
 .english {
-    @extend %spanish-english-shared;
-    border-top: 2px solid black;
-    padding-top: 40px;
-    margin-top: 10px;
+  @extend %spanish-english-shared;
+  border-top: 2px solid black;
+  padding-top: 40px;
+  margin-top: 10px;
 }
 
 .number {
-    margin: 10px;
-    padding: 0px;
+  margin: 10px;
+  padding: 0px;
 }
 
-.spanish>p, .english>p, .spanish>ul, .english>ul {
-    margin: 0 10px;
+.spanish > p,
+.english > p,
+.spanish > ul,
+.english > ul {
+  margin: 0 10px;
 }
 
-.spanish>h2, .english>h2 {
-    margin: 0 10px -10px 0;
-    text-transform: uppercase;
-    font-style: italic;
+.spanish > h2,
+.english > h2 {
+  margin: 0 10px -10px 0;
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 .languagedivider {
-    margin: 0px;
-    height: 0px;
+  margin: 0px;
+  height: 0px;
 }
 
 .num-container {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgray;
-    height: 35px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
 }
 
 .questionNumber {
-    margin-top: 5px;
-    height: 30px;
-    width: 60px;
-    padding-top: 4px;
-    text-align: center;
-    font-size: 20px;
-    background-color:lightgray;
+  margin-top: 5px;
+  height: 30px;
+  width: 60px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 20px;
+  background-color: lightgray;
 }
 
 .hamburger-icon::before {
-    @include symbol(27px, $hamburger);
-    top: -3px;
+  @include symbol(27px, $hamburger);
+  top: -3px;
 }
 
 .questionAnswerGroup .stemContainer {
-    margin-top: 20px;
-    margin-left: 0px;
-    width: 107%;
+  margin-top: 20px;
+  margin-left: 0px;
+  width: 107%;
 }
 
 .questionCell .stemContainer {
-    margin-left: -10px;
-    width: 104%;
+  margin-left: -10px;
+  width: 104%;
 }
 
 .bigTable {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 %passage-questions-shared {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid white;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid white;
 }
 
 .thePassage {
-    width: 40%;
-    border-right: 1px solid #d0d0d0;
-    padding-right: 40px;
-    margin-left: 0px;
-    @extend %passage-questions-shared;
+  width: 40%;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 40px;
+  margin-left: 0px;
+  @extend %passage-questions-shared;
 }
 
 .thePassage::before {
-    @include symbol(27px, $hamburger);
-    right: -30px;
+  @include symbol(27px, $hamburger);
+  right: -30px;
 }
 
 .theQuestions {
-    width: 55%;
-    padding-left: 0px;
-    padding-right: 16px;
-    margin-right: 0px;
-    margin-left: 0px;
-    @extend %passage-questions-shared;
-}  
+  width: 55%;
+  padding-left: 0px;
+  padding-right: 16px;
+  margin-right: 0px;
+  margin-left: 0px;
+  @extend %passage-questions-shared;
+}
 
 .answerContainer {
-    margin: 50px;
-    border: 2px solid black;
+  margin: 50px;
+  border: 2px solid black;
 }
 
 .spanish-answer {
-    margin: 10px;
+  margin: 10px;
 }
 
 .english-answer {
-    margin: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding-top: 15px;
-    border-top: 2px solid black;
-    position: relative;  
+  margin: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 15px;
+  border-top: 2px solid black;
+  position: relative;
 }
 
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
-html, body{
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 .center {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
-input[type="text"] {
-    background-color: rgb(198, 229, 243);
-    height: 30px;
-    width: 300px;
-    border: 1px solid black;
-    border-radius: 5px;
+input[type='text'] {
+  background-color: rgb(198, 229, 243);
+  height: 30px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
 }

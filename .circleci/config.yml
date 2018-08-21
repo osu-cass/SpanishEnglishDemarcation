@@ -2,13 +2,95 @@ version: 2
 jobs:
   build:
     docker:
-      - image: microsoft/aspnetcore-build:2
-
-    working_directory: ~/repo
-
+      - image: 'microsoft/aspnetcore-build:2'
     steps:
       - checkout
-
+      - restore_cache:
+          key: 'dependency-cache-{{ checksum "package.json" }}'
       - run:
-          name: build-dotnet-app
+          name: Run MSBuild
           command: dotnet build
+      - save_cache:
+          key: 'dependency-cache-{{ checksum "package.json" }}'
+          paths:
+            - ./node_modules
+  update_version:
+    docker:
+      - image: 'node:latest'
+    steps:
+      - checkout
+      - run:
+          name: Install NPM dependencies
+          command: npm ci
+      - run:
+          name: Release new version
+          command: npx semantic-release -b feat/kubernetes
+  push_dev_image:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Set TAG_VERSION and update PATH
+          command: >
+            echo 'export TAG_VERSION=$((git describe --tags $(git rev-list
+            --tags --max-count=1)) | cut -c 2-)' >> $BASH_ENV
+
+            source $BASH_ENV
+      - run:
+          name: Login to Docker
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Build image
+          command: 'docker build -t osucass/spanish-english-demarcation:$TAG_VERSION .'
+      - run:
+          name: Push image to Docker Hub
+          command: 'docker push osucass/spanish-english-demarcation:$TAG_VERSION'
+  deploy:
+    docker:
+      - image: dtzar/helm-kubectl
+    steps:
+      - checkout
+      - run:
+          name: Set TAG_VERSION and update PATH
+          command: >
+            echo 'export TAG_VERSION=$((git describe --tags $(git rev-list
+            --tags --max-count=1)) | cut -c 2-)' >> $BASH_ENV
+
+            source $BASH_ENV
+      - run:
+          name: Create .kube directory
+          command: mkdir ~/.kube
+      - run:
+          name: Decode kubeconfig
+          command: echo $KUBE_CONFIG | base64 -d > ~/.kube/config
+      - run:
+          name: Initialize Helm
+          command: helm init --client-only
+      - run:
+          name: Upgrade cluster deployment
+          command: >-
+            helm upgrade --namespace=sed --set-string image.tag=$TAG_VERSION dev
+            https://osu-cass.github.io/sed-deploy-config/charts/spanish-english-demarcation-1.0.0.tgz
+workflows:
+  version: 2
+  build_push_deploy:
+    jobs:
+      - build
+      - update_version:
+          requires:
+            - build
+          filters:
+            branches:
+              only: dev
+      - push_dev_image:
+          requires:
+            - update_version
+          filters:
+            branches:
+              only: dev
+      - deploy:
+          requires:
+            - push_dev_image
+          filters:
+            branches:
+              only: dev
