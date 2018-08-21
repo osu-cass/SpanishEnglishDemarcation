@@ -115,10 +115,6 @@ $hamburger: '\f0c9';
   bottom: 20px;
   left: 20px;
 }
-.Spanish::before {
-  content: 'Español';
-  @extend %Spanish_English_Before_Shared;
-}
 
 .spanish::before {
   content: 'Español';
