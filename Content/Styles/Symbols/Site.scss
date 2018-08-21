@@ -9,12 +9,6 @@ $hamburger: '\f0c9';
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin lang-symbol($size, $content) {
-    @include fontawesome-icon();
-    content: $content;
-    font-size: $size;
-}
-
 @mixin bar-symbol($size, $content) {
     @include fontawesome-icon();
     content: $content;
@@ -23,6 +17,13 @@ $hamburger: '\f0c9';
     position: relative;
     color: gray;
 }
+
+@mixin lang-symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+}
+
 
 .spanish, .english {
     margin: 0 50px;

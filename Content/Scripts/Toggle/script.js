@@ -71,7 +71,7 @@ function Add_Button(){
     Buttons.append(Button1);
     Buttons.append(Button2);
     Buttons.addClass("buttons");
-    var Question_Number=$(".questionNumber");
+    var Question_Number=$(".notes");
     $(Buttons).insertBefore(Question_Number);
 
 }
@@ -211,7 +211,18 @@ if (Answer_Cotainer != null) {
     $(Answer_Cotainer).css("width",width);
 }
 
-$(".languagedivider").remove();
 
+var Question_Number=$(".questionNumber");
+var ham=$('<div class="hamburger"></div');
+$(ham).insertAfter(Question_Number);
+// var stem=$(".stemContainer");
+// var w=stem.width();
+// console.log(ham);
+// $(ham).css("left",w-20);
+
+
+
+
+$(".languagedivider").remove();
 Add_Button();
 $(".button").click(Switch);

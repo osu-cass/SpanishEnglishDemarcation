@@ -1,6 +1,36 @@
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin symbol($size, $content) {
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float:right;
+    position: relative;
+    color: gray;
+    cursor: pointer;
+ }
+ 
+.hamburger::after{
+    @include symbol(27px, $hamburger);
+    bottom:35px;
+}
+.thePassage::before{
+    @include symbol(27px, $hamburger);
+    right: 20px;
+}
+
 %Share{
     margin: 50px;
     padding: 5px;
+    margin-top: 0px;
+    padding-top: 40px;
 }
 .Spanish, .English{
     @extend %Share;
@@ -90,7 +120,7 @@ input[type="text"]{
 
 %Button_Share{
     border-radius: 10%;
-    padding: 5px 10px;
+    padding: 2px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -116,10 +146,16 @@ button{
 .buttons{
     display:flex;
     flex-direction: row;
-    position: relative;
-    left:500px;
-    width: 300px;
 }
 table{
     width: 80%;
 }
+
+.zoom{
+    margin-bottom: 0px;
+}
+
+.thePassage .padding{
+    border-right: 1px solid gray;
+}
+

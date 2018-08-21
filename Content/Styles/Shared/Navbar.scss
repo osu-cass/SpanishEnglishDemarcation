@@ -149,6 +149,10 @@ html,body{
     cursor: pointer;
 }
 
-.spanish h2{
+.spanish h2, .english h2{
+    font-style: italic;
+}
+
+.Spanish h2, .English h2{
     font-style: italic;
 }
