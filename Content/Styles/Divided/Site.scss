@@ -177,7 +177,7 @@ input[type="text"] {
 }
 
 .table-dividing-line {
-    margin: auto;
+    margin: auto !important;
     width: 80%;
     border-top: 2px solid black;
 }
