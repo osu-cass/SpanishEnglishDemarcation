@@ -146,16 +146,16 @@ function fixTableFont() {
 
 /* Creates container to hold item # and hamburger icon */
 function wrapNumHamburger() {
-    var numContainer = $('<div class="num-container"></div>');
-    var questionNumber = $('.questionNumber');
+    const numContainer = $('<div class="num-container"></div>');
+    const questionNumber = $('.questionNumber');
     if (questionNumber) {
         $(numContainer).append(questionNumber);     // adds item # to container
     }
 
-    var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+    const hamburgerIcon = $('<div class="hamburger-icon"></div>');
     $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
 
-    var questions = $('.theQuestions');
+    const questions = $('.theQuestions');
     $(questions).prepend(numContainer);              // add container to questions
 }
 
