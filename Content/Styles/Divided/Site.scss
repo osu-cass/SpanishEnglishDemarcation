@@ -1,19 +1,19 @@
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
-  font-family: FontAwesome;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin symbol($size, $content) {
-  @include fontawesome-icon();
-  content: $content;
-  font-size: $size;
-  float: right;
-  position: relative;
-  color: gray;
+    @include fontawesome-icon();
+    content: $content;
+    font-size: $size;
+    float: right;
+    position: relative;
+    color: gray;
 }
 
 p {
@@ -34,7 +34,7 @@ html, body {
 }
 
 .spanish {
-  @extend %spanish-english-shared;
+    @extend %spanish-english-shared;
 }
 
 .english {
@@ -45,8 +45,8 @@ html, body {
 }
 
 .number {
-  margin: 10px;
-  padding: 0px;
+    margin: 10px;
+    padding: 0px;
 }
 
 .spanish>h2, .english>h2 {
@@ -58,15 +58,15 @@ html, body {
 }
 
 .languagedivider {
-  margin: 0px;
-  height: 0px;
+    margin: 0px;
+    height: 0px;
 }
 
 .num-container {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid lightgray;
-  height: 35px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
 }
 
 .questionNumber {
@@ -81,8 +81,8 @@ html, body {
 }
 
 .hamburger-icon::before {
-  @include symbol(27px, $hamburger);
-  top: -3px;
+    @include symbol(27px, $hamburger);
+    top: -3px;
 }
 
 .questionAnswerGroup .stemContainer {
@@ -92,8 +92,8 @@ html, body {
 }
 
 .bigTable {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .question-column {
@@ -102,9 +102,9 @@ html, body {
 }
 
 %passage-questions-shared {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid white;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
 }
 
 .thePassage {
@@ -116,8 +116,8 @@ html, body {
 }
 
 .thePassage::before {
-  @include symbol(27px, $hamburger);
-  right: -30px;
+    @include symbol(27px, $hamburger);
+    right: -30px;
 }
 
 .thePassage .english {
@@ -141,21 +141,21 @@ html, body {
 }
 
 .spanish-answer {
-  margin: 10px;
+    margin: 10px;
 }
 
 .english-answer {
-  margin: 5px;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-top: 15px;
-  border-top: 2px solid black;
-  position: relative;
+    margin: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 15px;
+    border-top: 2px solid black;
+    position: relative;
 }
 
 .center {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 input[type="text"] {
