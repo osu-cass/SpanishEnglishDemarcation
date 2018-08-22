@@ -9,15 +9,17 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" href="~/Content/Styles/Shared/Navbar.css" />
-        
     </environment>
+
     <environment exclude="Development">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous"
             integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
             asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </environment>
+
+    <link rel="stylesheet" href="~/Content/Styles/Shared/Navbar.css" />
+
     @RenderSection("head", required: true)
 </head>
 
@@ -25,9 +27,12 @@
     <div class="topnav">
         <img src="//www.smarterbalanced.org/wp-content/uploads/2015/11/SmarterBalanced_logo-01.png">
         <p class="title">Spanish English Demarcation</p>
-        <a href="" class="link">Home</a>
-        <a href="" class="link">About Test Items</a>
-        <a href="" class="link">Browse Test Items</a>
+        <a href="/" class="link">Home</a>
+    </div>
+    <div class="zoom">
+        <div class="notes"></div>
+        <div class="out"></div>
+        <div class="in"></div>
     </div>
     @RenderBody()
     <environment include="Development">

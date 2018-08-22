@@ -146,7 +146,6 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 /* Resize questions column based on if there is a passage column or not */
 const passage = $('.thePassage').html();
 if (!passage) {
-    console.log('No passage');
     $('.theQuestions')
         .removeAttr('style')
         .css('width', '100%');

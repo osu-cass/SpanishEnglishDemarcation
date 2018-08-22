@@ -1,9 +1,6 @@
 FROM microsoft/aspnetcore-build:2.0 AS build-env
-
-# Copy csproj and restore as distinct layers
-COPY . /app
 WORKDIR /app
-RUN dotnet restore
+COPY . /app
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
