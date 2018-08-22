@@ -144,17 +144,20 @@ function fixTableFont() {
     });
 }
 
-fixTableFont();
+/* Creates container to hold item # and hamburger icon */
+function wrapNumHamburger() {
+    var numContainer = $('<div class="num-container"></div>');
+    var questionNumber = $('.questionNumber');
+    if (questionNumber) {
+        $(numContainer).append(questionNumber);     // adds item # to container
+    }
 
-/* Container to hold item # and hamburger icon */
-var numContainer = $('<div class="num-container"></div>');
-var questionNumber = $('.questionNumber');
-if (questionNumber) {
-    $(numContainer).append(questionNumber);     // adds item # to container
+    var hamburgerIcon = $('<div class="hamburger-icon"></div>');
+    $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+    var questions = $('.theQuestions');
+    $(questions).prepend(numContainer);              // add container to questions
 }
-
-var hamburgerIcon = $('<div class="hamburger-icon"></div>');
-$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
 
 var questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
@@ -169,3 +172,5 @@ var Spanishwidth=$(SpanishFirst).width();
 if (imgwidth>300){
     img.addClass("img");
 }
+fixTableFont();
+wrapNumHamburger();
