@@ -1,0 +1,33 @@
+p {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.spanish>h2, .english>h2 {
+    margin: 0 5px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.questionNumber {
+    margin-top: 5px;
+    height: 30px;
+    width: 60px;
+    padding-top: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color:lightgray;
+}
+
+.table-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
