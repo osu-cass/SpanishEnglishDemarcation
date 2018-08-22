@@ -1,117 +1,144 @@
-/* Creates passage with separated Spanish & English text blocks */
-function separateSpanishEnglish(contents, option) {
+/* Creates passage with separated Spanish & English text blocks
+ * @param {object} contents - children of a jQuery objects
+ * @param {boolean} option - determines if the current content is an answer option
+ */
+function parseLangs(contents, option) {
     // Initialize Spanish & English text arrays //
-    var spanish = [];
-    var english = [];
-    for (let i = 0; i < contents.length; i++) {
-        if (contents[i].lang === 'es-mx') {
-            spanish.push(contents[i]);
-        } else {
-            english.push(contents[i]);
-        }
-    }
+    const spanish = [];
+    const english = [];
 
+    // Sort content into arrays //
+    $.each(contents, (idx, val) => {
+        if (val.lang === 'es-mx') {
+            spanish.push(val);
+        } else {
+            english.push(val);
+        }
+    });
+    
     // Create div element for Spanish text array //
-    var spanishBlock = $('<div></div>');
-    for (let index = 0; index < spanish.length; index++) {
-        $(spanishBlock).append(spanish[index]);
-    }
-    if (option === undefined) {
-        spanishBlock.addClass("spanish");
-    } else {
+    const spanishBlock = $('<div></div>');
+    $.each(spanish, (idx, val) => {
+        spanishBlock.append(val);
+    });
+
+    if (option) {
         spanishBlock.addClass("spanish-answer");
+    } else {
+        spanishBlock.addClass("spanish");
     }
 
     // Create div element for English text array //
-    var englishBlock = $('<div></div>');
-    for (let index = 0; index < english.length; index++) {
-        englishBlock.append(english[index]);
-    }
-    if (option === undefined) {
-        englishBlock.addClass("english");
-    } else {
+    const englishBlock = $('<div></div>');
+    $.each(english, (idx, val) => {
+        englishBlock.append(val);
+    });
+
+    if (option) {
         englishBlock.addClass("english-answer");
+    } else {
+        englishBlock.addClass("english");
     }
 
     // Create div element to hold Spanish & English text blocks //
-    var newPassage = $('<div></div>');
-    newPassage.append(spanishBlock);
-    newPassage.append(englishBlock);
+    const newPassage = $('<div></div>')
+        .append(spanishBlock)
+        .append(englishBlock);
 
     return newPassage;
 }
 
-/* Takes children elements of a parent element & reorganizes the text */
-function rearrange(name, option) {
-    var parent = $(name);
-    var children = parent.children();
-    var newChildren = separateSpanishEnglish(children, option);
-    $(parent).append(newChildren);
+
+
+/* Grabs column elements and sorts them
+ * @param {object} colType - jQuery object of the passage or questions column
+ * @param {boolean} option - determines if the current content is an answer option
+ */
+function sortContent(colType, option) {
+    const col = $(colType);
+    const colElems = col.children();
+    const newColElems = parseLangs(colElems, option);
+    $(col).append(newColElems);
 }
 
-/* Vars for class setups */
-passageName = '.thePassage .padding';
-questionName = '.stemContainer';
-choiceName = '.optionContent';
 
-if (($(passageName)).length !== 0) {        // rearrange passage if it exists
-    rearrange(passageName);
-} else {                                    // create table for questions if no passage exists
-    var table = $('.bigTable');
-    table.addClass("center");
-    var questions = $('.theQuestions');
-    $(questions).css("width","80%");
-}
 
-/* Rearrange questions based on lang */
-if ($(questionName) !== null) {
-    rearrange(questionName);
-}
+/* Sorts column elements based on what kind of content is on the page */
+function sortColumns() {
+    // Sort passage content if passage exists //
+    const passage = $('.thePassage .padding');
+    if ($(passage).length !== 0) {                                  // sort passage content if passage exists
+        sortContent(passage);
+    } else {                                                        // setup bigTable table
+        const table = $('.bigTable').addClass('center');
+    }
 
-/* Add answer choices in both langs */
-var choices = $(choiceName);
-if (choices !== null) {
-    choices.addClass("number");
-    var td = $(".table-item tbody tr td .languagedivider");
-    if (td) {
-        td.prev().addClass("spanish-answer");
-        td.next().addClass("english-answer");
+    // Sort questions content //
+    const questions = $('.stemContainer');
+    if ($(questions)) {
+        sortContent(questions);
     }
 }
 
-/* Add .optionContent options in both langs */
-var options = $(".optionContent .languagedivider");
-if (options) {
-    options.prev().addClass("spanish-answer");
-    options.next().addClass("english-answer");
-}
 
-/* Add table items in both langs */
-var th = $(".tableItem .languagedivider");
-if (th) {
-    var pre = th.prevAll();
-    var next = th.nextAll();
-    for (let i = 0; i < pre.length; i++) {
-        var html = ($(pre[i]).html());
-        if(html !== "&nbsp;") {
-            $(pre[i]).addClass('spanish-answer');
+
+/* Creates questions column and the tables it contains to organize content */
+function createQuestions() {
+    // Reformat questions if passage column doesn't exist //
+    if (!$('.thePassage').html()) {
+        $('.theQuestions').css('width', '100%');               // change theQuestions element width
+    }
+
+    // Add answer choices in both languages if they exist //
+    const choices = $('.optionContent');
+    if (choices) {
+        choices.addClass('number');
+
+        // Apply classes to table headers by language //
+        const headerLangDivider = $('.table-item thead tr th .languagedivider');
+        if (headerLangDivider) {
+            const spanishContent = headerLangDivider.prevAll();
+            $.each(spanishContent, (idx, val) => {
+                if ($(val).text() !== '&nbsp;') {
+                    $(val).addClass('spanish-answer');
+                }
+            });
+
+            const englishContent = headerLangDivider.nextAll();
+            $.each(englishContent, (idx, val) => {
+                if ($(val).text() !== '&nbsp;') {
+                    $(val).addClass('english-answer');
+                }
+            });
+        }
+
+        // Apply classes to table cells by language //
+        const cellLangDivider = $('.table-item tbody tr td .languagedivider');
+        if (cellLangDivider) {
+            cellLangDivider.prev().addClass('spanish-answer');     // add spanish-answer class to all Spanish answer cell contents
+            cellLangDivider.next().addClass('english-answer');     // add english-answer class to all English answer cell contents
         }
     }
-    for (let i = 0; i < next.length; i++) {
-        var html = ($(next[i]).html());
-        if (html !== "&nbsp;") {
-            $(next[i]).addClass('english-answer');
-        }
+
+    // Add .optionContent options in both languages //
+    const genLangDivider = $('.optionContent .languagedivider');
+    if (genLangDivider) {
+        genLangDivider.prev().addClass('spanish-answer');        // add spanish-answer class to all Spanish answer content
+        genLangDivider.next().addClass('english-answer');        // add english-answer class to all English answer content
     }
 }
 
-/*Change width of answer container element */
-var answerContainer = $('.answerContainer .tableItem');
-if (answerContainer !== null) {
-    var goal = $('.answerContainer');
-    var width = $(goal).width();
-    $(answerContainer).css("width", width);
-}
+
+
+// /*Change width of answer container element */
+// var answerContainer = $('.answerContainer .tableItem');
+// if (answerContainer !== null) {
+//     var goal = $('.answerContainer');
+//     var width = $(goal).width();
+//     $(answerContainer).css("width", width);
+// }
+
+
 
 /* Changes inline font in tables to a larger serif font */
 function fixTableFont() {
@@ -144,6 +171,8 @@ function fixTableFont() {
     });
 }
 
+
+
 /* Creates container to hold item # and hamburger icon */
 function wrapNumHamburger() {
     const numContainer = $('<div class="num-container"></div>');
@@ -172,5 +201,14 @@ var Spanishwidth=$(SpanishFirst).width();
 if (imgwidth>300){
     img.addClass("img");
 }
+
+
+sortColumns();
+createQuestions();
 fixTableFont();
 wrapNumHamburger();
+
+/* Eliminate extra spacing in titles */
+if ($('.spanish h2 p[lang="es-mx"]')) {
+    $('.spanish h2 p[lang="es-mx"]').remove();
+}
