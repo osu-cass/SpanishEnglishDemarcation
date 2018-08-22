@@ -16,12 +16,21 @@ $hamburger: '\f0c9';
   color: gray;
 }
 
-.spanish,
-.english {
-  margin: 50px;
-  padding: 5px;
-  border: 2px solid gray;
-  border-radius: 15px;
+p {
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.spanish, .english {
+    margin: 50px;
+    padding: 5px;
+    border: 2px solid gray;
+    border-radius: 15px;
 }
 
 .number {
@@ -29,13 +38,16 @@ $hamburger: '\f0c9';
   padding: 0px;
 }
 
-.spanish > p,
-.english > p,
-.spanish > ul,
-.english > ul,
-.spanish > h2,
-.english > h2 {
-  margin: 20px;
+.spanish>p, .english>p, .spanish>ul, .english>ul {
+    margin-left: 20px;
+}
+
+.spanish>h2, .english>h2 {
+    margin: 0 10px -10px 10px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .languagedivider {
@@ -66,9 +78,9 @@ $hamburger: '\f0c9';
 }
 
 .stemContainer {
-  margin-top: -7px;
-  margin-left: -47px;
-  width: 107%;
+    margin-top: -7px;
+    margin-left: -47px;
+    width: 100%;
 }
 
 .bigTable {
@@ -83,10 +95,11 @@ $hamburger: '\f0c9';
 }
 
 .thePassage {
-  width: 40%;
-  border-right: 1px solid #d0d0d0;
-  padding-right: 50px;
-  @extend %passage-question-shared;
+    width: 40%;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 45px;
+    margin-left: 15px;
+    @extend %passage-question-shared;
 }
 
 .thePassage::before {
@@ -106,14 +119,14 @@ $hamburger: '\f0c9';
 }
 
 %spanish-english-before-shared {
-  background-color: rgb(139, 134, 134);
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 5px 10px 5px 10px;
-  position: relative;
-  bottom: 20px;
-  left: 20px;
+    background-color: rgb(139, 134, 134);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    bottom: 20px;
+    left: 20px;
 }
 
 .spanish::before {
@@ -137,16 +150,6 @@ $hamburger: '\f0c9';
   padding-top: 15px;
   border-top: 2px solid black;
   position: relative;
-}
-
-p {
-  margin: 0px;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
 }
 
 .center {
