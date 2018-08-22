@@ -58,6 +58,7 @@ html, body {
 
 %columns {
     margin: 20px;
+    margin-top: 0;
     padding: 10px;
     border: 1px solid white;
 }
@@ -67,7 +68,6 @@ html, body {
     width: 40%;
     border-right: 1px solid #d0d0d0;
     padding-right: 45px;
-    margin-left: 20px;
 }
 
 .thePassage::before {
