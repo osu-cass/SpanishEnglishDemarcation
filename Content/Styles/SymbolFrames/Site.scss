@@ -24,12 +24,29 @@ $hamburger: '\f0c9';
   color: gray;
 }
 
-.spanish,
-.english {
+p {
+  margin: 0px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.spanish, .english {
   margin: 50px;
   padding: 5px;
   border: 2px solid gray;
   border-radius: 15px;
+}
+
+.spanish>h2, .english>h2 {
+  margin: 0 5px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .number {
@@ -37,14 +54,14 @@ $hamburger: '\f0c9';
   padding: 5px;
 }
 
-.spanish > p,
-.english > p,
-.spanish > ul,
-.english > ul,
-.spanish > h2,
-.english > h2 {
-  margin: 20px;
-}
+// .spanish > p,
+// .english > p,
+// .spanish > ul,
+// .english > ul,
+// .spanish > h2,
+// .english > h2 {
+//   margin: 20px;
+// }
 
 .spanish-answer,
 .english-answer {
@@ -165,16 +182,6 @@ $hamburger: '\f0c9';
   right: 50px;
   font-weight: 900;
   font-size: 10px;
-}
-
-p {
-  margin: 0px;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
 }
 
 input[type='text'] {
