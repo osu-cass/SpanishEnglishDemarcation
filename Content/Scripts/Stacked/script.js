@@ -48,6 +48,12 @@ function parseLangs(contents, option) {
     return newPassage;
 }
 
+
+
+/* Grabs column elements and sorts them
+ * @param {object} colType - jQuery object of the passage or questions column
+ * @param {boolean} option - determines if the current content is an answer option
+ */
 function sortContent(colType, option) {
     const col = $(colType);
     const colElems = col.children();
@@ -55,6 +61,9 @@ function sortContent(colType, option) {
     $(col).append(newColElems);
 }
 
+
+
+/* Sorts column elements based on what kind of content is on the page */
 function sortColumns() {
     // Sort passage content if passage exists //
     const passage = $('.thePassage .padding');
@@ -71,6 +80,9 @@ function sortColumns() {
     }
 }
 
+
+
+/* Creates questions column and the tables it contains to organize content */
 function createQuestions() {
     // Reformat questions if passage column doesn't exist //
     if (!$('.thePassage').html()) {
@@ -116,6 +128,9 @@ function createQuestions() {
     }
 }
 
+
+
+/* Creates container to hold item # and hamburger icon */
 function wrapNumHamburger() {
     /* Container to hold item # and hamburger icon */
     const numContainer = $('<div class="num-container"></div>');
