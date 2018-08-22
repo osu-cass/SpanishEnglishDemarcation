@@ -1,5 +1,5 @@
-$star:'\f005';
-$square:'\f0c8';
+$star: '\f005';
+$square: '\f0c8';
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
@@ -10,47 +10,48 @@ $hamburger: '\f0c9';
 }
 
 @mixin bar-symbol($size, $content) {
-    @include fontawesome-icon();
-    content: $content;
-    font-size: $size;
-    float: right;
-    position: relative;
-    color: gray;
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
+  float: right;
+  position: relative;
+  color: gray;
 }
 
 @mixin lang-symbol($size, $content) {
-    @include fontawesome-icon();
-    content: $content;
-    font-size: $size;
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
 }
 
-
-.spanish, .english {
-    margin: 0 50px;
-    margin-right: 0px;
-    padding: 5px;
+.spanish,
+.english {
+  margin: 0 50px;
+  margin-right: 0px;
+  padding: 5px;
 }
 
 .number {
-    margin: 50px;
-    padding: 5px;
+  margin: 50px;
+  padding: 5px;
 }
 
-.spanish-answer, .english-answer {
-    margin: 0px;
-    padding: 10px;
+.spanish-answer,
+.english-answer {
+  margin: 0px;
+  padding: 10px;
 }
 
 .languagedivider {
-    margin: 0px;
-    height: 0px;
+  margin: 0px;
+  height: 0px;
 }
 
 .num-container {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgray;
-    height: 35px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
 }
 
 .questionNumber {
@@ -72,72 +73,72 @@ $hamburger: '\f0c9';
 }
 
 .hamburger-icon::before {
-    @include bar-symbol(27px, $hamburger);
-    top: -3px;
-    right:20px;
+  @include bar-symbol(27px, $hamburger);
+  top: -3px;
+  right: 20px;
 }
 
 .stemContainer {
-    margin-top: 20px;
-    margin-left: -47px;
-    width: 107%;
+  margin-top: 20px;
+  margin-left: -47px;
+  width: 107%;
 }
 
 .bigTable {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 %passage-question-share {
-    margin: 20px;
-    padding: 0px;
-    border: 1px solid white;
+  margin: 20px;
+  padding: 0px;
+  border: 1px solid white;
 }
 
 .thePassage {
-    width: 40%;
-    @extend %passage-question-share;
-    border-right: 1px solid #d0d0d0;
+  width: 40%;
+  @extend %passage-question-share;
+  border-right: 1px solid #d0d0d0;
 }
 
 .thePassage::before {
-    @include bar-symbol(27px, "\f0c9");
-    right: 30px;
+  @include bar-symbol(27px, '\f0c9');
+  right: 30px;
 }
 
 .theQuestions {
-    width: 60%;
-    padding-left: 16px;
-    padding-right: 16px;
-    margin-right: 0px;
-    margin-left: 0px;
-    @extend %passage-question-share;
+  width: 60%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-right: 0px;
+  margin-left: 0px;
+  @extend %passage-question-share;
 }
 
 .answerContainer {
-    margin: 50px;
-    border: 2px solid black;
+  margin: 50px;
+  border: 2px solid black;
 }
 
 %spanish-english-share {
-    color: rgb(194, 16, 16);
-    padding: 5px 10px 5px 10px;
+  color: rgb(194, 16, 16);
+  padding: 5px 10px 5px 10px;
 }
 
 .spanish::before {
-    @include lang-symbol(20px,$star);
-    @extend %spanish-english-share;
-    position: relative;
-    left: -30px;
-    bottom: -30px;
+  @include lang-symbol(20px, $star);
+  @extend %spanish-english-share;
+  position: relative;
+  left: -30px;
+  bottom: -30px;
 }
 
 .english::before {
-    @include lang-symbol(20px, $square);
-    @extend %spanish-english-share;
-    position: relative;
-    left: -30px;
-    bottom: -30px;
+  @include lang-symbol(20px, $square);
+  @extend %spanish-english-share;
+  position: relative;
+  left: -30px;
+  bottom: -30px;
 }
 
 .spanish-answer::before {
@@ -151,25 +152,26 @@ $hamburger: '\f0c9';
 }
 
 .center {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .Icon {
-    color: rgb(194, 16, 16);
-    position: relative;
-    right:50px;
-    font-weight: 900;
-    font-size: 10px;
+  color: rgb(194, 16, 16);
+  position: relative;
+  right: 50px;
+  font-weight: 900;
+  font-size: 10px;
 }
 
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 input[type="text"] {
