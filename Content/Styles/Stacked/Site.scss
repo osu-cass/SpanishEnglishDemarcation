@@ -146,12 +146,77 @@ html, body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+%spanish-english {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 5px;
+    padding-left: 0;
+}
+
+.spanish {
+    @extend %spanish-english;
+}
+
+.english {
+    @extend %spanish-english;
+    border-top: 2px solid black;
+    padding-top: 25px;
+    margin-top: 20px;
+}
+
 .spanish>h2, .english>h2 {
     margin: 0 5px;
     text-transform: uppercase;
     font-style: italic;
     font-weight: bold;
     font-size: 24px;
+}
+
+%columns {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.thePassage {
+    @extend %columns;
+    width: 40%;
+    border-right: 1px solid #d0d0d0;
+    padding-right: 45px;
+    margin-left: 20px;
+}
+
+.thePassage::before {
+    @include symbol(27px, $hamburger);
+    right: -30px;
+}
+
+.thePassage .english {
+    padding-top: 35px;
+}
+
+.theQuestions {
+    @extend %columns;
+    width: 60%;
+    margin-right: 0px;
+    margin-left: 0px;
+}  
+
+.number {
+    margin: 10px;
+    padding: 0px;
+}
+
+.num-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 35px;
 }
 
 .questionNumber {
@@ -165,7 +230,58 @@ html, body {
     background-color:lightgray;
 }
 
+.hamburger-icon::before {
+    @include symbol(27px, $hamburger);
+    top: -3px;
+}
+
+.spanish-answer {
+    margin: 10px;
+}
+
+.english-answer {
+    margin: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 15px;
+    border-top: 2px solid black;
+    position: relative;
+}
+
+.answerContainer {
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+.answerContainer table {
+    width: 100.2% !important;
+}
+
+.languagedivider {
+    margin: 0px;
+    height: 0px;
+}
+
+.questionAnswerGroup .stemContainer {
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.bigTable {
+    display: flex;
+    flex-direction: row;
+}
+
 .table-text {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
+}
+
+input[type="text"] {
+    background-color: rgb(198, 229, 243);
+    height: 30px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
