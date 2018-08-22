@@ -36,11 +36,8 @@ $hamburger: '\f0c9';
 .English {
   @extend %Share;
 }
-.Spanish,
-.English {
-  @extend %Share;
-}
 .Number {
+  padding-top: 0px;
   @extend %Share;
 }
 .Spanish > p,
@@ -55,6 +52,7 @@ $hamburger: '\f0c9';
 .English_Answer {
   margin: 0px;
   padding: 10px;
+  padding-top: 0px;
 }
 .languagedivider {
   margin: 0px;
@@ -167,4 +165,18 @@ table {
 
 .thePassage .padding {
   border-right: 1px solid gray;
+}
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+  bottom: 7px;
+}
+
+.optionsContainer{
+  margin-top: 30px;
 }

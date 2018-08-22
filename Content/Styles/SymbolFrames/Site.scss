@@ -34,6 +34,7 @@ $hamburger: '\f0c9';
 
 .number {
   margin: 50px;
+  margin-top: 0px;
   padding: 5px;
 }
 
@@ -50,6 +51,10 @@ $hamburger: '\f0c9';
 .english-answer {
   margin: 0px;
   padding: 10px;
+}
+
+.spanish-answer{
+  padding-top: 0px;
 }
 
 .languagedivider {
@@ -191,4 +196,18 @@ table {
 
 .ti-editable{
   vertical-align: middle !important; 
+}
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+  bottom: 7px;
+}
+
+.optionsContainer{
+  margin-top: 30px;
 }

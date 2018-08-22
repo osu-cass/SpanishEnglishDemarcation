@@ -129,7 +129,7 @@ $hamburger: '\f0c9';
 }
 
 .spanish-answer {
-  margin: 10px;
+  margin: 0px;
 }
 
 .english-answer {
@@ -162,4 +162,19 @@ input[type='text'] {
   width: 300px;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+  bottom: 15px;
+}
+
+.optionsContainer{
+  margin-top: 30px;
 }
