@@ -87,7 +87,8 @@ if (options) {
 }
 
 /* Add table items in both langs */
-var th = $(".table-item thead tr th .languagedivider");
+var th = $(".tableItem .languagedivider");
+console.log(th);
 if (th) {
     var pre = th.prevAll();
     var next = th.nextAll();
