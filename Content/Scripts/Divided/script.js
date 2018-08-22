@@ -104,7 +104,7 @@ if (th) {
 
     $.each(pre, (idx, val) => {
         const preHtml = $(val).html();
-        if (html !== '&nbsp;') {
+        if (preHtml !== '&nbsp;') {
             $(val).addClass('spanish-answer');
         }
     });
