@@ -106,13 +106,13 @@ html, body {
 }
 
 .spanish-answer::before {
-    @include lang-symbol(15px,$star);
-    @extend %spanish-english-share;
+  @include lang-symbol(15px,$star);
+  @extend %spanish-english-share;
 }
 
 .english-answer::before {
-    @include lang-symbol(15px,$square);
-    @extend %spanish-english-share;
+  @include lang-symbol(15px,$square);
+  @extend %spanish-english-share;
 }
 
 .number {
