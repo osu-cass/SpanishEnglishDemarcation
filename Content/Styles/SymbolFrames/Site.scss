@@ -1,5 +1,7 @@
-$star: '\f005 \00a0 \00a0 ESPAÑOL';
-$square: '\f0c8 \00a0 \00a0 ENGLISH';
+// $star: '\f005 \00a0 \00a0 ESPAÑOL';
+// $square: '\f0c8 \00a0 \00a0 ENGLISH';
+$star: '\f005';
+$square: '\f0c8';
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
@@ -137,14 +139,44 @@ html, body {
   left: 20px;
 }
 
-.spanish::before {
-  @include lang-symbol(15px, $star);
-  @extend %spanish-english-before;
+// .spanish::before {
+//   @include lang-symbol(15px, $star);
+//   @extend %spanish-english-before;
+// }
+
+// .english::before {
+//   @include lang-symbol(15px, $square);
+//   @extend %spanish-english-before;
+// }
+
+.passage-frames {
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  width: 122px;
+  padding: 1px 10px;
+  border-radius: 2px;
+  background-color: rgb(139, 134, 134);
+  color: white;
 }
 
-.english::before {
+.spanish-title::before {
+  @include lang-symbol(15px, $star);
+  font-family: FontAwesome !important;
+  color: white;
+}
+
+.english-title::before {
   @include lang-symbol(15px, $square);
-  @extend %spanish-english-before;
+  font-family: FontAwesome !important;
+  color: white;
+}
+
+.spanish-title, .english-title {
+  font-family: Verdana, sans-serif !important;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 %answer-before {

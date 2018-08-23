@@ -154,3 +154,31 @@ $(questions).prepend(numContainer);              // add container to questions
 //     $(EnglishDiv[0]).css("margin-right",30);
 //     $(SpanishDiv[0]).css("margin-right",30);
 // }
+
+
+
+/* Create container to hold Spanish symbols & frame titles */
+
+const spanishFrameTitle = $('<p></p>')
+    .addClass('spanish-title')
+    .text('  ESPAÑOL');
+
+const spanishTitleContainer = $('<div></div>')
+    .addClass('passage-frames')
+    .append(spanishFrameTitle);
+
+const spanishPassage = $('.thePassage .spanish').prepend(spanishTitleContainer);
+
+
+
+/* Create container to hold English symbols & frame titles */
+
+const englishFrameTitle = $('<p></p>')
+    .addClass('english-title')
+    .text('  ENGLISH');
+
+const englishTitleContainer = $('<div></div>')
+    .addClass('passage-frames')
+    .append(englishFrameTitle);
+
+const englishPassage = $('.thePassage .english').prepend(englishTitleContainer);
