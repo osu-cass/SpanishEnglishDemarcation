@@ -68,7 +68,6 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     rearrange(passageName);
 } else {                                    // create table for questions if no passage exists
     const table = $('.bigTable').addClass('center');
-    const questions = $('.theQuestions').css('width', '80%');
 }
 
 /* Rearrange questions based on lang */
@@ -197,7 +196,6 @@ $.each(inputBoxContainer, (idx, val) => {
 /* Fix spacing for wide table titles */
 const wideTableTitles = $('table[class="tableItem"] thead tr th[colspan="3"] p');
 $.each(wideTableTitles, (idx, val) => {
-    console.log($(val).html());
     if ($(val).html() === '&nbsp;') {
         $(val).remove();
     }
