@@ -178,3 +178,10 @@ if (imgwidth>300){
 //     .append(englishFrameTitle);
 
 // const englishPassage = $('.thePassage .english').prepend(englishTitleContainer);
+
+/* Align radio buttons with answer content */
+$('.optionContainer').css('display', 'flex').css('align-items', 'center');
+
+
+/* Increase spacing between question content and numContainer line */
+$('table[class="structure layout8vertical"]').css('margin-top', '15px');
