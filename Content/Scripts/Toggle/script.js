@@ -281,10 +281,14 @@ if (!passage) {
 
 
 /* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
+const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'baseline');
 const answerContent = $(answers).find('p');
 $.each(answerContent, (idx, val) => {
     $(answerContent).css('margin-top', '-29px');
+    const answerImgs = $(val).children();
+    if ($(answerImgs).is('img')) {
+        $(answerImgs).css('margin-top', '-5px');
+    }
 });
 
 
