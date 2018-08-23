@@ -88,7 +88,6 @@ if (options) {
 
 /* Add table items in both langs */
 var th = $(".tableItem .languagedivider");
-console.log(th);
 if (th) {
     var pre = th.prevAll();
     var next = th.nextAll();
@@ -126,3 +125,14 @@ $(numContainer).append(hamburgerIcon);          // creates div for hamburger ico
 
 var questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
+
+var img=$('.thePassage img');
+var imgwidth=img[0].width;
+var EnglishDiv=$(".english");
+var SpanishDiv=$(".spanish");
+var SpanishFirst=$(SpanishDiv[0]);
+var EnglishFirst=$(EnglishDiv[0]);
+var Spanishwidth=$(SpanishFirst).width();
+if (imgwidth>300){
+    img.addClass("img");
+}

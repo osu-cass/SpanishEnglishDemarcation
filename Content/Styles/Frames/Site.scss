@@ -16,11 +16,11 @@ $hamburger: '\f0c9';
   color: gray;
 }
 
-.spanish,
-.english {
+.spanish, .english {
   margin: 50px;
   padding: 5px;
-  margin-left: 40px;
+  border: 2px solid gray;
+  border-radius: 15px;
 }
 
 .number {
