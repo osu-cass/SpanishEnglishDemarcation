@@ -50,6 +50,8 @@ function parseLangs(contents, option) {
 
 
 
+
+
 /* Grabs column elements and sorts them
  * @param {object} colType - jQuery object of the passage or questions column
  * @param {boolean} option - determines if the current content is an answer option
@@ -63,94 +65,98 @@ function sortContent(colType, option) {
 
 
 
-/* Sorts column elements based on what kind of content is on the page */
-function sortColumns() {
-    // Sort passage content if passage exists //
-    const passage = $('.thePassage .padding');
-    if ($(passage).length !== 0) {                                  // sort passage content if passage exists
-        sortContent(passage);
-    } else {                                                        // setup bigTable table
-        const table = $('.bigTable').addClass('center');
-    }
 
-    // Sort questions content //
-    const questions = $('.stemContainer');
-    if ($(questions)) {
-        sortContent(questions);
-    }
+
+/* Sorts column elements based on what kind of content is on the page */
+
+// Sort passage content if passage exists //
+const passage = $('.thePassage .padding');
+if ($(passage).length !== 0) {                                  // sort passage content if passage exists
+    sortContent(passage);
+} else {                                                        // setup bigTable table
+    const table = $('.bigTable').addClass('center');
 }
+
+// Sort questions content //
+const stemContainer = $('.stemContainer');
+if ($(stemContainer)) {
+    sortContent(stemContainer);
+}
+
+
 
 
 
 /* Creates questions column and the tables it contains to organize content */
-function createQuestions() {
-    // Reformat questions if passage column doesn't exist //
-    if (!$('.thePassage').html()) {
-        $('.theQuestions').css('width', '100%');               // change theQuestions element width
+
+// Reformat questions if passage column doesn't exist //
+if (!$('.thePassage').html()) {
+    $('.theQuestions').css('width', '100%');               // change theQuestions element width
+}
+
+// Add answer choices in both languages if they exist //
+const choices = $('.optionContent');
+if (choices) {
+    choices.addClass('number');
+
+    // Apply classes to table headers by language //
+    const headerLangDivider = $('.table-item thead tr th .languagedivider');
+    if (headerLangDivider) {
+        const spanishContent = headerLangDivider.prevAll();
+        $.each(spanishContent, (idx, val) => {
+            if ($(val).text() !== '&nbsp;') {
+                $(val).addClass('spanish-answer');
+            }
+        });
+
+        const englishContent = headerLangDivider.nextAll();
+        $.each(englishContent, (idx, val) => {
+            if ($(val).text() !== '&nbsp;') {
+                $(val).addClass('english-answer');
+            }
+        });
     }
 
-    // Add answer choices in both languages if they exist //
-    const choices = $('.optionContent');
-    if (choices) {
-        choices.addClass('number');
-
-        // Apply classes to table headers by language //
-        const headerLangDivider = $('.table-item thead tr th .languagedivider');
-        if (headerLangDivider) {
-            const spanishContent = headerLangDivider.prevAll();
-            $.each(spanishContent, (idx, val) => {
-                if ($(val).text() !== '&nbsp;') {
-                    $(val).addClass('spanish-answer');
-                }
-            });
-
-            const englishContent = headerLangDivider.nextAll();
-            $.each(englishContent, (idx, val) => {
-                if ($(val).text() !== '&nbsp;') {
-                    $(val).addClass('english-answer');
-                }
-            });
-        }
-
-        // Apply classes to table cells by language //
-        const cellLangDivider = $('.table-item tbody tr td .languagedivider');
-        if (cellLangDivider) {
-            cellLangDivider.prev().addClass('spanish-answer');     // add spanish-answer class to all Spanish answer cell contents
-            cellLangDivider.next().addClass('english-answer');     // add english-answer class to all English answer cell contents
-        }
+    // Apply classes to table cells by language //
+    const cellLangDivider = $('.table-item tbody tr td .languagedivider');
+    if (cellLangDivider) {
+        cellLangDivider.prev().addClass('spanish-answer');     // add spanish-answer class to all Spanish answer cell contents
+        cellLangDivider.next().addClass('english-answer');     // add english-answer class to all English answer cell contents
     }
+}
 
-    // Add .optionContent options in both languages //
-    const genLangDivider = $('.optionContent .languagedivider');
-    if (genLangDivider) {
-        genLangDivider.prev().addClass('spanish-answer');        // add spanish-answer class to all Spanish answer content
-        genLangDivider.next().addClass('english-answer');        // add english-answer class to all English answer content
-    }
+// Add .optionContent options in both languages //
+const genLangDivider = $('.optionContent .languagedivider');
+if (genLangDivider) {
+    genLangDivider.prev().addClass('spanish-answer');        // add spanish-answer class to all Spanish answer content
+    genLangDivider.next().addClass('english-answer');        // add english-answer class to all English answer content
 }
 
 
 
-/* Creates container to hold item # and hamburger icon */
-function wrapNumHamburger() {
-    /* Container to hold item # and hamburger icon */
-    const numContainer = $('<div class="num-container"></div>');
-    const questionNumber = $('.questionNumber');
-    if (questionNumber) {
-        $(numContainer).append(questionNumber);     // adds item # to container
-    }
 
-    const hamburgerIcon = $('<div class="hamburger-icon"></div>');
-    $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
 
-    const questions = $('.theQuestions');
-    $(questions).prepend(numContainer);              // add container to questions
+/* Create container to hold item # and hamburger icon */
+
+// Container to hold item # and hamburger icon //
+const numContainer = $('<div class="num-container"></div>');
+const questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
 }
+
+const hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+const questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions
 
 
 
 
 
 /* Change inline font in tables to a larger serif font */
+
 const answerHeadings1 = $('table[class="tableItem"] thead tr th p');
 $.each(answerHeadings1, (idx, val) => {
     $(val).css('font-family', '')
@@ -189,4 +195,4 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 
 /* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
+$('.optionContainer').css('display', 'flex').css('align-items', 'center');
