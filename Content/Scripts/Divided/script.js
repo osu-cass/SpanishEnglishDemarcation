@@ -239,21 +239,12 @@ if ($(englishTableFootnote).attr('colspan') > 1) {
 
 
 
-/* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
-
 
 
 /* Increase spacing between question content and numContainer line */
 $('table[class="structure layout8vertical"]').css('margin-top', '15px');
 
 var img=$('.thePassage img');
-var imgwidth=img[0].width;
-var EnglishDiv=$(".english");
-var SpanishDiv=$(".spanish");
-var SpanishFirst=$(SpanishDiv[0]);
-var EnglishFirst=$(EnglishDiv[0]);
-var Spanishwidth=$(SpanishFirst).width();
-if (imgwidth>300){
+if ($(img[0]).width()>300){
     img.addClass("img");
 }

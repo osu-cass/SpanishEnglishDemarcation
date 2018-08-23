@@ -89,7 +89,7 @@ function switchLang() {
     $(currSelect).removeClass("button_click").addClass("button");
     $(this).addClass("button_click").removeClass("button");
 
-    if ($(this).html() === "Both") {
+    if ($(this).html() === "Both\nAmbos") {
         $(".english").show();
         $(".english-answer").show();
 
@@ -339,12 +339,6 @@ $.each(wideTableTitles, (idx, val) => {
 });
 
 var img=$('.thePassage img');
-var imgwidth=img[0].width;
-var EnglishDiv=$(".english");
-var SpanishDiv=$(".spanish");
-var SpanishFirst=$(SpanishDiv[0]);
-var EnglishFirst=$(EnglishDiv[0]);
-var Spanishwidth=$(SpanishFirst).width();
-if (imgwidth>300){
+if ($(img[0]).width()>300){
     img.addClass("img");
 }
