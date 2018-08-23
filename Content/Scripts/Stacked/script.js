@@ -92,7 +92,6 @@ if ($(stemContainer)) {
 // Reformat questions if passage column doesn't exist //
 if (!$('.thePassage').html()) {
     $('.theQuestions').css('width', '100%');               // change theQuestions element width
-    $('.theQuestions table').css('width', '100%');
 }
 
 // Add answer choices in both languages if they exist //
@@ -101,7 +100,7 @@ if (choices) {
     choices.addClass('number');
 
     // Apply classes to table headers by language //
-    const headerLangDivider = $('.tableItem .languagedivider');
+    const headerLangDivider = $('.table-item thead tr th .languagedivider');
     if (headerLangDivider) {
         const spanishContent = headerLangDivider.prevAll();
         $.each(spanishContent, (idx, val) => {
@@ -137,7 +136,26 @@ if (genLangDivider) {
 
 
 
-/* Changes inline font in tables to a larger serif font */
+/* Create container to hold item # and hamburger icon */
+
+// Container to hold item # and hamburger icon //
+const numContainer = $('<div class="num-container"></div>');
+const questionNumber = $('.questionNumber');
+if (questionNumber) {
+    $(numContainer).append(questionNumber);     // adds item # to container
+}
+
+const hamburgerIcon = $('<div class="hamburger-icon"></div>');
+$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
+
+const questions = $('.theQuestions');
+$(questions).prepend(numContainer);              // add container to questions
+
+
+
+
+
+/* Change inline font in tables to a larger serif font */
 
 const answerHeadings1 = $('table[class="tableItem"] thead tr th p');
 $.each(answerHeadings1, (idx, val) => {
@@ -169,51 +187,6 @@ $.each(answerBodyParagraphs2, (idx, val) => {
 
 
 
-
-
-/* Creates container to hold item # and hamburger icon */
-
-const numContainer = $('<div class="num-container"></div>');
-const questionNumber = $('.questionNumber');
-if (questionNumber) {
-    $(numContainer).append(questionNumber);     // adds item # to container
-}
-
-var questions = $('.theQuestions');
-$(questions).prepend(numContainer);              // add container to questions
-
-
-const hamburgerIcon = $('<div class="hamburger-icon"></div>');
-$(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
-
-$(questions).prepend(numContainer);              // add container to questions
-
-
-
-
-
-
-/* Creates container for legend */
-
-const spanishLegend = $('<div></div>')
-    .addClass('spanish-legend')
-    .text('Español');
-
-const englishLegend = $('<div></div>')
-    .addClass('english-legend')
-    .text('English');
-
-const legendContainer = $('<div></div>')
-    .addClass('legend-container')
-    .append(spanishLegend)
-    .append(englishLegend);
-
-$(legendContainer).insertAfter(numContainer);
-
-
-
-
-
 /* Eliminate extra spacing in titles */
 if ($('.spanish h2 p[lang="es-mx"]')) {
     $('.spanish h2 p[lang="es-mx"]').remove();
@@ -222,6 +195,4 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 
 /* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
-
-$('.itemToolsBreak').remove();
+$('.optionContainer').css('display', 'flex').css('align-items', 'center');
