@@ -66,6 +66,11 @@
                         {
                             <a href="@prevUrl"><i class="fa fa-arrow-circle-left fa-5x"></i></a>
                         }
+                        else
+                        {
+                            <!-- at the beginning, go back home -->
+                            <a href="/"><i class="fa fa-home fa-5x"></i></a>
+                        }
                     }
                 </div>
                 <div class="col text-center">
@@ -75,6 +80,11 @@
                         if(!string.IsNullOrWhiteSpace(nextUrl))
                         {
                             <a href="@nextUrl"><i class="fa fa-arrow-circle-right fa-5x"></i></a>
+                        }
+                        else
+                        {
+                            <!-- at the end, go back home -->
+                            <a href="/"><i class="fa fa-home fa-5x"></i></a>
                         }
                     }
                 </div>

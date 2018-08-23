@@ -12,7 +12,9 @@ namespace SmarterBalanced.SpanishEnglishDemarcation
 {
     public static class NavigationHelper
     {
-        private static List<string> s_viewList = new List<string>() { "item2803", "item3298", "item3318", "item3527", "item3561", "item3593", "item3599", "item3607", "item3627", "item3635", "item3694", "item3695" };
+        private static List<string> s_grade4 = new List<string> { "item2803", "item3593", "item3527", "item3607" };
+        private static List<string> s_grade7 = new List<string> { "item3695", "item3561", "item3627", "item3635" };
+        private static List<string> s_grade11 = new List<string> { "item3694", "item3318", "item3599", "item3298" };
 
         public static string GetNextUrl(string currentUrl)
         {
@@ -28,13 +30,30 @@ namespace SmarterBalanced.SpanishEnglishDemarcation
         {
             string result = null;
             string currentView = NavigationHelper.GetCurrentViewName(currentUrl);
-            int index = s_viewList.IndexOf(currentView.ToLower());
+            List<string> currentViewList = NavigationHelper.GetCorrectList(currentView.ToLower());
+            int index = currentViewList.IndexOf(currentView.ToLower());
 
             if (index >= 0
             && index + indexModifier >= 0
-            && index + indexModifier <= s_viewList.Count - 1) //make sure item is found and next item exists in list
+            && index + indexModifier <= currentViewList.Count - 1) //make sure item is found and next item exists in list
             {
-                result = NavigationHelper.GetControllerPath(currentUrl) + "/" + s_viewList[index + indexModifier];
+                result = NavigationHelper.GetControllerPath(currentUrl) + "/" + currentViewList[index + indexModifier];
+            }
+
+            return result;
+        }
+
+        private static List<string> GetCorrectList(string currentView)
+        {
+            List<string> result = s_grade4; //default
+
+            if (s_grade7.Contains(currentView))
+            {
+                result = s_grade7;
+            }
+            else if (s_grade11.Contains(currentView))
+            {
+                result = s_grade11;
             }
 
             return result;
