@@ -78,9 +78,9 @@ if ($(passage).length !== 0) {                                  // sort passage 
 }
 
 // Sort questions content //
-const questions = $('.stemContainer');
-if ($(questions)) {
-    sortContent(questions);
+const stemContainer = $('.stemContainer');
+if ($(stemContainer)) {
+    sortContent(stemContainer);
 }
 
 
@@ -205,7 +205,6 @@ const legendContainer = $('<div></div>')
     .append(spanishLegend)
     .append(englishLegend);
 
-const numContainer = $('.num-container');
 $(legendContainer).insertAfter(numContainer);
 
 
