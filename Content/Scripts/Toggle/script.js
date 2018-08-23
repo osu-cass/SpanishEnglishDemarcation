@@ -79,6 +79,7 @@ function addButton() {
     $(buttons).insertBefore(notesButton);
 }
 
+let currLang = $('.button_click').text();
 function switchLang() {
     const currSelect = $(".button_click");
 
@@ -88,6 +89,8 @@ function switchLang() {
 
     $(currSelect).removeClass("button_click").addClass("button");
     $(this).addClass("button_click").removeClass("button");
+
+    currLang = $(this).text();
 
     if ($(this).html() === "Both\nAmbos") {
         $(".english").show();
@@ -278,10 +281,14 @@ if (!passage) {
 
 
 /* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
+const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'baseline');
 const answerContent = $(answers).find('p');
 $.each(answerContent, (idx, val) => {
     $(answerContent).css('margin-top', '-29px');
+    const answerImgs = $(val).children();
+    if ($(answerImgs).is('img')) {
+        $(answerImgs).css('margin-top', '-5px');
+    }
 });
 
 
