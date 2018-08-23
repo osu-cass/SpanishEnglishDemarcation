@@ -17,21 +17,17 @@ $hamburger: '\f0c9';
   cursor: pointer;
 }
 
-.hamburger::after {
-  @include symbol(27px, $hamburger);
-  bottom: 35px;
-}
 .thePassage::before {
   @include symbol(27px, $hamburger);
   right: 20px;
 }
 
 %Share {
-  margin: 50px;
   padding: 5px;
   margin-top: 0px;
   padding-top: 40px;
 }
+
 .Spanish,
 .English {
   @extend %Share;
@@ -40,43 +36,63 @@ $hamburger: '\f0c9';
   padding-top: 0px;
   @extend %Share;
 }
-.Spanish > p,
-.English > p,
-.Spanish > ul,
-.English > ul,
-.Spanish > h2,
-.English > h2 {
-  margin: 20px;
+
+.spanish>h2, .english>h2 {
+  margin: 0 5px 10px 0;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
 }
-.Spanish_Answer,
-.English_Answer {
+
+.number {
+  @extend %Share;
+}
+
+.spanish-answer, .english-answer {
   margin: 0px;
   padding: 10px;
   padding-top: 0px;
 }
+
 .languagedivider {
   margin: 0px;
   height: 0px;
 }
-.questionNumber {
-  margin: 0px;
-  height: 30px;
-  width: 60px;
-  padding-top: 5px;
-  text-align: center;
-  font-size: 20px;
-  background-color: rgb(194, 191, 191);
+
+.num-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
 }
 
-.stemContainer {
-  border-top: 1px solid gray;
+.hamburger::before {
+  @include symbol(27px, $hamburger);
+  top: -3px;
 }
+
+.questionNumber {
+  margin-top: 5px;
+  height: 30px;
+  width: 60px;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: lightgray;
+}
+
 .bigTable {
   display: flex;
   flex-direction: row;
 }
 
-%Passage_Question_Share {
+.bigTable table {
+  width: 100%;
+}
+
+%passage-question-share {
   margin: 20px;
   padding: 10px;
   border: 1px solid white;
@@ -84,16 +100,23 @@ $hamburger: '\f0c9';
 
 .thePassage {
   width: 40%;
-  @extend %Passage_Question_Share;
+  margin-left: 30px;
+  @extend %passage-question-share;
 }
+
 .theQuestions {
   width: 60%;
-  @extend %Passage_Question_Share;
+  margin-left: 0;
+  @extend %passage-question-share;
 }
 
 .answerContainer {
-  margin: 50px;
+  margin-top: 20px;
   border: 2px solid black;
+}
+
+.answerContainer table {
+  width: 100.2% !important;
 }
 
 .center {
@@ -112,10 +135,11 @@ $hamburger: '\f0c9';
 p {
   margin: 0px;
 }
-html,
-body {
+
+html, body {
   height: 100%;
   width: 100%;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 input[type='text'] {
@@ -126,37 +150,51 @@ input[type='text'] {
   border-radius: 5px;
 }
 
-%Button_Share {
-  border-radius: 10%;
-  padding: 2px;
+%button-share {
+  padding: 4px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
   font-weight: bold;
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
   cursor: pointer;
 }
+
 button {
-  width: 100px;
+  width: 110px;
 }
+
 .button_click {
   background-color: #4caf50;
-  border: 2px solid gray;
+  border: 1px solid #3e8e41;
+  box-shadow: 0 0 10px #666 !important;
+  font-size: 15px;
   color: white;
-  @extend %Button_Share;
+  @extend %button-share;
 }
+
 .button {
   background-color: rgb(240, 240, 240);
-  border: 2px solid rgb(175, 173, 173);
+  border: 1px solid rgb(175, 173, 173);
   color: rgb(175, 173, 173);
-  @extend %Button_Share;
+  @extend %button-share;
 }
+
 .buttons {
   display: flex;
   flex-direction: row;
 }
-table {
-  width: 80%;
+
+.english-button {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.both-button {
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .zoom {
@@ -166,6 +204,7 @@ table {
 .thePassage .padding {
   border-right: 1px solid gray;
 }
+
 
 .optionContainer{
   display: flex;
@@ -179,4 +218,9 @@ table {
 
 .optionsContainer{
   margin-top: 30px;
+}
+.table-text {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+
 }
