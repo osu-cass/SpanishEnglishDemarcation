@@ -101,7 +101,7 @@ if (choices) {
     choices.addClass('number');
 
     // Apply classes to table headers by language //
-    const headerLangDivider = $('.table-item thead tr th .languagedivider');
+    const headerLangDivider = $('.tableItem .languagedivider');
     if (headerLangDivider) {
         const spanishContent = headerLangDivider.prevAll();
         $.each(spanishContent, (idx, val) => {
@@ -182,20 +182,10 @@ if (questionNumber) {
 var questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
-var img=$('.thePassage img');
-var imgwidth=img[0].width;
-var EnglishDiv=$(".english");
-var SpanishDiv=$(".spanish");
-var SpanishFirst=$(SpanishDiv[0]);
-var EnglishFirst=$(EnglishDiv[0]);
-var Spanishwidth=$(SpanishFirst).width();
-if (imgwidth>300){
-    img.addClass("img");
-}
+
 const hamburgerIcon = $('<div class="hamburger-icon"></div>');
 $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
 
-const questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
 
