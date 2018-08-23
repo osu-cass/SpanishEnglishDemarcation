@@ -1,7 +1,7 @@
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
-<<<<<<< HEAD
+
   font-family: FontAwesome;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -59,7 +59,7 @@ $hamburger: '\f0c9';
 
 .stemContainer {
   margin-top: 20px;
-  margin-left: -47px;
+  margin-left: 0px;
   width: 107%;
 }
 
@@ -120,13 +120,14 @@ table {
 }
 
 .optionContainer{
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
 }
 
 .optionContainer p{
-  position: relative;
-  bottom: 16px;
+    position: relative;
+    bottom: 20px;
 }
 
 .spanish-answer,
@@ -135,21 +136,6 @@ table {
   margin-top: 0px;
   padding: 10px;
   padding-top: 0px;
-=======
-    font-family: FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-@mixin symbol($size, $content) {
-    @include fontawesome-icon();
-    content: $content;
-    font-size: $size;
-    float: right;
-    position: relative;
-    color: gray;
->>>>>>> 21862e2096e7268fd18db1615e3f88fcd781d5a3
 }
 
 p {

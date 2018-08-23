@@ -221,7 +221,11 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 
 
-/* Align radio buttons with answer content */
-const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
 
 $('.itemToolsBreak').remove();
+
+
+var img=$('.thePassage img');
+if ($(img[0]).width()>300){
+    img.addClass("img");
+}

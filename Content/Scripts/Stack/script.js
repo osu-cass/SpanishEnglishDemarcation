@@ -128,13 +128,7 @@ $(questions).prepend(numContainer);              // add container to questions
 
 
 var img=$('.thePassage img');
-var imgwidth=img[0].width;
-var EnglishDiv=$(".english");
-var SpanishDiv=$(".spanish");
-var SpanishFirst=$(SpanishDiv[0]);
-var EnglishFirst=$(EnglishDiv[0]);
-var Spanishwidth=$(SpanishFirst).width();
-if (Spanishwidth<imgwidth){
+if ($(img[0]).width()>300){
     img.addClass("img");
 }
 
@@ -176,6 +170,3 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 }
 
 
-
-/* Align radio buttons with answer content */
-$('.optionContainer').css('display', 'flex').css('align-items', 'center');
