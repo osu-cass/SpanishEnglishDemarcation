@@ -131,16 +131,6 @@ function createQuestions() {
 
 
 
-// /*Change width of answer container element */
-// var answerContainer = $('.answerContainer .tableItem');
-// if (answerContainer !== null) {
-//     var goal = $('.answerContainer');
-//     var width = $(goal).width();
-//     $(answerContainer).css("width", width);
-// }
-
-
-
 /* Changes inline font in tables to a larger serif font */
 function fixTableFont() {
     const answerHeadings1 = $('table[class="tableItem"] thead tr th p');
@@ -222,3 +212,8 @@ createLegendContainer();
 if ($('.spanish h2 p[lang="es-mx"]')) {
     $('.spanish h2 p[lang="es-mx"]').remove();
 }
+
+/* Align radio buttons with answer content */
+const answers = $('.optionContainer').css('display', 'flex').css('align-items', 'center');
+
+$('.itemToolsBreak').remove();
