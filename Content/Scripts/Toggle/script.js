@@ -66,7 +66,7 @@ function addButton() {
     
     const bothButton = $("<button></button>")
         .addClass('button')
-        .text('Both')
+        .text('Both\nAmbos')
         .click(switchLang);
         
     const buttons = $("<div></div>")
