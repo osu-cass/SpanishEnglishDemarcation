@@ -229,3 +229,13 @@ var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
 }
+
+
+
+/* Realign answer content to line up with radio button if answer is not just mathematical expressions */
+const answerOptions = $('.optionContent');
+$.each(answerOptions, (idx, val) => {                           // check each answer option to find out if the content needs to be realigned
+    if ($(val).children().length > 1) {                             // if there is more than one paragraph within the answer option (a.k.a. not a mathematical expression)
+        $(val).css('margin', '-5px 5px 0');                             // change margin to line content up to radio button
+    }
+});
