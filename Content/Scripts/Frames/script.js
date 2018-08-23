@@ -60,12 +60,7 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    console.log(table.parent().attr('id'));
-    if (table.parent().attr('id')  === 'Item_3635') {
-        questions.css("width", '97%');
-    } else {
-        questions.css('width', '100%');
-    }
+    $(questions).css("width","80%");
 }
 
 /* Rearrange questions based on lang */
@@ -139,10 +134,5 @@ var SpanishFirst=$(SpanishDiv[0]);
 var EnglishFirst=$(EnglishDiv[0]);
 var Spanishwidth=$(SpanishFirst).width();
 if (Spanishwidth<imgwidth){
-    $(EnglishDiv[0]).css("width",imgwidth+30);
-    $(SpanishDiv[0]).css("width",imgwidth+30);
-    $(EnglishDiv[0]).css("margin-left",20);
-    $(SpanishDiv[0]).css("margin-left",20);
-    $(EnglishDiv[0]).css("margin-right",30);
-    $(SpanishDiv[0]).css("margin-right",30);
+    img.addClass("img");
 }

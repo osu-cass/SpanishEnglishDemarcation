@@ -126,6 +126,7 @@ $(numContainer).append(hamburgerIcon);          // creates div for hamburger ico
 var questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
+
 var img=$('.thePassage img');
 var imgwidth=img[0].width;
 var EnglishDiv=$(".english");
@@ -133,11 +134,6 @@ var SpanishDiv=$(".spanish");
 var SpanishFirst=$(SpanishDiv[0]);
 var EnglishFirst=$(EnglishDiv[0]);
 var Spanishwidth=$(SpanishFirst).width();
-if (Spanishwidth<imgwidth){
-    $(EnglishDiv[0]).css("width",imgwidth+30);
-    $(SpanishDiv[0]).css("width",imgwidth+30);
-    $(EnglishDiv[0]).css("margin-left",20);
-    $(SpanishDiv[0]).css("margin-left",20);
-    $(EnglishDiv[0]).css("margin-right",30);
-    $(SpanishDiv[0]).css("margin-right",30);
+if (imgwidth>300){
+    img.addClass("img");
 }

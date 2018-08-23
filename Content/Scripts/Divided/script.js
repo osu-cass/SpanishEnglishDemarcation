@@ -60,19 +60,21 @@ function rearrange(colType, option) {
 }
 
 /* Vars for class setups */
-const passageName = '.thePassage .padding';
-const questionName = '.stemContainer';
-const choiceName = '.optionContent';
+passageName = '.thePassage .padding';
+questionName = '.stemContainer';
+choiceName = '.optionContent';
 
 if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     rearrange(passageName);
 } else {                                    // create table for questions if no passage exists
-    const table = $('.bigTable').addClass('center');
-    const questions = $('.theQuestions').css('width', '80%');
+    var table = $('.bigTable');
+    table.addClass("center");
+    var questions = $('.theQuestions');
+    $(questions).css("width","80%");
 }
 
 /* Rearrange questions based on lang */
-if ($(questionName)) {
+if ($(questionName) !== null) {
     rearrange(questionName);
 }
 
@@ -133,7 +135,6 @@ if (questionNumber) {
 const hamburgerIcon = $('<div class="hamburger-icon"></div>');
 $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
 
-const questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
 
@@ -148,7 +149,7 @@ const passage = $('.thePassage').html();
 if (!passage) {
     $('.theQuestions')
         .removeAttr('style')
-        .css('width', '100%');
+        .css('width', '80%');
 }
 
 
@@ -239,4 +240,15 @@ const answers = $('.optionContainer').css('display', 'flex').css('align-items', 
 
 
 /* Increase spacing between question content and numContainer line */
-const table = $('table[class="structure layout8vertical"]').css('margin-top', '15px');
+$('table[class="structure layout8vertical"]').css('margin-top', '15px');
+
+var img=$('.thePassage img');
+var imgwidth=img[0].width;
+var EnglishDiv=$(".english");
+var SpanishDiv=$(".spanish");
+var SpanishFirst=$(SpanishDiv[0]);
+var EnglishFirst=$(EnglishDiv[0]);
+var Spanishwidth=$(SpanishFirst).width();
+if (imgwidth>300){
+    img.addClass("img");
+}

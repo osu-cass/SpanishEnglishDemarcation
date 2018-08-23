@@ -271,7 +271,8 @@ const passage = $('.thePassage').html();
 if (!passage) {
     $('.theQuestions')
         .removeAttr('style')
-        .css('width', '100%');
+        .css('width', '80%')
+        .css("margin-left","auto");
 }
 
 
@@ -336,3 +337,14 @@ $.each(wideTableTitles, (idx, val) => {
         $(val).remove();
     }
 });
+
+var img=$('.thePassage img');
+var imgwidth=img[0].width;
+var EnglishDiv=$(".english");
+var SpanishDiv=$(".spanish");
+var SpanishFirst=$(SpanishDiv[0]);
+var EnglishFirst=$(EnglishDiv[0]);
+var Spanishwidth=$(SpanishFirst).width();
+if (imgwidth>300){
+    img.addClass("img");
+}
