@@ -22,14 +22,19 @@ $hamburger: '\f0c9';
   right: 20px;
 }
 
-%share {
+%Share {
   padding: 5px;
   margin-top: 0px;
   padding-top: 40px;
 }
 
-.spanish, .english {
-  @extend %share;
+.Spanish,
+.English {
+  @extend %Share;
+}
+.Number {
+  padding-top: 0px;
+  @extend %Share;
 }
 
 .spanish>h2, .english>h2 {
@@ -41,12 +46,13 @@ $hamburger: '\f0c9';
 }
 
 .number {
-  @extend %share;
+  @extend %Share;
 }
 
 .spanish-answer, .english-answer {
   margin: 0px;
   padding: 10px;
+  padding-top: 0px;
 }
 
 .languagedivider {
@@ -199,7 +205,22 @@ button {
   border-right: 1px solid gray;
 }
 
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+  bottom: 7px;
+}
+
+.optionsContainer{
+  margin-top: 30px;
+}
 .table-text {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
+
 }

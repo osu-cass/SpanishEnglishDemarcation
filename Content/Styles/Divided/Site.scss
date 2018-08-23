@@ -141,7 +141,8 @@ html, body {
 }
 
 .spanish-answer {
-  margin: 10px;
+  margin: 0px;
+  padding-top: 80px;
 }
 
 .english-answer {
@@ -175,4 +176,18 @@ input[type="text"] {
     margin: auto;
     width: 80%;
     border-top: 2px solid black;
+}
+
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+}
+
+.optionsContainer{
+  margin-top: 30px;
 }
