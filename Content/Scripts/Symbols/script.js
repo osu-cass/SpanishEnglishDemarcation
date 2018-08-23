@@ -87,6 +87,7 @@ function createQuestions() {
     // Reformat questions if passage column doesn't exist //
     if (!$('.thePassage').html()) {
         $('.theQuestions').css('width', '100%');               // change theQuestions element width
+        $('.theQuestions table').css('width', '100%');
     }
 
     // Add answer choices in both languages if they exist //
@@ -203,10 +204,34 @@ if (imgwidth>300){
 }
 
 
+
+
+/* Creates container for legend */
+function createLegendContainer() {
+    const spanishLegend = $('<div></div>')
+        .addClass('spanish-legend')
+        .text('Español');
+
+    const englishLegend = $('<div></div>')
+        .addClass('english-legend')
+        .text('English');
+
+    const legendContainer = $('<div></div>')
+        .addClass('legend-container')
+        .append(spanishLegend)
+        .append(englishLegend);
+
+    const numContainer = $('.num-container');
+    $(legendContainer).insertAfter(numContainer);
+}
+
+
+
 sortColumns();
 createQuestions();
 fixTableFont();
 wrapNumHamburger();
+createLegendContainer();
 
 /* Eliminate extra spacing in titles */
 if ($('.spanish h2 p[lang="es-mx"]')) {

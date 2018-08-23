@@ -53,6 +53,11 @@ html, body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+%spanish-english {
+  color: rgb(194, 16, 16);
+  padding: 5px 10px 5px 10px;
+}
+
 .spanish, .english {
   margin: 0 50px;
   margin-right: 0px;
@@ -72,15 +77,41 @@ html, body {
   padding: 10px;
 }
 
-%passage-question-share {
+.spanish::before {
+  @include lang-symbol(20px, $star);
+  @extend %spanish-english;
+  position: relative;
+  left: -40px;
+  bottom: -30px;
+}
+
+.english::before {
+  @include lang-symbol(20px, $square);
+  @extend %spanish-english;
+  position: relative;
+  left: -40px;
+  bottom: -30px;
+}
+
+.spanish-answer::before {
+  @include lang-symbol(15px, $star);
+  @extend %spanish-english;
+}
+
+.english-answer::before {
+  @include lang-symbol(15px, $square);
+  @extend %spanish-english;
+}
+
+%columns {
   margin: 20px;
   padding: 0px;
   border: 1px solid white;
 }
 
 .thePassage {
+  @extend %columns;
   width: 40%;
-  @extend %passage-question-share;
   border-right: 1px solid #d0d0d0;
 }
 
@@ -90,12 +121,12 @@ html, body {
 }
 
 .theQuestions {
+  @extend %columns;
   width: 60%;
   padding-left: 16px;
   padding-right: 16px;
   margin-right: 0px;
   margin-left: 0px;
-  @extend %passage-question-share;
 }
 
 .answerContainer {
@@ -103,35 +134,8 @@ html, body {
   border: 2px solid black;
 }
 
-%spanish-english-share {
-  color: rgb(194, 16, 16);
-  padding: 5px 10px 5px 10px;
-}
-
-.spanish::before {
-  @include lang-symbol(20px, $star);
-  @extend %spanish-english-share;
-  position: relative;
-  left: -30px;
-  bottom: -30px;
-}
-
-.english::before {
-  @include lang-symbol(20px, $square);
-  @extend %spanish-english-share;
-  position: relative;
-  left: -30px;
-  bottom: -30px;
-}
-
-.spanish-answer::before {
-  @include lang-symbol(15px,$star);
-  @extend %spanish-english-share;
-}
-
-.english-answer::before {
-  @include lang-symbol(15px,$square);
-  @extend %spanish-english-share;
+.answerContainer table {
+  width: 100.2% !important;
 }
 
 .number {
@@ -162,25 +166,54 @@ html, body {
   background-color:lightgray;
 }
 
-.hamburger-icon::after {
-  @include lang-symbol(20px, "\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
-  @extend %spanish-english-share;
-  position: relative;
-  top:50px;
-  left: 30px;
-}
-
 .hamburger-icon::before {
   @include bar-symbol(27px, $hamburger);
   top: -3px;
-  right: 20px;
+}
+
+.legend-container {
+  @extend %spanish-english;
+  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.spanish-legend, .english-legend {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+.spanish-legend {
+  margin-right: 20px;
+}
+
+.spanish-legend::before {
+  @include lang-symbol(20px, $star);
+  @extend %spanish-english;
+  font-family: FontAwesome !important;
+}
+
+.english-legend::before {
+  @include lang-symbol(20px, $square);
+  @extend %spanish-english;
+  font-family: FontAwesome !important;
 }
 
 .stemContainer {
-  margin-top: 20px;
-  margin-left: -47px;
-  width: 107%;
+  margin-left: -25px;
+  width: 100%;
 }
+
+// .stemContainer::before {
+//   @include lang-symbol(20px, "\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
+//   @extend %spanish-english;
+//   position: relative;
+//   top: 15px;
+//   left: 84%;
+//   text-transform: uppercase;
+// }
 
 .bigTable {
   display: flex;
