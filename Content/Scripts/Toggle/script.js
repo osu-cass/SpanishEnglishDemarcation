@@ -79,6 +79,7 @@ function addButton() {
     $(buttons).insertBefore(notesButton);
 }
 
+let currLang = $('.button_click').text();
 function switchLang() {
     const currSelect = $(".button_click");
 
@@ -88,6 +89,8 @@ function switchLang() {
 
     $(currSelect).removeClass("button_click").addClass("button");
     $(this).addClass("button_click").removeClass("button");
+
+    currLang = $(this).text();
 
     if ($(this).html() === "Both\nAmbos") {
         $(".english").show();
