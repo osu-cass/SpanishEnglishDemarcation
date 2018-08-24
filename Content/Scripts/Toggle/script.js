@@ -165,7 +165,7 @@ if (($(passageName)).length !== 0) {
     table.addClass("center");
 
     const questions = $('.theQuestions');
-    questions.css("width", '80%');
+    questions.css("width", '95%');
 }
 
 if (questionName) {
