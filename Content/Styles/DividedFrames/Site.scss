@@ -118,7 +118,15 @@ html, body {
 }
 
 .answerContainer {
-  margin: 50px;
+  margin: 50px 10px 10px 0;
+}
+
+.answerContainer p {
+  padding: 2px;
+}
+
+.answerContainer .spanish-answer {
+  margin: 0;
 }
 
 .tableItem{
@@ -163,6 +171,7 @@ html, body {
   padding-top: 15px;
   border-top: 2px solid black;
   position: relative;
+  width: 80%;
 }
 
 
@@ -193,4 +202,10 @@ input[type='text'] {
 
 table {
   width: 95%;
+}
+
+.table-dividing-line {
+  margin: auto;
+  width: 80%;
+  border-top: 2px solid black;
 }
