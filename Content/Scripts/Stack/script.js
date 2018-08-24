@@ -170,3 +170,12 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 }
 
 
+
+/* Align single-line answers to radio buttons */
+
+const answerContent = $('.optionContent');
+$.each(answerContent, (idx, val) => {
+    if ($(val).children().length) {
+        $(val).find('p').css('margin-top', '10px');
+    }
+});
