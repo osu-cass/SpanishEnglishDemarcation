@@ -172,9 +172,12 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 
 /* Align single-line answers to radio buttons */
-if ($(choiceName).children().length <= 1) {
-    const answerParagraphs = $(choiceName).find('p');
-    $.each(answerParagraphs, (idx, val) => {
-        $(val).css('margin-top', '14px');
-    });
-}
+
+const answerContent = $('.optionContent');
+$.each(answerContent, (idx, val) => {
+    console.log($(val).children().length);
+    if ($(val).children().length) {
+        console.log('Changing top margin...');
+        $(val).find('p').css('margin-top', '10px');
+    }
+});
