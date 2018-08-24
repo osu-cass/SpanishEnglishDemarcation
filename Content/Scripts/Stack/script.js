@@ -170,3 +170,11 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 }
 
 
+
+/* Align single-line answers to radio buttons */
+if ($(choiceName).children().length <= 1) {
+    const answerParagraphs = $(choiceName).find('p');
+    $.each(answerParagraphs, (idx, val) => {
+        $(val).css('margin-top', '14px');
+    });
+}
