@@ -122,7 +122,6 @@ table {
 .optionContainer{
     display: flex;
     flex-direction: row;
-    margin-top: 40px;
 }
 
 .optionContainer p{
@@ -209,8 +208,12 @@ html, body {
 }  
 
 .number {
-    margin: 10px;
+    margin: 5px 10px 0;
     padding: 0px;
+}
+
+.number img {
+    margin-top: 14px;
 }
 
 .num-container {
