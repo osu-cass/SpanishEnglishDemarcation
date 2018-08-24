@@ -132,9 +132,12 @@ html, body {
 }  
 
 .answerContainer {
-    margin-top: 20px;
-    border: 2px solid black;
-}
+    margin: 50px;
+  }
+  
+  .tableItem{
+    border:3px solid black;
+  }
 
 .answerContainer table {
     width: 100.2% !important;
