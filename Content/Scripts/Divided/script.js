@@ -41,7 +41,7 @@ function separateSpanishEnglish(contents, option) {
     }
 
     // Create div element to hold Spanish & English text blocks //
-    const newPassage = $('<div></div>')
+    const newPassage = $('<div class="english-spanish"></div>')
         .append(spanishBlock)
         .append(englishBlock);
 
@@ -126,16 +126,15 @@ if (answerContainer) {
 }
 
 /* Container to hold item # and hamburger icon */
-const numContainer = $('<div class="num-container"></div>');
-const questionNumber = $('.questionNumber');
+var numContainer = $('<div class="num-container"></div>');
+var questionNumber = $('.questionNumber');
 if (questionNumber) {
     $(numContainer).append(questionNumber);     // adds item # to container
 }
 
-const hamburgerIcon = $('<div class="hamburger-icon"></div>');
+var hamburgerIcon = $('<div class="hamburger-icon"></div>');
 $(numContainer).append(hamburgerIcon);          // creates div for hamburger icon, adds div to container
-
-$(questions).prepend(numContainer);              // add container to questions
+$(numContainer).insertBefore($(".theQuestions .english-spanish"))
 
 
 
