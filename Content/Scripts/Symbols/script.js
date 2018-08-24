@@ -108,12 +108,18 @@ if (choices) {
             if ($(val).text() !== String.fromCharCode(160)) {
                 $(val).addClass('spanish-answer');
             }
+            else{
+                $(val).remove();
+            }
         });
 
         const englishContent = headerLangDivider.nextAll();
         $.each(englishContent, (idx, val) => {
             if ($(val).text() !== String.fromCharCode(160)) {
                 $(val).addClass('english-answer');
+            }
+            else{
+                $(val).remove();
             }
         });
     }
