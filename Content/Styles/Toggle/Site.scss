@@ -114,11 +114,17 @@ $hamburger: '\f0c9';
   margin: 50px;
 }
 
-.tableItem{
-  border:3px solid black;
-}
 .answerContainer table {
   width: 100.2% !important;
+}
+
+.answerContainer .spanish-answer, .answerContainer .english-answer {
+  margin: 0;
+  padding: 5px;
+}
+
+.tableItem{
+  border:3px solid black;
 }
 
 .center {
