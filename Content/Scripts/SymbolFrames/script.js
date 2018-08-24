@@ -189,5 +189,16 @@ $('.theQuestions .english').prepend(questionsEnglishTitle);
 $('.optionContainer').css('display', 'flex').css('align-items', 'baseline');
 
 
+
 /* Increase spacing between question content and numContainer line */
 $('table[class="structure layout8vertical"]').css('margin-top', '15px');
+
+
+
+/* Hide empty paragraphs in wide table heading to improve spacing */
+const wideTableHeadings = $('.tableItem thead tr th[colspan="3"] p');
+$.each(wideTableHeadings, (idx, val) => {
+    if ($(val).html() === '&nbsp;') {
+        $(val).css('height', '0');
+    }
+});
