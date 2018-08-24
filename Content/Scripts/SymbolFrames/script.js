@@ -155,7 +155,7 @@ const spanishTitleContainer = $('<div></div>')
     .addClass('passage-frames')
     .append(spanishFrameTitle);
 
-const spanishPassage = $('.thePassage .spanish').prepend(spanishTitleContainer);
+$('.thePassage .spanish').prepend(spanishTitleContainer);
 
 
 
@@ -169,7 +169,7 @@ const englishTitleContainer = $('<div></div>')
     .addClass('passage-frames')
     .append(englishFrameTitle);
 
-const englishPassage = $('.thePassage .english').prepend(englishTitleContainer);
+$('.thePassage .english').prepend(englishTitleContainer);
 
 
 
