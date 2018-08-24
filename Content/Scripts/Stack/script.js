@@ -106,12 +106,24 @@ if (th) {
 }
 
 /*Change width of answer container element */
-var answerContainer = $('.answerContainer .tableItem');
+const answerContainer = $('.answerContainer .tableItem');
 if (answerContainer !== null) {
-    var goal = $('.answerContainer');
-    var width = $(goal).width();
+    const goal = $('.answerContainer');
+    const width = $(goal).width();
     $(answerContainer).css("width", width);
 }
+
+
+
+/* Change height of empty paragraphs in wide table headings to improve spacing */
+const wideTableHeadings = $('.answerContainer .tableItem thead tr th[colspan="3"] p');
+$.each(wideTableHeadings, (idx, val) => {
+    if ($(val).html() === '&nbsp;') {
+        $(val).css('height', '0');
+    }
+});
+
+
 
 /* Container to hold item # and hamburger icon */
 var numContainer = $('<div class="num-container"></div>');
@@ -131,6 +143,8 @@ var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
 }
+
+
 
 /* Change inline font in tables to a larger serif font */
 
@@ -172,7 +186,6 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 
 /* Align single-line answers to radio buttons */
-
 const answerContent = $('.optionContent');
 $.each(answerContent, (idx, val) => {
     if ($(val).children().length) {
