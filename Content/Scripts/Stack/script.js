@@ -175,9 +175,7 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 
 const answerContent = $('.optionContent');
 $.each(answerContent, (idx, val) => {
-    console.log($(val).children().length);
     if ($(val).children().length) {
-        console.log('Changing top margin...');
         $(val).find('p').css('margin-top', '10px');
     }
 });
