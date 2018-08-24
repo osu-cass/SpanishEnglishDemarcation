@@ -163,6 +163,7 @@ html, body {
   padding-top: 15px;
   border-top: 2px solid black;
   position: relative;
+  width: 80%;
 }
 
 
@@ -193,4 +194,10 @@ input[type='text'] {
 
 table {
   width: 95%;
+}
+
+.table-dividing-line {
+  margin: auto;
+  width: 80%;
+  border-top: 2px solid black;
 }

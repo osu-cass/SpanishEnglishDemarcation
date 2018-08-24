@@ -130,3 +130,49 @@ var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
 }
+
+
+
+/* Fix spacing for wide table titles */
+const wideTableTitles = $('table[class="tableItem"] thead tr th[colspan="3"] p');
+$.each(wideTableTitles, (idx, val) => {
+    if ($(val).html() === '&nbsp;') {
+        $(val).remove();
+    }
+});
+
+
+
+/* Add dividing lines to table titles */
+const englishTableTitle = $('table[class="tableItem"] thead tr th[colspan="3"] p:last-child')
+    .css('margin-left', '')
+    .css('margin-right', '')
+    .addClass('table-dividing-line');
+
+/* Add dividing lines to relevant table cells */
+const englishColText = $('table[class="tableItem"] tbody tr td:first-child p:last-child');                                 // for 1st column lines
+$.each(englishColText, (idx, val) => {
+    $(val).addClass('table-dividing-line');
+});
+const englishRowText1 = $('table[class="tableItem"] tbody tr:first-child td p:last-child');                               // for heading rows in tables with separate titles
+$.each(englishRowText1, (idx, val) => {
+    if (!$(val).children().is('input')) {                                                                                 // only add line if the contents are not input fields
+        $(val).addClass('table-dividing-line');
+    }
+});
+const headingRow = $('table[class="tableItem"] thead tr th');                                                             // for heading rows in tables without titles
+$.each(headingRow, (idx, val) => {
+    if ($(val).find('p').length > 1) {                                                                                    // add line if there is > 1 paragraph in thead th elem
+        $(val).find('p:last-child').addClass('table-dividing-line');
+    }
+});
+
+/* Change dividing line for final Item 2803 table cell */
+const englishTableFootnote = $('table[class="tableItem"] tbody tr:last-child td:last-child');
+if ($(englishTableFootnote).attr('colspan') > 1) {
+    $(englishTableFootnote).find('p:last-child')
+        .removeClass('table-dividing-lines')
+        .css('margin', '0')
+        .css('width', '40%')
+        .css('border-top', '2px solid black');
+}
