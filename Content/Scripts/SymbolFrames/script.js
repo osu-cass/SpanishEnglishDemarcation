@@ -172,7 +172,7 @@ if ($(img[0]).width()>300){
 // const englishPassage = $('.thePassage .english').prepend(englishTitleContainer);
 
 /* Align radio buttons with answer content */
-$('.optionContainer').css('display', 'flex').css('align-items', 'center');
+$('.optionContainer').css('display', 'flex').css('align-items', 'baseline');
 
 
 /* Increase spacing between question content and numContainer line */
