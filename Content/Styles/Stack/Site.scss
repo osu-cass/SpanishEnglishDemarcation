@@ -251,12 +251,16 @@ html, body {
 }
 
 .answerContainer {
-    margin: 10px;
+    margin: 50px 10px 10px 0;
     margin-left: 0;
 }
 
 .answerContainer table {
     width: 100.2% !important;
+}
+
+.answerContainer p {
+    padding: 2px;
 }
 
 .languagedivider {
