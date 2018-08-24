@@ -12,9 +12,9 @@ namespace SmarterBalanced.SpanishEnglishDemarcation
 {
     public static class NavigationHelper
     {
-        private static List<string> s_grade4 = new List<string> { "item2803", "item3593", "item3527", "item3607" };
-        private static List<string> s_grade7 = new List<string> { "item3695", "item3561", "item3627", "item3635" };
-        private static List<string> s_grade11 = new List<string> { "item3694", "item3318", "item3599", "item3298" };
+        private static List<string> s_grade4 = new List<string> { "item3527", "item3607", "item2803", "item3593" };
+        private static List<string> s_grade7 = new List<string> { "item3627", "item3635", "item3695", "item3561" };
+        private static List<string> s_grade11 = new List<string> { "item3599", "item3298", "item3694", "item3318" };
 
         public static string GetNextUrl(string currentUrl)
         {
