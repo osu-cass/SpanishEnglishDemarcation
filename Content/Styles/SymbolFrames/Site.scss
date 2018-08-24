@@ -55,9 +55,12 @@ html, body {
 }
 
 .number {
-  margin: 50px;
   margin-top: 0px;
   padding: 5px;
+}
+
+.number img {
+  margin-top: -8px;
 }
 
 .spanish-answer,
@@ -245,7 +248,6 @@ table {
 
 .optionContainer p{
   position: relative;
-  bottom: 7px;
 }
 
 .optionsContainer{
