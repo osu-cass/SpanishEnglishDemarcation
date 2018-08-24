@@ -25,6 +25,7 @@ $hamburger: '\f0c9';
 %Share {
   padding: 5px;
   margin-top: 0px;
+  margin-left:50px;
   padding-top: 40px;
 }
 
@@ -112,6 +113,7 @@ $hamburger: '\f0c9';
 
 .answerContainer {
   margin: 50px;
+  margin-left:0px;
 }
 
 .tableItem{
@@ -220,9 +222,9 @@ button {
 
 .optionsContainer{
   margin-top: 30px;
+  margin-left:0px !important;
 }
 .table-text {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
-
 }

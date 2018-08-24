@@ -91,7 +91,7 @@ if ($(stemContainer)) {
 
 // Reformat questions if passage column doesn't exist //
 if (!$('.thePassage').html()) {
-    $('.theQuestions').css('width', '100%');               // change theQuestions element width
+    $('.theQuestions').css('width', '95%');               // change theQuestions element width
     $('.theQuestions table').css('width', '100%');
 }
 

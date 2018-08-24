@@ -72,6 +72,7 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     rearrange(passageName);
 } else {                                    // create table for questions if no passage exists
     const table = $('.bigTable').addClass('center');
+    $(".theQuestions").css("width","95%");
 }
 
 /* Rearrange questions based on lang */
