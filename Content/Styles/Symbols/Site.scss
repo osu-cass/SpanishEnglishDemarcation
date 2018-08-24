@@ -115,12 +115,16 @@ html, body {
   margin-left: 0;
 }
 
-.tableItem{
-  border:3px solid black;
-}
-
 .answerContainer table {
   width: 100.2% !important;
+}
+
+.answerContainer .spanish-answer {
+  padding: 2px;
+}
+
+.tableItem{
+  border:3px solid black;
 }
 
 .number {
