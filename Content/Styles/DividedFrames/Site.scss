@@ -118,7 +118,11 @@ html, body {
 }
 
 .answerContainer {
-  margin: 50px;
+  margin: 50px 10px 10px 0;
+}
+
+.answerContainer p {
+  padding: 2px;
 }
 
 .tableItem{
