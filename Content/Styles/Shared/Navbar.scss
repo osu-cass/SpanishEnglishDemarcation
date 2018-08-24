@@ -27,7 +27,6 @@ $out: '\f010';
   border-color: #fff;
   display: flex;
   justify-content: center;
-  position: relative;
   margin: 0;
 }
 .topnav img {
@@ -70,6 +69,9 @@ $out: '\f010';
   min-height: 80px;
   justify-content: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  position: relative;
+  top: 66px;
+  width: 100%;
 }
 
 .botnav .link {

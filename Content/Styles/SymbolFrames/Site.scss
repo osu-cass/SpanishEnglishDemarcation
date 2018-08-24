@@ -34,6 +34,9 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 .spanish, .english {
@@ -113,9 +116,9 @@ html, body {
 
 .thePassage {
   width: 40%;
-  padding-right: 0px;
-  margin-left: 0px;
   border-right: 1px solid #d0d0d0;
+  padding-right: 45px;
+  margin-left: 15px;
   @extend %passage-question-share;
 }
 
@@ -247,4 +250,8 @@ table {
 
 .optionsContainer{
   margin-top: 30px;
+}
+
+.theQuestions .english,.theQuestions .spanish{
+  width:80%;
 }
