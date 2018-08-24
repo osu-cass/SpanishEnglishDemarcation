@@ -145,31 +145,45 @@ if ($(img[0]).width()>300){
 }
 
 
-/* Create container to hold Spanish symbols & frame titles */
 
-// const spanishFrameTitle = $('<p></p>')
-//     .addClass('spanish-title')
-//     .text('  ESPAÑOL');
+/* Creates frame title div elem
+ * @param {string} lang - language of title
+ */
+function createFrameTitle(lang) {
+    // Create paragraph element to contain title and symbol //
+    let frameTitle;
+    if (lang === 'spanish') {
+        frameTitle = $('<p class="spanish-title">  ESPAÑOL</p>');
+    } else {
+        frameTitle = $('<p class="english-title">  ENGLISH</p>');
+    }
 
-// const spanishTitleContainer = $('<div></div>')
-//     .addClass('passage-frames')
-//     .append(spanishFrameTitle);
+    // Create div element to contain paragraph //
+    const titleContainer = $('<div class="frames"></div>').append(frameTitle);
 
-// const spanishPassage = $('.thePassage .spanish').prepend(spanishTitleContainer);
+    return titleContainer;
+}
+
+
+/* Create containers to hold Spanish symbols & frame titles */
+
+const passageSpanishTitle = createFrameTitle('spanish');
+$('.thePassage .spanish').prepend(passageSpanishTitle);
+
+const questionsSpanishTitle = createFrameTitle('spanish');
+$('.theQuestions .spanish').prepend(questionsSpanishTitle);
 
 
 
-/* Create container to hold English symbols & frame titles */
+/* Create containers to hold English symbols & frame titles */
 
-// const englishFrameTitle = $('<p></p>')
-//     .addClass('english-title')
-//     .text('  ENGLISH');
+const passageEnglishTitle = createFrameTitle('english');
+$('.thePassage .english').prepend(passageEnglishTitle);
 
-// const englishTitleContainer = $('<div></div>')
-//     .addClass('passage-frames')
-//     .append(englishFrameTitle);
+const questionsEnglishTitle = createFrameTitle('english');
+$('.theQuestions .english').prepend(questionsEnglishTitle);
 
-// const englishPassage = $('.thePassage .english').prepend(englishTitleContainer);
+
 
 /* Align radio buttons with answer content */
 $('.optionContainer').css('display', 'flex').css('align-items', 'baseline');

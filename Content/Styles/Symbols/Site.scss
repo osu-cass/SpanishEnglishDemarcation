@@ -195,15 +195,6 @@ html, body {
   width: 100%;
 }
 
-// .stemContainer::before {
-//   @include lang-symbol(20px, "\f005 Español\00a0\00a0\00a0\00a0\f0c8 English");
-//   @extend %spanish-english;
-//   position: relative;
-//   top: 15px;
-//   left: 84%;
-//   text-transform: uppercase;
-// }
-
 .bigTable {
   display: flex;
   flex-direction: row;

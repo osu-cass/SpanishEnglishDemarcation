@@ -1,7 +1,5 @@
-$star: '\f005 \00a0 \00a0 ESPAÑOL';
-$square: '\f0c8 \00a0 \00a0 ENGLISH';
-// $star: '\f005';
-// $square: '\f0c8';
+$star: '\f005';
+$square: '\f0c8';
 $hamburger: '\f0c9';
 
 @mixin fontawesome-icon {
@@ -157,22 +155,12 @@ html, body {
   left: 20px;
 }
 
-.spanish::before {
-  @include lang-symbol(15px, $star);
-  @extend %spanish-english-before;
-}
-
-.english::before {
-  @include lang-symbol(15px, $square);
-  @extend %spanish-english-before;
-}
-
-.passage-frames {
+.frames {
   position: relative;
   bottom: 20px;
   left: 20px;
   width: 122px;
-  padding: 1px 10px;
+  padding: 2px 10px;
   border-radius: 2px;
   background-color: rgb(139, 134, 134);
   color: white;
