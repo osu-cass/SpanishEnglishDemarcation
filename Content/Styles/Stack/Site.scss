@@ -92,14 +92,11 @@ $hamburger: '\f0c9';
   width: 60%;
   @extend %passage-question-shared;
 }
-
-.answerContainer {
-    margin: 50px;
-  }
   
-  .tableItem{
+.tableItem {
     border:3px solid black;
-  }
+}
+
 .center {
   align-items: center;
   justify-content: center;
@@ -253,9 +250,16 @@ html, body {
     position: relative;
 }
 
+.answerContainer {
+    margin: 50px 10px 10px 0;
+}
 
 .answerContainer table {
     width: 100.2% !important;
+}
+
+.answerContainer p {
+    padding: 2px;
 }
 
 .languagedivider {
