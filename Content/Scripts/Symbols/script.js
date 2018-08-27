@@ -91,8 +91,8 @@ if ($(stemContainer)) {
 
 // Reformat questions if passage column doesn't exist //
 if (!$('.thePassage').html()) {
-    $('.theQuestions').css('width', '100%');               // change theQuestions element width
-    $('.theQuestions table').css('width', '100%');
+    $('.theQuestions').css('width', '80%');               // change theQuestions element width
+    $('.theQuestions table').css('width', '80%');
 }
 
 // Add answer choices in both languages if they exist //

@@ -144,7 +144,10 @@ if ($(img[0]).width()>300){
     img.addClass("img");
 }
 
-
+if (!$('.thePassage').html()) {
+    $('.theQuestions').css('width', '80%');               // change theQuestions element width
+    $('.theQuestions table').css('width', '80%');
+}
 
 /* Creates frame title div elem
  * @param {string} lang - language of title
