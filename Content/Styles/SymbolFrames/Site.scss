@@ -38,7 +38,7 @@ html, body {
 }
 
 .spanish, .english {
-  margin: 50px;
+  margin: 50px 20px;
   padding: 5px;
   border: 2px solid gray;
   border-radius: 15px;
@@ -244,8 +244,13 @@ table {
 
 .optionsContainer{
   margin-top: 30px;
+  margin-left: 20px;
 }
 
 .theQuestions .english,.theQuestions .spanish{
   width:80%;
+}
+
+.tableItem{
+  margin-left: 20px;
 }
