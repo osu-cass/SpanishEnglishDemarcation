@@ -1,0 +1,41 @@
+.thePassage, .questionCell{
+    width: 30%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+.theQuestions, #grid{
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid white;
+}
+.bigTable{
+    display: flex;
+    flex-direction: row;
+}
+.Spanish, .English{
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.languagedivider{
+    margin: 7px;
+    height: 1px;
+}
+.answerContainer{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.questionNumber{
+    
+    text-decoration-line: underline;
+}
+p:lang(es){
+    margin: 0px;
+    height: auto;
+}
+h2{
+    line-height: 10px;
+}
+

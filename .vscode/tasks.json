@@ -7,19 +7,37 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SmarterBalanced.SpanishEnglishDemarcation/SmarterBalanced.SpanishEnglishDemarcation.csproj"
+                "${workspaceFolder}/SmarterBalanced.SpanishEnglishDemarcation.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/SmarterBalanced.SpanishEnglishDemarcation/SmarterBalanced.SpanishEnglishDemarcation.csproj"
-            ],
-            "problemMatcher": "$msCompile"
+            "type": "npm",
+            "script": "sass",
+            "label": "Compile SASS files",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "lib",
+            "label": "Copy external library files",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "watch",
+            "label": "Watch and compile SASS files",
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
         }
     ]
 }

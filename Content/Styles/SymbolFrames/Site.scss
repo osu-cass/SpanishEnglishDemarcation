@@ -1,0 +1,256 @@
+$star: '\f005';
+$square: '\f0c8';
+$hamburger: '\f0c9';
+
+@mixin fontawesome-icon {
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin lang-symbol($size, $content) {
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
+}
+
+@mixin bar-symbol($size, $content) {
+  @include fontawesome-icon();
+  content: $content;
+  font-size: $size;
+  float: right;
+  position: relative;
+  color: gray;
+}
+
+p {
+  margin: 0px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.spanish, .english {
+  margin: 50px 20px;
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 15px;
+}
+
+.spanish>h2, .english>h2 {
+  margin: 0 5px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.number {
+  margin-top: 0px;
+  padding: 5px;
+}
+
+.number img {
+  margin-top: -8px;
+}
+
+.spanish-answer,
+.english-answer {
+  margin: 0px;
+  padding: 10px;
+}
+
+.spanish-answer{
+  padding-top: 0px;
+}
+
+.languagedivider {
+  margin: 0px;
+  height: 0px;
+}
+
+.num-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
+}
+
+.questionNumber {
+  margin-top: 5px;
+  height: 30px;
+  width: 60px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 20px;
+  background-color: lightgray;
+}
+
+.hamburger-icon::before {
+  @include bar-symbol(27px, $hamburger);
+  top: -3px;
+}
+
+.stemContainer {
+  margin-top: 20px;
+  margin-left: 0px;
+  width: 107%;
+}
+
+.bigTable {
+  display: flex;
+  flex-direction: row;
+}
+
+%passage-question-share {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.thePassage {
+  width: 40%;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 45px;
+  margin-left: 15px;
+  @extend %passage-question-share;
+}
+
+.thePassage::before {
+  @include bar-symbol(27px, $hamburger);
+  right: 30px;
+}
+
+.theQuestions {
+  margin-left: auto;
+  width: 60%;
+  @extend %passage-question-share;
+}
+
+.answerContainer {
+  margin: 50px 10px 10px 0;
+}
+
+.answerContainer table {
+  width: 100.2% !important;
+}
+
+.answerContainer p {
+  padding: 2px;
+}
+
+.tableItem{
+  border:3px solid black;
+}
+
+%spanish-english-before {
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(139, 134, 134);
+  color: white;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+
+.frames {
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  width: 122px;
+  padding: 2px 10px;
+  border-radius: 2px;
+  background-color: rgb(139, 134, 134);
+  color: white;
+}
+
+.spanish-title::before {
+  @include lang-symbol(15px, $star);
+  font-family: FontAwesome !important;
+  color: white;
+}
+
+.english-title::before {
+  @include lang-symbol(15px, $square);
+  font-family: FontAwesome !important;
+  color: white;
+}
+
+.spanish-title, .english-title {
+  font-family: Verdana, sans-serif !important;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+%answer-before {
+  color: rgb(139, 134, 134);
+  padding: 5px 10px 5px 10px;
+}
+
+.spanish-answer::before {
+  @include lang-symbol(15px, '\f005');
+  @extend %answer-before;
+}
+
+.english-answer::before {
+  @include lang-symbol(15px, '\f0c8');
+  @extend %answer-before;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.Icon {
+  color: rgb(194, 16, 16);
+  position: relative;
+  right: 50px;
+  font-weight: 900;
+  font-size: 10px;
+}
+
+input[type='text'] {
+  background-color: rgb(198, 229, 243);
+  height: 30px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+table {
+  width: 95%;
+}
+
+.ti-editable{
+  vertical-align: middle !important; 
+}
+
+.optionContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.optionContainer p{
+  position: relative;
+}
+
+.optionsContainer{
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.theQuestions .english,.theQuestions .spanish{
+  width:80%;
+}
+
+.tableItem{
+  margin-left: 20px;
+}
