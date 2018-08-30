@@ -1,3 +1,5 @@
+const BOTH_BUTTON_TEXT = "Ambos\nBoth";
+
 function separateSpanishEnglish(contents, option) {
     const spanish = [];
     const english = [];
@@ -66,7 +68,7 @@ function addButton() {
     
     const bothButton = $("<button></button>")
         .addClass('button')
-        .text('Both\nAmbos')
+        .text(BOTH_BUTTON_TEXT)
         .click(switchLang);
         
     const buttons = $("<div></div>")
@@ -92,7 +94,7 @@ function switchLang() {
 
     currLang = $(this).text();
 
-    if ($(this).html() === "Both\nAmbos") {
+    if ($(this).html() === BOTH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
 
