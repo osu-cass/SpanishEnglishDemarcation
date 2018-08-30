@@ -52,7 +52,7 @@ $hamburger: '\f0c9';
 .spanish-answer, .english-answer {
   margin: 30px;
   padding: 10px;
-  padding-top: 0px;
+  padding-top: 10px;
 }
 
 .languagedivider {
@@ -230,4 +230,9 @@ button {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
 
+}
+
+.line{
+  margin-top:10px;
+  border-top:2px solid black;
 }

@@ -2,48 +2,88 @@
  * @param {object} contents - children of a jQuery objects
  * @param {boolean} option - determines if the current content is an answer option
  */
+function identifyTitle() {
+    const langDivider = $('h2 .languagedivider');
+    if (langDivider.length === 1) {
+        $('.thePassage h2 p').remove();
+        const passage = $('.thePassage h2').contents();
+
+        const titles = [];   
+        let wasEmpty = true;
+        let idx;
+
+        if (passage.length > 3) {
+            for (let content of passage) {
+                if (content.textContent.trim() || content.textContent === '&nbsp;') {
+                    if (!wasEmpty) {
+                        titles[idx] += content.textContent;
+                    } else {
+                        wasEmpty = false;
+                        titles.push(content.textContent);
+                        idx = titles.indexOf(content.textContent);
+                    }
+                } else {
+                    wasEmpty = true;
+                }
+            }
+        } else {
+            for (let content of passage) {
+                if (content.textContent.trim()) {
+                    titles.push(content.textContent);
+                }
+            }
+        }
+
+        console.table(titles);
+        return titles.map(val => (`<h2>${val}</h2>`));
+    }
+
+    return false;
+}
 function separateSpanishEnglish(contents, option) {
-    // Initialize Spanish & English text arrays //
     const spanish = [];
     const english = [];
 
-    // Sort content into arrays //
+    const titles = identifyTitle();
+    if(titles) {
+        spanish.push(titles[0]);
+        english.push(titles[1]);
+        $(".thePassage h2").remove();
+    }
+
     $.each(contents, (idx, val) => {
-        if (val.lang === 'es-mx') {
+        if (val.lang === 'es-mx' && !($(val).is('h2'))) {
             spanish.push(val);
-        } else {
+        } else if (!($(val).is('h2'))) {
             english.push(val);
         }
     });
 
-    // Create div element for Spanish text array //
     const spanishBlock = $('<div></div>');
     $.each(spanish, (idx, val) => {
-        spanishBlock.append(val);
+        $(spanishBlock).append(val);
     });
 
     if (option) {
-        spanishBlock.addClass("spanish-answer");
+        $(spanishBlock).addClass("spanish-answer");
     } else {
-        spanishBlock.addClass("spanish");
+        $(spanishBlock).addClass("spanish");
     }
 
-    // Create div element for English text array //
     const englishBlock = $('<div></div>');
+    
     $.each(english, (idx, val) => {
-        englishBlock.append(val);
+        $(englishBlock).append(val);
     });
 
     if (option) {
-        englishBlock.addClass("english-answer");
+        $(englishBlock).addClass("english-answer");
     } else {
-        englishBlock.addClass("english");
+        $(englishBlock).addClass("english");
     }
 
-    // Create div element to hold Spanish & English text blocks //
-    const newPassage = $('<div></div>')
-        .append(spanishBlock)
-        .append(englishBlock);
+    const newPassage = $('<div></div>');
+    newPassage.append(spanishBlock).append(englishBlock);
 
     return newPassage;
 }
@@ -85,7 +125,7 @@ if ($(questionName)) {
 const choices = $(choiceName);
 if (choices) {
     choices.addClass("number");
-    const td = $(".table-item tbody tr td .languagedivider");
+    const td = $(".tableItem tbody tr td .languagedivider");
     if (td) {
         td.prev().addClass("spanish-answer");
         td.next().addClass("english-answer");
@@ -104,7 +144,7 @@ if (options) {
 
 
 /* Add table items in both langs */
-const th = $(".table-item thead tr th .languagedivider");
+const th = $(".tableItem thead tr th .languagedivider");
 if (th) {
     const pre = th.prevAll();
     const next = th.nextAll();

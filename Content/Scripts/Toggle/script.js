@@ -97,19 +97,22 @@ function switchLang() {
     if ($(this).html() === BOTH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
-
+        $(".english").addClass("line");
+        $(".english-answer").addClass("line");
         $(".spanish").show();
         $(".spanish-answer").show();
     } else if ($(this).html() === "English") {
         $(".english").show();
         $(".english-answer").show();
-
+        $(".english").removeClass("line");
+        $(".english-answer").removeClass("line");
         $(".spanish").hide();
         $(".spanish-answer").hide();
     } else if ($(this).html() === "Español") {
         $(".spanish").show();
         $(".spanish-answer").show();
-
+        $(".english").removeClass("line");
+        $(".english-answer").removeClass("line");
         $(".english").hide();
         $(".english-answer").hide();
     }
