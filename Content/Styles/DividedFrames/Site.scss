@@ -54,6 +54,10 @@ html, body {
     font-size: 22px;
 }
 
+h2 > .languagedivider {
+  border-top: 2px solid black;
+}
+
 .languagedivider {
   margin: 0px;
   height: 0px;
