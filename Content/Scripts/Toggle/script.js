@@ -118,7 +118,6 @@ function identifyTitle() {
     if (langDivider.length === 1) {
         $('.thePassage h2 p').remove();
         const passage = $('.thePassage h2').contents();
-        console.table(passage);
 
         const titles = [];   
         let wasEmpty = true;

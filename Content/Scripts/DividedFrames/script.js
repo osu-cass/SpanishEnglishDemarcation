@@ -1,42 +1,85 @@
-/* Creates passage with separated Spanish & English text blocks */
-function separateSpanishEnglish(contents, option) {
-    // Initialize Spanish & English text arrays //
-    var spanish = [];
-    var english = [];
-    for (let i = 0; i < contents.length; i++) {
-        if (contents[i].lang === 'es-mx') {
-            spanish.push(contents[i]);
+function identifyTitle() {
+    const langDivider = $('h2 .languagedivider');
+    if (langDivider.length === 1) {
+        $('.thePassage h2 p').remove();
+        const passage = $('.thePassage h2').contents();
+
+        const titles = [];   
+        let wasEmpty = true;
+        let idx;
+
+        if (passage.length > 3) {
+            for (let content of passage) {
+                if (content.textContent.trim() || content.textContent === '&nbsp;') {
+                    if (!wasEmpty) {
+                        titles[idx] += content.textContent;
+                    } else {
+                        wasEmpty = false;
+                        titles.push(content.textContent);
+                        idx = titles.indexOf(content.textContent);
+                    }
+                } else {
+                    wasEmpty = true;
+                }
+            }
         } else {
-            english.push(contents[i]);
+            for (let content of passage) {
+                if (content.textContent.trim()) {
+                    titles.push(content.textContent);
+                }
+            }
         }
+
+        console.table(titles);
+        return titles.map(val => (`<h2>${val}</h2>`));
     }
 
-    // Create div element for Spanish text array //
-    var spanishBlock = $('<div></div>');
-    for (let index = 0; index < spanish.length; index++) {
-        $(spanishBlock).append(spanish[index]);
+    return false;
+}
+function separateSpanishEnglish(contents, option) {
+    const spanish = [];
+    const english = [];
+
+    const titles = identifyTitle();
+    if(titles) {
+        spanish.push(titles[0]);
+        english.push(titles[1]);
+        $(".thePassage h2").remove();
     }
-    if (option === undefined) {
-        spanishBlock.addClass("spanish");
+
+    $.each(contents, (idx, val) => {
+        if (val.lang === 'es-mx' && !($(val).is('h2'))) {
+            spanish.push(val);
+        } else if (!($(val).is('h2'))) {
+            english.push(val);
+        }
+    });
+
+    const spanishBlock = $('<div></div>');
+    $.each(spanish, (idx, val) => {
+        $(spanishBlock).append(val);
+    });
+
+    if (option) {
+        $(spanishBlock).addClass("spanish-answer");
     } else {
-        spanishBlock.addClass("spanish-answer");
+        $(spanishBlock).addClass("spanish");
     }
 
-    // Create div element for English text array //
-    var englishBlock = $('<div></div>');
-    for (let index = 0; index < english.length; index++) {
-        englishBlock.append(english[index]);
-    }
-    if (option === undefined) {
-        englishBlock.addClass("english");
+    const englishBlock = $('<div></div>');
+    
+    $.each(english, (idx, val) => {
+        $(englishBlock).append(val);
+    });
+
+    if (option) {
+        $(englishBlock).addClass("english-answer");
     } else {
-        englishBlock.addClass("english-answer");
+        $(englishBlock).addClass("english");
     }
 
-    // Create div element to hold Spanish & English text blocks //
-    var newPassage = $('<div></div>');
-    newPassage.append(spanishBlock);
-    newPassage.append(englishBlock);
+    const newPassage = $('<div></div>');
+    newPassage.append(spanishBlock).append(englishBlock);
 
     return newPassage;
 }
