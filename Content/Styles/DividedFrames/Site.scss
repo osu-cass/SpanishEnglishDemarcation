@@ -33,6 +33,7 @@ body {
   padding: 5px;
   border: 2px solid gray;
   border-radius: 15px;
+  padding-left: 20px;
 }
 
 .number {
@@ -53,7 +54,6 @@ body {
 
 .spanish > h2,
 .english > h2 {
-  margin: 0 10px 20px 10px;
   text-transform: uppercase;
   font-style: italic;
   font-weight: bold;
