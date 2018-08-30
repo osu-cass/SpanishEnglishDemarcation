@@ -125,7 +125,7 @@ if ($(questionName)) {
 const choices = $(choiceName);
 if (choices) {
     choices.addClass("number");
-    const td = $(".table-item tbody tr td .languagedivider");
+    const td = $(".tableItem tbody tr td .languagedivider");
     if (td) {
         td.prev().addClass("spanish-answer");
         td.next().addClass("english-answer");
@@ -144,7 +144,7 @@ if (options) {
 
 
 /* Add table items in both langs */
-const th = $(".table-item thead tr th .languagedivider");
+const th = $(".tableItem thead tr th .languagedivider");
 if (th) {
     const pre = th.prevAll();
     const next = th.nextAll();
