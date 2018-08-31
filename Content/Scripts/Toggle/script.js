@@ -100,18 +100,29 @@ function switchLang() {
 
         $(".spanish").show();
         $(".spanish-answer").show();
+        //show the spanish graphic if both is selected.
+        $("#graphic-en").addClass('hidden');
+        $('#graphic-sp').removeClass('hidden');
     } else if ($(this).html() === "English") {
         $(".english").show();
         $(".english-answer").show();
 
         $(".spanish").hide();
         $(".spanish-answer").hide();
+
+        //Show english graphic if english is selected.
+        $("#graphic-sp").addClass("hidden");
+        $("#graphic-en").removeClass("hidden");
     } else if ($(this).html() === "Español") {
         $(".spanish").show();
         $(".spanish-answer").show();
 
         $(".english").hide();
         $(".english-answer").hide();
+
+        //show spanish graphic if spanish is selected.
+        $("#graphic-en").addClass("hidden");
+        $("#graphic-sp").removeClass("hidden");
     }
 }
 
