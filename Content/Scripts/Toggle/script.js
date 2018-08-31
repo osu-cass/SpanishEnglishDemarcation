@@ -313,3 +313,18 @@ var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
 }
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}

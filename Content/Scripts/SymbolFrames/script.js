@@ -236,3 +236,19 @@ $.each(answerBodyParagraphs2, (idx, val) => {
         .css('font-size', '')
         .addClass('table-text');
 });
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        $(label).css("display","flex");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}
