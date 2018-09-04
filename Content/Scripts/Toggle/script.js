@@ -1,4 +1,11 @@
 const BOTH_BUTTON_TEXT = "Ambos\nBoth";
+const ENGLISH_BUTTON_TEXT = "English";
+const SPANISH_BUTTON_TEXT = "Español";
+
+//query string constants
+const ENGLISH = "EN";
+const SPANISH = "SP";
+const BOTH = "BOTH";
 
 function separateSpanishEnglish(contents, option) {
     // Initialize Spanish & English text arrays //
@@ -56,18 +63,24 @@ function rearrange(colType, option) {
 function addButton() {        
     const englishButton = $("<button></button>")
         .addClass('button_click')
-        .text('English')
-        .click(switchLang);
+        .addClass(ENGLISH)
+        .text(ENGLISH_BUTTON_TEXT)
+        .click(onLangClicked)
+        .attr("id", "english-button");
 
     const spanishButton = $("<button></button>")
         .addClass('button')
-        .text('Español')
-        .click(switchLang);
+        .addClass(SPANISH)
+        .text(SPANISH_BUTTON_TEXT)
+        .click(onLangClicked)
+        .attr("id", "spanish-button");
     
     const bothButton = $("<button></button>")
         .addClass('button')
+        .addClass(BOTH)
         .text(BOTH_BUTTON_TEXT)
-        .click(switchLang);
+        .click(onLangClicked)
+        .attr("id", "both-button");
         
     const buttons = $("<div></div>")
         .addClass('buttons')
@@ -79,44 +92,123 @@ function addButton() {
     $(buttons).insertBefore(notesButton);
 }
 
-let currLang = $('.button_click').text();
-function switchLang() {
-    const currSelect = $(".button_click");
-
-    if ($(currSelect).html() === $(this).html()) {
+function onLangClicked() {
+    let currSelect = $(".button_click");
+    //if the current language is the same as the one we just clicked don't do any thing.
+    if($(currSelect).html() === $(this).html()){
         return;
     }
 
-    $(currSelect).removeClass("button_click").addClass("button");
-    $(this).addClass("button_click").removeClass("button");
+    changeLang($(this));
 
-    currLang = $(this).text();
+}
 
-    if ($(this).html() === BOTH_BUTTON_TEXT) {
+function changeLang(toSelect){
+    const selected = $('.button_click');
+
+    $(selected).removeClass("button_click").addClass("button");
+    $(toSelect).addClass('button_click').removeClass("button");
+
+    switchLang($(toSelect).text());
+}
+
+
+let currLang = $('.button_click').text();
+function switchLang(lang) {
+    if (lang === BOTH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
          $(".english").addClass("line");
         $(".english-answer").addClass("line");
         $(".spanish").show();
         $(".spanish-answer").show();
-    } else if ($(this).html() === "English") {
+        //show the spanish graphic if both is selected.
+        $("#graphic-en").addClass('hidden');
+        $('#graphic-sp').removeClass('hidden');
+        setPreviousLinkSearch(`?lang=${BOTH}`);
+        setNextLinkSearch(`?lang=${BOTH}`);
+
+    } else if (lang === ENGLISH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
          $(".english").removeClass("line");
         $(".english-answer").removeClass("line");
         $(".spanish").hide();
         $(".spanish-answer").hide();
-    } else if ($(this).html() === "Español") {
+
+        //Show english graphic if english is selected.
+        $("#graphic-sp").addClass("hidden");
+        $("#graphic-en").removeClass("hidden");
+        setPreviousLinkSearch(`?lang=${ENGLISH}`);
+        setNextLinkSearch(`?lang=${ENGLISH}`);
+    } else if (lang === SPANISH_BUTTON_TEXT) {
         $(".spanish").show();
         $(".spanish-answer").show();
          $(".english").removeClass("line");
         $(".english-answer").removeClass("line");
         $(".english").hide();
         $(".english-answer").hide();
+
+        //show spanish graphic if spanish is selected.
+        $("#graphic-en").addClass("hidden");
+        $("#graphic-sp").removeClass("hidden");
+        setPreviousLinkSearch(`?lang=${SPANISH}`);
+        setNextLinkSearch(`?lang=${SPANISH}`);
     }
 
 }
 
+function setContent(){
+    let search = window.location.search;
+    if(!search){
+        window.location.search = `?lang=${ENGLISH}`;
+        search = window.location.search;
+    } else {
+    //add search string to next item
+        let split;
+        if(search){
+            split = search.split('=');
+        }
+        let lang;
+        if(split && split.length > 1){
+            lang = split[1];
+        }
+        if(lang){
+            if(lang === SPANISH){
+                changeLang($(`.${SPANISH}`));
+            } else if (lang === BOTH){
+                changeLang($(`.${BOTH}`));
+            }
+        }
+    }
+}
+
+$(document).ready(onload());
+//sets the next and previous links based on current query string.
+function onload(){
+    const search = window.location.search;
+    if(search){
+        setPreviousLinkSearch(search);
+        setNextLinkSearch(search);
+    }
+}
+
+function setNextLinkSearch(search){
+    let nextLink = $("#next-item").attr("href");
+    if(nextLink){
+        nextLink = nextLink.split('?')[0];
+        $("#next-item").attr("href", `${nextLink}${search}`);
+    }
+}
+
+
+function setPreviousLinkSearch(search){
+    let previousLink = $("#previous-item").attr("href");
+    if(previousLink){
+        previousLink = previousLink.split('?')[0];
+        $("#previous-item").attr("href", `${previousLink}${search}`);
+    } 
+}
 
 const passageName = '.thePassage .padding';
 const questionName = '.stemContainer';
@@ -313,6 +405,8 @@ var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
 }
+
+setContent();
 
 const radioButton=$(".option");
 if(radioButton){
