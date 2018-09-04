@@ -1,4 +1,8 @@
-﻿.Spanish,
+﻿.page-footer {
+  color: #0069d9;
+}
+
+.Spanish,
 .English,
 .Number {
   margin: 50px;

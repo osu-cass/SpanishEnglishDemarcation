@@ -189,6 +189,21 @@ if ($('.spanish h2 p[lang="es-mx"]')) {
 const answerContent = $('.optionContent');
 $.each(answerContent, (idx, val) => {
     if ($(val).children().length) {
-        $(val).find('p').css('margin-top', '10px');
+        $(val).find('p').css('margin-top', '15px');
     }
 });
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}

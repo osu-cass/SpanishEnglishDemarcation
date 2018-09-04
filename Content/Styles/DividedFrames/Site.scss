@@ -1,4 +1,6 @@
-$hamburger: '\f0c9';
+@import '../Partials/main';
+
+$hamburger: "\f0c9";
 
 @mixin fontawesome-icon {
   font-family: FontAwesome;
@@ -17,20 +19,23 @@ $hamburger: '\f0c9';
 }
 
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Times New Roman', Times, serif;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.spanish, .english {
-    margin: 50px 20px;
-    padding: 5px;
-    border: 2px solid gray;
-    border-radius: 15px;
+.spanish,
+.english {
+  margin: 50px 20px;
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  padding-left: 20px;
 }
 
 .number {
@@ -42,16 +47,23 @@ html, body {
   margin-top: -4px;
 }
 
-.spanish>p, .english>p, .spanish>ul, .english>ul {
-    margin-left: 20px;
+.spanish > p,
+.english > p,
+.spanish > ul,
+.english > ul {
+  margin-left: 20px;
 }
 
-.spanish>h2, .english>h2 {
-    margin: 0 10px -10px 10px;
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 22px;
+.spanish > h2,
+.english > h2 {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+h2 > .languagedivider {
+  border-top: 2px solid black;
 }
 
 .languagedivider {
@@ -82,9 +94,9 @@ html, body {
 }
 
 .stemContainer {
-    margin-top: -7px;
-    margin-left: 0px;
-    width: 100%;
+  margin-top: -7px;
+  margin-left: 0px;
+  width: 100%;
 }
 
 .bigTable {
@@ -99,11 +111,11 @@ html, body {
 }
 
 .thePassage {
-    width: 40%;
-    border-right: 1px solid #d0d0d0;
-    padding-right: 45px;
-    margin-left: 15px;
-    @extend %passage-question-shared;
+  width: 40%;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 45px;
+  margin-left: 15px;
+  @extend %passage-question-shared;
 }
 
 .thePassage::before {
@@ -129,33 +141,33 @@ html, body {
   margin: 0;
 }
 
-.tableItem{
-  border:3px solid black;
+.tableItem {
+  border: 3px solid black;
 }
 
 %spanish-english-before-shared {
-    background-color: rgb(139, 134, 134);
-    padding: 5px 16px;
-    position: relative;
-    bottom: 20px;
-    left: 20px;
-    border-radius: 2px;
-    font-family: Verdana, sans-serif;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
+  background-color: rgb(139, 134, 134);
+  padding: 5px 16px;
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 2px;
+  font-family: Verdana, sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .spanish::before {
-  content: 'Español';
+  content: "Español";
   @extend %spanish-english-before-shared;
 }
 
 .english::before {
-  content: 'English';
+  content: "English";
   @extend %spanish-english-before-shared;
 }
 
@@ -174,25 +186,22 @@ html, body {
   width: 80%;
 }
 
-
-.optionContainer{
+.optionContainer {
   display: flex;
   flex-direction: row;
 }
 
-.optionContainer p{
+.optionContainer p {
   position: relative;
-  bottom: 16px;
+  bottom: 11px;
 }
-
-
 
 .center {
   align-items: center;
   justify-content: center;
 }
 
-input[type='text'] {
+input[type="text"] {
   background-color: rgb(198, 229, 243);
   height: 30px;
   width: 300px;
