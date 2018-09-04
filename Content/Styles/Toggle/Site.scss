@@ -1,4 +1,6 @@
-$hamburger: '\f0c9';
+@import '../Partials/main';
+
+$hamburger: "\f0c9";
 
 @mixin fontawesome-icon {
   font-family: FontAwesome;
@@ -37,7 +39,8 @@ $hamburger: '\f0c9';
   @extend %Share;
 }
 
-.spanish>h2, .english>h2 {
+.spanish > h2,
+.english > h2 {
   text-transform: uppercase;
   font-style: italic;
   font-weight: bold;
@@ -48,7 +51,8 @@ $hamburger: '\f0c9';
   @extend %Share;
 }
 
-.spanish-answer, .english-answer {
+.spanish-answer,
+.english-answer {
   margin: 30px;
   padding: 10px;
   padding-top: 10px;
@@ -116,13 +120,14 @@ $hamburger: '\f0c9';
   width: 100.2% !important;
 }
 
-.answerContainer .spanish-answer, .answerContainer .english-answer {
+.answerContainer .spanish-answer,
+.answerContainer .english-answer {
   margin: 0;
   padding: 5px;
 }
 
-.tableItem{
-  border:3px solid black;
+.tableItem {
+  border: 3px solid black;
 }
 
 .center {
@@ -142,13 +147,14 @@ p {
   margin: 0px;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
-input[type='text'] {
+input[type="text"] {
   background-color: rgb(198, 229, 243);
   height: 30px;
   width: 300px;
@@ -211,8 +217,7 @@ button {
   border-right: 1px solid gray;
 }
 
-
-.optionContainer{
+.optionContainer {
   display: flex;
   flex-direction: row;
 }
@@ -221,16 +226,15 @@ button {
   position: relative;
 }
 
-.optionsContainer{
+.optionsContainer {
   margin-top: 30px;
 }
 .table-text {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
-
 }
 
-.line{
-  margin-top:10px;
-  border-top:2px solid black;
-} 
+.line {
+  margin-top: 10px;
+  border-top: 2px solid black;
+}
