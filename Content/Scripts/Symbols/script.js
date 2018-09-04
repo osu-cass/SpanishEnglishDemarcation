@@ -2,7 +2,7 @@
  * @param {object} contents - children of a jQuery objects
  * @param {boolean} option - determines if the current content is an answer option
  */
-function parseLangs(contents, option) {
+function separateSpanishEnglish(contents, option) {
     // Initialize Spanish & English text arrays //
     const spanish = [];
     const english = [];
@@ -15,7 +15,7 @@ function parseLangs(contents, option) {
             english.push(val);
         }
     });
-    
+
     // Create div element for Spanish text array //
     const spanishBlock = $('<div></div>');
     $.each(spanish, (idx, val) => {
@@ -41,7 +41,7 @@ function parseLangs(contents, option) {
     }
 
     // Create div element to hold Spanish & English text blocks //
-    const newPassage = $('<div></div>')
+    const newPassage = $('<div class="english-spanish"></div>')
         .append(spanishBlock)
         .append(englishBlock);
 
@@ -59,7 +59,7 @@ function parseLangs(contents, option) {
 function sortContent(colType, option) {
     const col = $(colType);
     const colElems = col.children();
-    const newColElems = parseLangs(colElems, option);
+    const newColElems = separateSpanishEnglish(colElems, option);
     $(col).append(newColElems);
 }
 
@@ -245,3 +245,19 @@ $.each(answerOptions, (idx, val) => {                           // check each an
         $(val).css('margin', '-5px 5px 0');                             // change margin to line content up to radio button
     }
 });
+
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}

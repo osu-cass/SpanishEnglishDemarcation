@@ -8,49 +8,47 @@ const SPANISH = "SP";
 const BOTH = "BOTH";
 
 function separateSpanishEnglish(contents, option) {
+    // Initialize Spanish & English text arrays //
     const spanish = [];
     const english = [];
 
-    const titles = identifyTitle();
-    if(titles) {
-        spanish.push(titles[0]);
-        english.push(titles[1]);
-        $(".thePassage h2").remove();
-    }
-
+    // Sort content into arrays //
     $.each(contents, (idx, val) => {
-        if (val.lang === 'es-mx' && !($(val).is('h2'))) {
+        if (val.lang === 'es-mx') {
             spanish.push(val);
-        } else if (!($(val).is('h2'))) {
+        } else {
             english.push(val);
         }
     });
 
+    // Create div element for Spanish text array //
     const spanishBlock = $('<div></div>');
     $.each(spanish, (idx, val) => {
-        $(spanishBlock).append(val);
+        spanishBlock.append(val);
     });
 
     if (option) {
-        $(spanishBlock).addClass("spanish-answer");
+        spanishBlock.addClass("spanish-answer");
     } else {
-        $(spanishBlock).addClass("spanish");
+        spanishBlock.addClass("spanish");
     }
 
+    // Create div element for English text array //
     const englishBlock = $('<div></div>');
-    
     $.each(english, (idx, val) => {
-        $(englishBlock).append(val);
+        englishBlock.append(val);
     });
 
     if (option) {
-        $(englishBlock).addClass("english-answer");
+        englishBlock.addClass("english-answer");
     } else {
-        $(englishBlock).addClass("english");
+        englishBlock.addClass("english");
     }
 
-    const newPassage = $('<div></div>');
-    newPassage.append(spanishBlock).append(englishBlock);
+    // Create div element to hold Spanish & English text blocks //
+    const newPassage = $('<div class="english-spanish"></div>')
+        .append(spanishBlock)
+        .append(englishBlock);
 
     return newPassage;
 }
@@ -120,7 +118,8 @@ function switchLang(lang) {
     if (lang === BOTH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
-
+         $(".english").addClass("line");
+        $(".english-answer").addClass("line");
         $(".spanish").show();
         $(".spanish-answer").show();
         //show the spanish graphic if both is selected.
@@ -132,7 +131,8 @@ function switchLang(lang) {
     } else if (lang === ENGLISH_BUTTON_TEXT) {
         $(".english").show();
         $(".english-answer").show();
-
+         $(".english").removeClass("line");
+        $(".english-answer").removeClass("line");
         $(".spanish").hide();
         $(".spanish-answer").hide();
 
@@ -144,7 +144,8 @@ function switchLang(lang) {
     } else if (lang === SPANISH_BUTTON_TEXT) {
         $(".spanish").show();
         $(".spanish-answer").show();
-
+         $(".english").removeClass("line");
+        $(".english-answer").removeClass("line");
         $(".english").hide();
         $(".english-answer").hide();
 
@@ -154,48 +155,8 @@ function switchLang(lang) {
         setPreviousLinkSearch(`?lang=${SPANISH}`);
         setNextLinkSearch(`?lang=${SPANISH}`);
     }
+
 }
-
-function identifyTitle() {
-    const langDivider = $('h2 .languagedivider');
-    if (langDivider.length === 1) {
-        $('.thePassage h2 p').remove();
-        const passage = $('.thePassage h2').contents();
-
-        const titles = [];   
-        let wasEmpty = true;
-        let idx;
-
-        if (passage.length > 3) {
-            for (let content of passage) {
-                if (content.textContent.trim() || content.textContent === '&nbsp;') {
-                    if (!wasEmpty) {
-                        console.log(titles[idx]);
-                        titles[idx] += content.textContent;
-                    } else {
-                        wasEmpty = false;
-                        titles.push(content.textContent);
-                        idx = titles.indexOf(content.textContent);
-                    }
-                } else {
-                    wasEmpty = true;
-                }
-            }
-        } else {
-            for (let content of passage) {
-                if (content.textContent.trim()) {
-                    titles.push(content.textContent);
-                }
-            }
-        }
-
-        console.table(titles);
-        return titles.map(val => (`<h2>${val}</h2>`));
-    }
-
-    return false;
-}
-
 
 function setContent(){
     let search = window.location.search;
@@ -248,8 +209,6 @@ function setPreviousLinkSearch(search){
         $("#previous-item").attr("href", `${previousLink}${search}`);
     } 
 }
-
-
 
 const passageName = '.thePassage .padding';
 const questionName = '.stemContainer';
@@ -448,3 +407,18 @@ if ($(img[0]).width()>300){
 }
 
 setContent();
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}

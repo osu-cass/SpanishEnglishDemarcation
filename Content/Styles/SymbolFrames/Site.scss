@@ -1,6 +1,6 @@
-$star: '\f005';
-$square: '\f0c8';
-$hamburger: '\f0c9';
+$star: "\f005";
+$square: "\f0c8";
+$hamburger: "\f0c9";
 
 @mixin fontawesome-icon {
   font-family: FontAwesome;
@@ -28,28 +28,36 @@ p {
   margin: 0px;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
 }
 
-.spanish, .english {
-  margin: 50px 20px;
+.spanish,
+.english {
+  margin: 30px 20px;
   padding: 5px;
   border: 2px solid gray;
   border-radius: 15px;
+  padding-left: 20px;
 }
 
-.spanish>h2, .english>h2 {
-  margin: 0 5px;
+.spanish > h2,
+.english > h2 {
   text-transform: uppercase;
   font-style: italic;
   font-weight: bold;
   font-size: 24px;
+}
+
+.spanish > p:first-of-type,
+.english > p:first-of-type {
+  margin-top: -20px;
 }
 
 .number {
@@ -67,7 +75,7 @@ html, body {
   padding: 10px;
 }
 
-.spanish-answer{
+.spanish-answer {
   padding-top: 0px;
 }
 
@@ -146,8 +154,8 @@ html, body {
   padding: 2px;
 }
 
-.tableItem{
-  border:3px solid black;
+.tableItem {
+  border: 3px solid black;
 }
 
 %spanish-english-before {
@@ -182,7 +190,8 @@ html, body {
   color: white;
 }
 
-.spanish-title, .english-title {
+.spanish-title,
+.english-title {
   font-family: Verdana, sans-serif !important;
   font-size: 14px;
   font-weight: bold;
@@ -195,12 +204,12 @@ html, body {
 }
 
 .spanish-answer::before {
-  @include lang-symbol(15px, '\f005');
+  @include lang-symbol(15px, "\f005");
   @extend %answer-before;
 }
 
 .english-answer::before {
-  @include lang-symbol(15px, '\f0c8');
+  @include lang-symbol(15px, "\f0c8");
   @extend %answer-before;
 }
 
@@ -217,7 +226,7 @@ html, body {
   font-size: 10px;
 }
 
-input[type='text'] {
+input[type="text"] {
   background-color: rgb(198, 229, 243);
   height: 30px;
   width: 300px;
@@ -229,28 +238,29 @@ table {
   width: 95%;
 }
 
-.ti-editable{
-  vertical-align: middle !important; 
+.ti-editable {
+  vertical-align: middle !important;
 }
 
-.optionContainer{
+.optionContainer {
   display: flex;
   flex-direction: row;
 }
 
-.optionContainer p{
+.optionContainer p {
   position: relative;
 }
 
-.optionsContainer{
-  margin-top: 30px;
+.optionsContainer {
+  margin-top: 15px;
   margin-left: 20px;
 }
 
-.theQuestions .english,.theQuestions .spanish{
-  width:80%;
+.theQuestions .english,
+.theQuestions .spanish {
+  width: 80%;
 }
 
-.tableItem{
+.tableItem {
   margin-left: 20px;
 }
