@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Release new version
           command: npx semantic-release
-  push_dev_image:
+  push_image:
     machine: true
     steps:
       - checkout
@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Push image to Docker Hub
           command: 'docker push osucass/spanish-english-demarcation:$TAG_VERSION'
-  deploy:
+  deploy_development:
     docker:
       - image: dtzar/helm-kubectl
     steps:
@@ -71,6 +71,32 @@ jobs:
           command: >-
             helm upgrade --namespace=sed --set-string image.tag=$TAG_VERSION dev
             https://osu-cass.github.io/sed-deploy-config/charts/spanish-english-demarcation-1.0.0.tgz
+  deploy_staging:
+    docker:
+      - image: dtzar/helm-kubectl
+    steps:
+      - checkout
+      - run:
+          name: Set TAG_VERSION and update PATH
+          command: >
+            echo 'export TAG_VERSION=$((git describe --tags $(git rev-list
+            --tags --max-count=1)) | cut -c 2-)' >> $BASH_ENV
+
+            source $BASH_ENV
+      - run:
+          name: Create .kube directory
+          command: mkdir ~/.kube
+      - run:
+          name: Decode kubeconfig
+          command: echo $KUBE_CONFIG | base64 -d > ~/.kube/config
+      - run:
+          name: Initialize Helm
+          command: helm init --client-only
+      - run:
+          name: Upgrade cluster deployment
+          command: >-
+            helm upgrade --namespace=sed --set-string image.tag=$TAG_VERSION stage
+            https://osu-cass.github.io/sed-deploy-config/charts/spanish-english-demarcation-1.0.0.tgz
 workflows:
   version: 2
   build_push_deploy:
@@ -82,15 +108,21 @@ workflows:
           filters:
             branches:
               only: dev
-      - push_dev_image:
+      - push_image:
           requires:
             - update_version
           filters:
             branches:
               only: dev
-      - deploy:
+      - deploy_development:
           requires:
-            - push_dev_image
+            - push_image
           filters:
             branches:
               only: dev
+      - deploy_staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: stage
