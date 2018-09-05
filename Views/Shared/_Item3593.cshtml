@@ -59,11 +59,30 @@
 																overflow: hidden;
 																position: relative;
 															}
+
+															.loading {
+																pointer-events: none;
+															}
+
 															#graphic-en {
 																position: relative;
 																bottom: 259px;
 															}
 														</style>
+
+														<script>
+															window.addEventListener('scroll', startup);
+                                                            document.getElementsByTagName('body')[0].classList.add('loading');
+                                                            var numScroll = 0;
+                                                            function startup(e){
+                                                                numScroll++;
+                                                                window.scroll(0, 0);
+                                                                if(numScroll > 2){
+                                                                    window.removeEventListener('scroll', startup);
+                                                                    document.getElementsByTagName('body')[0].classList.remove('loading');
+                                                                }
+                                                            }
+														</script>
 														<div id="graphic-sp">
 														<iframe id="graphic-sp" src="~/Content/Graphic/item-187-3593-graphic-SP.html" scrolling="no">
 															<p>Your browser does not support Iframes</p>
