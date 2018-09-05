@@ -1,3 +1,5 @@
+@import '../Partials/main';
+
 $notes: '\f044';
 $in: '\f00e';
 $out: '\f010';
@@ -95,7 +97,10 @@ body {
   height: 100%;
   width: 100%;
 }
-
+.hidden {
+  visibility: hidden;
+  z-index: 0;
+}
 .zoom {
   display: flex;
   flex-direction: row;
@@ -158,11 +163,6 @@ body {
   font-style: italic;
 }
 
-.Spanish h2,
-.English h2 {
-  font-style: italic;
-}
-
 .ti-editable{
   vertical-align: middle !important; 
 }
@@ -183,4 +183,12 @@ body {
 .its-tag:hover{
   text-decoration: none;
   color: black;
+}
+
+#grid{
+  margin-top:50px;
+} 
+
+html *{
+  font-family: sans-serif;
 }

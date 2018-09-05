@@ -1,42 +1,45 @@
-/* Creates passage with separated Spanish & English text blocks */
 function separateSpanishEnglish(contents, option) {
     // Initialize Spanish & English text arrays //
-    var spanish = [];
-    var english = [];
-    for (let i = 0; i < contents.length; i++) {
-        if (contents[i].lang === 'es-mx') {
-            spanish.push(contents[i]);
+    const spanish = [];
+    const english = [];
+
+    // Sort content into arrays //
+    $.each(contents, (idx, val) => {
+        if (val.lang === 'es-mx') {
+            spanish.push(val);
         } else {
-            english.push(contents[i]);
+            english.push(val);
         }
-    }
+    });
 
     // Create div element for Spanish text array //
-    var spanishBlock = $('<div></div>');
-    for (let index = 0; index < spanish.length; index++) {
-        $(spanishBlock).append(spanish[index]);
-    }
-    if (option === undefined) {
-        spanishBlock.addClass("spanish");
-    } else {
+    const spanishBlock = $('<div></div>');
+    $.each(spanish, (idx, val) => {
+        spanishBlock.append(val);
+    });
+
+    if (option) {
         spanishBlock.addClass("spanish-answer");
+    } else {
+        spanishBlock.addClass("spanish");
     }
 
     // Create div element for English text array //
-    var englishBlock = $('<div></div>');
-    for (let index = 0; index < english.length; index++) {
-        englishBlock.append(english[index]);
-    }
-    if (option === undefined) {
-        englishBlock.addClass("english");
-    } else {
+    const englishBlock = $('<div></div>');
+    $.each(english, (idx, val) => {
+        englishBlock.append(val);
+    });
+
+    if (option) {
         englishBlock.addClass("english-answer");
+    } else {
+        englishBlock.addClass("english");
     }
 
     // Create div element to hold Spanish & English text blocks //
-    var newPassage = $('<div></div>');
-    newPassage.append(spanishBlock);
-    newPassage.append(englishBlock);
+    const newPassage = $('<div class="english-spanish"></div>')
+        .append(spanishBlock)
+        .append(englishBlock);
 
     return newPassage;
 }
@@ -207,3 +210,19 @@ $.each(answerBodyParagraphs2, (idx, val) => {
         .css('font-size', '')
         .addClass('table-text');
 });
+
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
+}

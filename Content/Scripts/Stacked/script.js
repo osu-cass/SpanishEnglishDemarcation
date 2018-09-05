@@ -106,12 +106,24 @@ if (th) {
 }
 
 /*Change width of answer container element */
-var answerContainer = $('.answerContainer .tableItem');
+const answerContainer = $('.answerContainer .tableItem');
 if (answerContainer !== null) {
-    var goal = $('.answerContainer');
-    var width = $(goal).width();
+    const goal = $('.answerContainer');
+    const width = $(goal).width();
     $(answerContainer).css("width", width);
 }
+
+
+
+/* Change height of empty paragraphs in wide table headings to improve spacing */
+const wideTableHeadings = $('.answerContainer .tableItem thead tr th[colspan="3"] p');
+$.each(wideTableHeadings, (idx, val) => {
+    if ($(val).html() === '&nbsp;') {
+        $(val).css('height', '0');
+    }
+});
+
+
 
 /* Container to hold item # and hamburger icon */
 var numContainer = $('<div class="num-container"></div>');
@@ -126,7 +138,72 @@ $(numContainer).append(hamburgerIcon);          // creates div for hamburger ico
 var questions = $('.theQuestions');
 $(questions).prepend(numContainer);              // add container to questions
 
+
 var img=$('.thePassage img');
 if ($(img[0]).width()>300){
     img.addClass("img");
+}
+
+
+
+/* Change inline font in tables to a larger serif font */
+
+const answerHeadings1 = $('table[class="tableItem"] thead tr th p');
+$.each(answerHeadings1, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-family', '\'Times New Roman\', Times, serif !important')
+        .css('font-size', '')
+        .css('font-size', '18px');
+});
+const answerHeadings2 = $('table[class="newtable"] thead tr th p');
+$.each(answerHeadings2, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-family', '\'Times New Roman\', Times, serif !important')
+        .css('font-size', '')
+        .css('font-size', '18px');
+});
+
+const answerBodyParagraphs1 = $('table[class="tableItem"] tbody tr td p');
+$.each(answerBodyParagraphs1, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-size', '')
+        .addClass('table-text');
+});
+const answerBodyParagraphs2 = $('table[class="newtable"] tbody tr td p');
+$.each(answerBodyParagraphs2, (idx, val) => {
+    $(val).css('font-family', '')
+        .css('font-size', '')
+        .addClass('table-text');
+});
+
+
+
+/* Eliminate extra spacing in titles */
+if ($('.spanish h2 p[lang="es-mx"]')) {
+    $('.spanish h2 p[lang="es-mx"]').remove();
+}
+
+
+
+/* Align single-line answers to radio buttons */
+const answerContent = $('.optionContent');
+$.each(answerContent, (idx, val) => {
+    if ($(val).children().length) {
+        $(val).find('p').css('margin-top', '15px');
+    }
+});
+
+const radioButton=$(".option");
+if(radioButton){
+    radioButton.css("width","25px").css("height","25px");
+    $.each(radioButton,(idx,val)=>{
+        let label=$("<label></label>");
+        let char=$("<span></span>");
+        char.text($(val).attr('value'));
+        char.css("width","20px").css("height","20px").css("font-size","15px").css("position","absolute").css("margin-left","-20px");
+        const prev=$(val).prev();
+        label.append(val);
+        label.append(char);
+        label.insertAfter(prev);
+    });
 }
