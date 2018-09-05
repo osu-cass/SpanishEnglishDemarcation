@@ -42,7 +42,7 @@ body {
 
 .english {
   @extend %spanish-english-shared;
-  border-top: 2px solid black;
+  border-top: 1px solid gray;
   padding-top: 25px;
   margin-top: 20px;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 h2 > .languagedivider {
-  border-top: 2px solid black;
+  border-top: 1px solid gray;
 }
 
 .languagedivider {
@@ -157,7 +157,7 @@ h2 > .languagedivider {
 }
 
 .tableItem {
-  border: 3px solid black;
+  border: 1px solid gray;
 }
 
 .spanish-answer {
@@ -170,7 +170,7 @@ h2 > .languagedivider {
   margin-right: 10px;
   margin-left: 10px;
   padding-top: 15px;
-  border-top: 2px solid black;
+  border-top: 1px solid gray;
   position: relative;
 }
 
@@ -195,7 +195,7 @@ input[type="text"] {
 .table-dividing-line {
   margin: auto;
   width: 80%;
-  border-top: 2px solid black;
+  border-top: 1px solid gray;
 }
 
 .optionContainer {
