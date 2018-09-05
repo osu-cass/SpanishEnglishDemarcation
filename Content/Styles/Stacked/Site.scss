@@ -1,9 +1,8 @@
-@import '../Partials/main';
+@import "../Partials/main";
 
-$hamburger: '\f0c9';
+$hamburger: "\f0c9";
 
 @mixin fontawesome-icon {
-
   font-family: FontAwesome;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +31,6 @@ $hamburger: '\f0c9';
   margin: 10px;
   padding: 0px;
 }
-
 
 .languagedivider {
   margin: 0px;
@@ -86,9 +84,9 @@ $hamburger: '\f0c9';
   width: 60%;
   @extend %passage-question-shared;
 }
-  
+
 .tableItem {
-    border:3px solid black;
+  border: 3px solid black;
 }
 
 .center {
@@ -96,7 +94,7 @@ $hamburger: '\f0c9';
   justify-content: center;
 }
 
-input[type='text'] {
+input[type="text"] {
   background-color: rgb(198, 229, 243);
   height: 30px;
   width: 300px;
@@ -104,22 +102,22 @@ input[type='text'] {
   border-radius: 5px;
 }
 
-.ti-editable{
-  vertical-align: middle !important; 
+.ti-editable {
+  vertical-align: middle !important;
 }
 
 table {
   width: 95%;
 }
 
-.optionContainer{
-    display: flex;
-    flex-direction: row;
+.optionContainer {
+  display: flex;
+  flex-direction: row;
 }
 
-.optionContainer p{
-    position: relative;
-    bottom: 20px;
+.optionContainer p {
+  position: relative;
+  bottom: 20px;
 }
 
 .spanish-answer,
@@ -131,155 +129,163 @@ table {
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Times New Roman', Times, serif;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .center {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 %spanish-english {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 5px;
-    padding-left: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 5px;
+  padding-left: 0;
 }
 
 .spanish {
-    @extend %spanish-english;
+  @extend %spanish-english;
 }
 
 .english {
-    @extend %spanish-english;
-    padding-top: 25px;
-    margin-top: 20px;
+  @extend %spanish-english;
+  padding-top: 25px;
+  margin-top: 20px;
 }
 
-.spanish>h2, .english>h2 {
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 24px;
+.spanish > h2,
+.english > h2 {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 %columns {
-    margin: 20px;
-    margin-top: 0;
-    padding: 10px;
-    border: 1px solid white;
+  margin: 20px;
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid white;
 }
 
 .thePassage {
-    @extend %columns;
-    width: 40%;
-    border-right: 1px solid #d0d0d0;
-    padding-right: 45px;
+  @extend %columns;
+  width: 40%;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 45px;
 }
 
 .thePassage::before {
-    @include symbol(27px, $hamburger);
-    right: -30px;
+  @include symbol(27px, $hamburger);
+  right: -30px;
 }
 
 .thePassage .english {
-    padding-top: 35px;
+  padding-top: 35px;
 }
 
 .theQuestions {
-    @extend %columns;
-    width: 60%;
-    margin-right: 0px;
-    margin-left: 0px;
-}  
+  @extend %columns;
+  width: 60%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
 
 .number {
-    margin: 5px 10px 0;
-    padding: 0px;
+  margin: 5px 10px 0;
+  padding: 0px;
 }
 
 .number img {
-    margin-top: -5px;
+  margin-top: -5px;
 }
 
 .num-container {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgray;
-    height: 35px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  height: 35px;
 }
 
 .questionNumber {
-    margin-top: 5px;
-    height: 30px;
-    width: 60px;
-    padding-top: 3px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    background-color:lightgray;
+  margin-top: 5px;
+  height: 30px;
+  width: 60px;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: lightgray;
 }
 
 .hamburger-icon::before {
-    @include symbol(27px, $hamburger);
-    top: -3px;
+  @include symbol(27px, $hamburger);
+  top: -3px;
 }
 
 .spanish-answer {
-    margin: 10px;
+  margin: 10px;
 }
 
 .english-answer {
-    margin: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding-top: 15px;
-    position: relative;
+  margin: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 15px;
+  position: relative;
 }
 
 .answerContainer {
-    margin: 50px 10px 10px 0;
+  margin: 50px 10px 10px 0;
 }
 
 .answerContainer table {
-    width: 100.2% !important;
+  width: 100.2% !important;
 }
 
 .answerContainer p {
-    padding: 2px;
+  padding: 2px;
 }
 
 .languagedivider {
-    margin: 0px;
-    height: 0px;
+  margin: 0px;
+  height: 0px;
 }
 
 .questionAnswerGroup .stemContainer {
-    margin-top: 20px;
-    margin-left: 0px;
-    width: 100%;
+  margin-top: 20px;
+  margin-left: 0px;
+  width: 100%;
 }
 
 .bigTable {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .table-text {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
 }
 
 input[type="text"] {
-    background-color: rgb(198, 229, 243);
-    height: 30px;
-    width: 300px;
-    border: 1px solid black;
-    border-radius: 5px;
+  background-color: rgb(198, 229, 243);
+  height: 30px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.optionContainer .languagedivider {
+  visibility: collapse;
+  margin-top: -15px !important;
+  margin-bottom: -15px !important;
 }
