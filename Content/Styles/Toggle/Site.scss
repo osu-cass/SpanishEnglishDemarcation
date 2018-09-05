@@ -1,4 +1,4 @@
-@import '../Partials/main';
+@import "../Partials/main";
 
 $hamburger: "\f0c9";
 
@@ -236,6 +236,11 @@ button {
 }
 
 .line {
-  margin-top: 10px;
-  border-top: 2px solid black;
+  visibility: collapse;
+}
+
+.optionContainer .languagedivider {
+  visibility: collapse;
+  margin-top: -15px !important;
+  margin-bottom: -15px !important;
 }
