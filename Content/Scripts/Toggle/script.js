@@ -161,7 +161,7 @@ function switchLang(lang) {
 function setContent() {
   let search = window.location.search;
   if (!search) {
-    window.location.search = `?lang=${ENGLISH}`;
+    window.location.search = `?lang=${SPANISH}`;
     search = window.location.search;
   } else {
     //add search string to next item
