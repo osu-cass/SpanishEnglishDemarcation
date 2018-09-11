@@ -63,10 +63,6 @@ body {
   font-size: 22px;
 }
 
-h2 > .languagedivider {
-  border-top: 1px solid gray;
-}
-
 .languagedivider {
   margin: 0px;
   height: 0px;
@@ -184,7 +180,7 @@ h2 > .languagedivider {
   padding-top: 15px;
   border-top: 1px solid gray;
   position: relative;
-  width: 80%;
+  width: 100%;
 }
 
 .optionContainer {
