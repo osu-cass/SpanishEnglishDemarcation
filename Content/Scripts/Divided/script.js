@@ -69,8 +69,6 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
 } else {                                    // create table for questions if no passage exists
     var table = $('.bigTable');
     table.addClass("center");
-    var questions = $('.theQuestions');
-    $(questions).css("width","80%");
 }
 
 /* Rearrange questions based on lang */
@@ -148,7 +146,7 @@ const passage = $('.thePassage').html();
 if (!passage) {
     $('.theQuestions')
         .removeAttr('style')
-        .css('width', '80%');
+        .css('width', '100%');
 }
 
 
