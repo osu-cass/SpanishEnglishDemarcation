@@ -63,7 +63,7 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    $(questions).css("width","100%");
+    $(questions).css("width","90%");
 }
 
 /* Rearrange questions based on lang */
