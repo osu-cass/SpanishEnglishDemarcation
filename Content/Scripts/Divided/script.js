@@ -146,7 +146,7 @@ const passage = $('.thePassage').html();
 if (!passage) {
     $('.theQuestions')
         .removeAttr('style')
-        .css('width', '100%');
+        .css('width', '90%');
 }
 
 
