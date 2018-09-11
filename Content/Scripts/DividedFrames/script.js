@@ -177,7 +177,7 @@ if ($(englishTableFootnote).attr('colspan') > 1) {
         .removeClass('table-dividing-lines')
         .css('margin', '0')
         .css('width', '40%')
-        .css('border-top', '2px solid black');
+        .css('border-top', '1px solid black');
 }
 
 
