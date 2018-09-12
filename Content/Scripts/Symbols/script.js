@@ -262,3 +262,12 @@ if(radioButton){
     });
 }
 
+
+
+/* Grab English heading in passage column and move to top */
+const spanishTitle = $('.thePassage h2[lang="es-mx"]');
+$('.thePassage .english h2')
+    .remove()
+    .insertAfter(spanishTitle)
+    .css('height', '25px');
+    
