@@ -236,6 +236,9 @@ $('.thePassage .english h2')
     .insertAfter(spanishTitle)
     .css('height', '25px');
 
+
+
+/* Remove extra spacing in titles */
 const spanishTitleParas = $('.thePassage h2[lang="es-mx"] p');
 $.each(spanishTitleParas, (idx, val) => {
     if ($(val).html() === '&nbsp;') {
