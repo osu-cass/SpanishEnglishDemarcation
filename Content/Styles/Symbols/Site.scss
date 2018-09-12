@@ -68,6 +68,10 @@ html, body {
   bottom: -30px;
 }
 
+.thePassage .spanish::before {
+  bottom: -50px;
+}
+
 .english::before {
   @include lang-symbol(20px, $square);
   @extend %spanish-english;

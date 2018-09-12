@@ -214,3 +214,4 @@ $('.thePassage .english h2')
     .remove()
     .insertAfter(spanishTitle)
     .css('height', '25px');
+    
