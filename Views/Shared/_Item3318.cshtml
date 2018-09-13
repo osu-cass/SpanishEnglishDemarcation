@@ -98,21 +98,39 @@
                                                                 left: 33px;
                                                             }
 
+                                                            .loading {
+                                                                pointer-events: none;
+                                                            }
+
                                                             #graphic-en {
                                                                 position:relative;
                                                                 top:-507px;
                                                                 float: center;
                                                             }
                                                         </style>
+                                                        <script>
+                                                            window.addEventListener('scroll', startup);
+                                                            document.getElementsByTagName('body')[0].classList.add('loading');
+                                                            var numScroll = 0;
+                                                            function startup(e){
+                                                                numScroll++;
+                                                                window.scroll(0, 0);
+                                                                if(numScroll > 2){
+                                                                    window.removeEventListener('scroll', startup);
+                                                                    document.getElementsByTagName('body')[0].classList.remove('loading');
+                                                                }
+                                                            }
+                                                        </script>
+
                                                         <div id="graphic-sp"> 
-                                                        <iframe src="~/Content/Graphic/item-187-3318-graphic-SP.html" scolling="no">
+                                                        <iframe id="graphic-sp-iframe" src="~/Content/Graphic/item-187-3318-graphic-SP.html" scolling="no">
                                                             <p>
                                                                 Your browser does not support Iframes.
                                                             </p>
                                                         </iframe>
                                                         </div>
                                                         <div id="graphic-en" class="hidden">
-                                                        <iframe src="~/Content/Graphic/item-187-3318-graphic-EN.html" scolling="no">
+                                                        <iframe id="graphic-en-iframe" src="~/Content/Graphic/item-187-3318-graphic-EN.html" scolling="no">
                                                             <p>
                                                                 Your browser does not support Iframes.
                                                             </p>

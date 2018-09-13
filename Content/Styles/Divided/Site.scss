@@ -27,6 +27,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
 }
 
 %spanish-english-shared {
@@ -62,10 +63,6 @@ body {
   font-style: italic;
   font-weight: bold;
   font-size: 24px;
-}
-
-h2 > .languagedivider {
-  border-top: 1px solid gray;
 }
 
 .languagedivider {

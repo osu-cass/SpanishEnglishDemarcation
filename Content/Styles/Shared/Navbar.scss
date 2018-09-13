@@ -51,6 +51,7 @@ $out: '\f010';
 
 .topnav .link {
   font-size: 18px;
+  font-family: PT Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #007393;
   margin: 10px 20px;
   white-space: nowrap;
@@ -92,11 +93,7 @@ $out: '\f010';
 .botnav a:hover {
   color: black;
 }
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
+
 .hidden {
   visibility: hidden;
   z-index: 0;
@@ -188,7 +185,3 @@ body {
 #grid{
   margin-top:50px;
 } 
-
-html *{
-  font-family: sans-serif;
-}

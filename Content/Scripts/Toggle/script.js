@@ -124,6 +124,7 @@ function switchLang(lang) {
     $(".english-answer").addClass("line");
     $(".spanish").show();
     $(".spanish-answer").show();
+    
     //show the spanish graphic if both is selected.
     $("#graphic-en").addClass("hidden");
     $("#graphic-sp").removeClass("hidden");
@@ -385,7 +386,6 @@ const wideTableTitles = $(
   'table[class="tableItem"] thead tr th[colspan="3"] p'
 );
 $.each(wideTableTitles, (idx, val) => {
-  console.log($(val).html());
   if ($(val).html() === "&nbsp;") {
     $(val).remove();
   }
@@ -417,3 +417,38 @@ if (radioButton) {
     label.insertAfter(prev);
   });
 }
+
+
+
+/* Handles loading of titles in correct locations based on what languages load onto the page and are changed to by the user */
+
+const buttons = $('.buttons').children();
+const spanishTitle = $('.thePassage h2[lang="es-mx"]');
+let englishTitle = $('.thePassage h2')[1];
+
+function loadTitles() {
+  currLang = $('.button_click');
+  if ($(currLang).hasClass(BOTH)) {
+    $(spanishTitle).remove();                                                           // remove both titles from page
+    $(englishTitle).remove();
+    $('.thePassage .spanish').prepend(englishTitle).prepend(spanishTitle);              // place titles at top of passage column
+    $('.thePassage h2 p').remove();                                                     // remove empty paragraph in heading
+  } else {
+    $(englishTitle).remove();                                                           // remove English title from top of page in case it's moved up there
+    $('.thePassage .english').prepend(englishTitle);                                    // place English title at top of .english
+    const headingParas = $('.thePassage h2').find('p');
+    if ($(headingParas).length === 0) {                                                 // replace empty paragraph if removed
+      $(englishTitle).append('<p>&nbsp;</p>')
+    }
+  }
+}
+
+// Event handler for when page loads with various language settings //
+$(document).ready(() => {
+  loadTitles();
+});
+
+// Event handler for when user changes to and from both languages
+$(buttons).click(() => {
+  loadTitles();
+});

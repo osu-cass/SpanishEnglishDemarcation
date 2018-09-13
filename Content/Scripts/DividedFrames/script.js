@@ -63,7 +63,7 @@ if (($(passageName)).length !== 0) {        // rearrange passage if it exists
     var table = $('.bigTable');
     table.addClass("center");
     var questions = $('.theQuestions');
-    $(questions).css("width","80%");
+    $(questions).css("width","90%");
 }
 
 /* Rearrange questions based on lang */
@@ -177,7 +177,7 @@ if ($(englishTableFootnote).attr('colspan') > 1) {
         .removeClass('table-dividing-lines')
         .css('margin', '0')
         .css('width', '40%')
-        .css('border-top', '2px solid black');
+        .css('border-top', '1px solid black');
 }
 
 
@@ -226,3 +226,12 @@ if(radioButton){
         label.insertAfter(prev);
     });
 }
+
+/* Remove extra spacing in titles */
+const spanishTitleParas = $('.thePassage h2[lang="es-mx"] p');
+$.each(spanishTitleParas, (idx, val) => {
+    if ($(val).html() === '&nbsp;') {
+        console.log('Removing empty para...');
+        $(val).remove();
+    }
+});
