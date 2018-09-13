@@ -227,17 +227,6 @@ if(radioButton){
     });
 }
 
-
-
-/* Grab English heading in passage column and move to top */
-const spanishTitle = $('.thePassage h2[lang="es-mx"]');
-$('.thePassage .english h2')
-    .remove()
-    .insertAfter(spanishTitle)
-    .css('height', '25px');
-
-
-
 /* Remove extra spacing in titles */
 const spanishTitleParas = $('.thePassage h2[lang="es-mx"] p');
 $.each(spanishTitleParas, (idx, val) => {
